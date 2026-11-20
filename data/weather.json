@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-20T01:49:53.059Z",
+ "updatedAt": "2026-11-20T02:13:11.890Z",
  "source": "api.weather.gov; skiheavenly.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "snow": {
   "place": "Heavenly Mountain Resort",
@@ -1005,11 +1005,11 @@
    }
   ],
   "obs": {
-   "t": "2026-11-19T17:42",
-   "kt": 4.9,
-   "gustKt": 7.2,
-   "deg": 260,
-   "dir": "W"
+   "t": "2026-11-19T18:06",
+   "kt": 3.5,
+   "gustKt": 7.4,
+   "deg": 254,
+   "dir": "WSW"
   }
  },
  "errors": []
