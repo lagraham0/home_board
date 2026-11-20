@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-20T21:00:20.575Z",
+ "updatedAt": "2026-11-20T21:01:08.767Z",
  "source": "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "ski": [
   {
@@ -386,9 +386,9 @@
     {
      "name": "This Afternoon",
      "temp": 29,
-     "short": "Sunny",
-     "detail": "Sunny, with a high near 29. Wind around 0 mph.",
-     "pop": 14
+     "short": "Chance Light Snow",
+     "detail": "A chance of snow before 1pm. Mostly sunny, with a high near 29. Northwest wind around 0 mph. Chance of precipitation is 40%.",
+     "pop": 35
     },
     {
      "name": "Tonight",
@@ -1083,6 +1083,13 @@
    }
   ],
   "hourly": [
+   {
+    "t": "2026-11-20T12:00:00-08:00",
+    "temp": 53,
+    "wind": "10 mph",
+    "dir": "NNE",
+    "short": "Sunny"
+   },
    {
     "t": "2026-11-20T13:00:00-08:00",
     "temp": 54,
@@ -2163,13 +2170,6 @@
    },
    {
     "t": "2026-11-26T23:00:00-08:00",
-    "temp": 57,
-    "wind": "10 mph",
-    "dir": "NNE",
-    "short": "Partly Cloudy"
-   },
-   {
-    "t": "2026-11-27T00:00:00-08:00",
     "temp": 57,
     "wind": "10 mph",
     "dir": "NNE",
