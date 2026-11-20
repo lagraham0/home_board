@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-20T21:01:08.767Z",
+ "updatedAt": "2026-11-20T21:01:47.428Z",
  "source": "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "ski": [
   {
@@ -386,9 +386,9 @@
     {
      "name": "This Afternoon",
      "temp": 29,
-     "short": "Chance Light Snow",
-     "detail": "A chance of snow before 1pm. Mostly sunny, with a high near 29. Northwest wind around 0 mph. Chance of precipitation is 40%.",
-     "pop": 35
+     "short": "Sunny",
+     "detail": "Sunny, with a high near 29. Wind around 0 mph.",
+     "pop": 14
     },
     {
      "name": "Tonight",
@@ -1083,13 +1083,6 @@
    }
   ],
   "hourly": [
-   {
-    "t": "2026-11-20T12:00:00-08:00",
-    "temp": 53,
-    "wind": "10 mph",
-    "dir": "NNE",
-    "short": "Sunny"
-   },
    {
     "t": "2026-11-20T13:00:00-08:00",
     "temp": 54,
@@ -2174,6 +2167,13 @@
     "wind": "10 mph",
     "dir": "NNE",
     "short": "Partly Cloudy"
+   },
+   {
+    "t": "2026-11-27T00:00:00-08:00",
+    "temp": 57,
+    "wind": "10 mph",
+    "dir": "NNE",
+    "short": "Partly Cloudy"
    }
   ],
   "alerts": [],
@@ -3224,7 +3224,27 @@
    "gustKt": 11.9,
    "deg": 2,
    "dir": "N"
-  }
+  },
+  "obsList": [
+   {
+    "id": "9414290",
+    "name": "San Francisco",
+    "t": "2026-11-20T12:54",
+    "kt": 9.7,
+    "gustKt": 11.9,
+    "deg": 2,
+    "dir": "N"
+   },
+   {
+    "id": "9414847",
+    "name": "Point Potrero, Richmond",
+    "t": "2026-11-20T12:54",
+    "kt": 6.8,
+    "gustKt": 9.7,
+    "deg": 27,
+    "dir": "NNE"
+   }
+  ]
  },
  "errors": []
 }
