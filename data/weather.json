@@ -1,40 +1,22 @@
 {
- "updatedAt": "2026-11-20T09:12:15.118Z",
+ "updatedAt": "2026-11-20T18:02:12.594Z",
  "source": "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "ski": [
   {
    "gridpoint": "REV 37,81",
    "elevationFt": 9203,
-   "forecastUpdated": "2026-11-20T06:30:47+00:00",
-   "alerts": [
-    {
-     "event": "Winter Storm Warning",
-     "headline": "Winter Storm Warning issued November 19 at 8:18PM PST until November 20 at 10:00AM PST by NWS Reno NV",
-     "ends": "2026-11-20T10:00:00-08:00"
-    },
-    {
-     "event": "Avalanche Warning",
-     "headline": "Avalanche Warning issued November 19 at 5:29AM PST by NWS Reno NV",
-     "ends": "2026-11-20T04:00:00-08:00"
-    }
-   ],
+   "forecastUpdated": "2026-11-20T12:04:18+00:00",
+   "alerts": [],
    "periods": [
     {
-     "name": "Overnight",
-     "temp": 16,
-     "short": "Chance Light Snow",
-     "detail": "A chance of snow before 4am. Mostly cloudy, with a low around 16. Southwest wind around 30 mph, with gusts as high as 50 mph. Chance of precipitation is 40%.",
-     "pop": 40
-    },
-    {
-     "name": "Friday",
+     "name": "Today",
      "temp": 22,
-     "short": "Chance Light Snow then Mostly Sunny",
-     "detail": "A chance of snow between 7am and 10am. Mostly sunny, with a high near 22. West wind 5 to 30 mph, with gusts as high as 45 mph. Chance of precipitation is 30%.",
-     "pop": 28
+     "short": "Mostly Sunny",
+     "detail": "Mostly sunny, with a high near 22. West wind 5 to 10 mph.",
+     "pop": 13
     },
     {
-     "name": "Friday Night",
+     "name": "Tonight",
      "temp": 14,
      "short": "Mostly Clear",
      "detail": "Mostly clear, with a low around 14. Southwest wind 5 to 20 mph.",
@@ -60,21 +42,18 @@
      "short": "Light Snow",
      "detail": "Snow. Mostly cloudy, with a high near 24. Southwest wind 25 to 35 mph, with gusts as high as 50 mph. Chance of precipitation is 80%. New snow accumulation of less than one inch possible.",
      "pop": 80
+    },
+    {
+     "name": "Sunday Night",
+     "temp": 15,
+     "short": "Light Snow Likely",
+     "detail": "Snow likely before 4am. Mostly cloudy, with a low around 15. Southwest wind 15 to 25 mph, with gusts as high as 40 mph. Chance of precipitation is 70%.",
+     "pop": 72
     }
    ],
    "snow24hIn": 0,
    "snow72hIn": 0.6,
    "blocks": [
-    {
-     "start": "2026-11-20T06:00:00.000Z",
-     "end": "2026-11-20T12:00:00.000Z",
-     "in": 0
-    },
-    {
-     "start": "2026-11-20T12:00:00.000Z",
-     "end": "2026-11-20T18:00:00.000Z",
-     "in": 0
-    },
     {
      "start": "2026-11-20T18:00:00.000Z",
      "end": "2026-11-21T00:00:00.000Z",
@@ -129,6 +108,16 @@
      "start": "2026-11-23T06:00:00.000Z",
      "end": "2026-11-23T12:00:00.000Z",
      "in": 0
+    },
+    {
+     "start": "2026-11-23T12:00:00.000Z",
+     "end": "2026-11-23T18:00:00.000Z",
+     "in": 0
+    },
+    {
+     "start": "2026-11-23T18:00:00.000Z",
+     "end": "2026-11-24T00:00:00.000Z",
+     "in": 0
     }
    ],
    "id": "heavenly",
@@ -136,37 +125,25 @@
    "place": "Heavenly Mountain Resort",
    "observed": {
     "resort": {
-     "in24": 15,
-     "in48": 17,
-     "in7d": 27,
-     "baseIn": 8,
-     "seasonIn": 41,
-     "updatedText": "Updated November 19, 2026 at 8:21 AM PST",
+     "in24": 8,
+     "in48": 23,
+     "in7d": 35,
+     "baseIn": 25,
+     "seasonIn": 49,
+     "updatedText": "Updated November 20, 2026 at 6:52 AM PST",
      "source": "skiheavenly.com snow report"
     },
     "snotel": {
      "station": "NRCS SNOTEL 518 Heavenly Valley",
      "stationName": "Heavenly Valley",
      "elevationFt": 8540,
-     "lastObs": "2026-11-20T00:00:00-08:00",
-     "depthIn": 24,
-     "depthGain24In": 12,
-     "swe24In": 1.6,
+     "lastObs": "2026-11-20T09:00:00-08:00",
+     "depthIn": 23,
+     "depthGain24In": 4,
+     "swe24In": 0.8,
      "lastSnowAt": "2026-11-19T19:00:00-08:00",
      "lookbackDays": 30,
      "depthSeries": [
-      [
-       "2026-11-13T00:00:00-08:00",
-       0
-      ],
-      [
-       "2026-11-13T03:00:00-08:00",
-       0
-      ],
-      [
-       "2026-11-13T06:00:00-08:00",
-       0
-      ],
       [
        "2026-11-13T09:00:00-08:00",
        0
@@ -382,6 +359,18 @@
       [
        "2026-11-20T00:00:00-08:00",
        24
+      ],
+      [
+       "2026-11-20T03:00:00-08:00",
+       24
+      ],
+      [
+       "2026-11-20T06:00:00-08:00",
+       24
+      ],
+      [
+       "2026-11-20T09:00:00-08:00",
+       23
       ]
      ],
      "rule": "Last snow = most recent hour the precipitation gauge reached a new high by at least 0.1 in while air temperature was 34 F or colder"
@@ -391,36 +380,18 @@
   {
    "gridpoint": "REV 31,96",
    "elevationFt": 7198,
-   "forecastUpdated": "2026-11-20T06:30:47+00:00",
-   "alerts": [
-    {
-     "event": "Winter Storm Warning",
-     "headline": "Winter Storm Warning issued November 19 at 8:18PM PST until November 20 at 10:00AM PST by NWS Reno NV",
-     "ends": "2026-11-20T10:00:00-08:00"
-    },
-    {
-     "event": "Avalanche Warning",
-     "headline": "Avalanche Warning issued November 19 at 5:29AM PST by NWS Reno NV",
-     "ends": "2026-11-20T04:00:00-08:00"
-    }
-   ],
+   "forecastUpdated": "2026-11-20T12:04:18+00:00",
+   "alerts": [],
    "periods": [
     {
-     "name": "Overnight",
-     "temp": 21,
-     "short": "Light Snow Likely",
-     "detail": "Snow likely. Mostly cloudy, with a low around 21. Southwest wind around 10 mph, with gusts as high as 30 mph. Chance of precipitation is 70%. New snow accumulation of 2 to 4 inches possible.",
-     "pop": 71
-    },
-    {
-     "name": "Friday",
+     "name": "Today",
      "temp": 29,
-     "short": "Chance Light Snow",
-     "detail": "A chance of snow before 1pm. Mostly sunny, with a high near 29. West wind 0 to 10 mph, with gusts as high as 25 mph. Chance of precipitation is 50%. New snow accumulation of around one inch possible.",
-     "pop": 52
+     "short": "Slight Chance Light Snow",
+     "detail": "A slight chance of snow before 1pm. Mostly sunny, with a high near 29. Northwest wind around 0 mph. Chance of precipitation is 20%.",
+     "pop": 18
     },
     {
-     "name": "Friday Night",
+     "name": "Tonight",
      "temp": 15,
      "short": "Mostly Clear",
      "detail": "Mostly clear, with a low around 15. South wind 0 to 5 mph.",
@@ -446,21 +417,18 @@
      "short": "Light Snow",
      "detail": "Snow. Cloudy, with a high near 29. Southwest wind 0 to 10 mph, with gusts as high as 25 mph. Chance of precipitation is 90%. New snow accumulation of 1 to 3 inches possible.",
      "pop": 92
+    },
+    {
+     "name": "Sunday Night",
+     "temp": 19,
+     "short": "Light Snow Likely",
+     "detail": "Snow likely before 4am. Mostly cloudy, with a low around 19. Southwest wind 0 to 5 mph. Chance of precipitation is 70%.",
+     "pop": 73
     }
    ],
-   "snow24hIn": 1.7,
-   "snow72hIn": 3.5,
+   "snow24hIn": 0,
+   "snow72hIn": 1.8,
    "blocks": [
-    {
-     "start": "2026-11-20T06:00:00.000Z",
-     "end": "2026-11-20T12:00:00.000Z",
-     "in": 1.8
-    },
-    {
-     "start": "2026-11-20T12:00:00.000Z",
-     "end": "2026-11-20T18:00:00.000Z",
-     "in": 0.9
-    },
     {
      "start": "2026-11-20T18:00:00.000Z",
      "end": "2026-11-21T00:00:00.000Z",
@@ -515,6 +483,16 @@
      "start": "2026-11-23T06:00:00.000Z",
      "end": "2026-11-23T12:00:00.000Z",
      "in": 0
+    },
+    {
+     "start": "2026-11-23T12:00:00.000Z",
+     "end": "2026-11-23T18:00:00.000Z",
+     "in": 0
+    },
+    {
+     "start": "2026-11-23T18:00:00.000Z",
+     "end": "2026-11-24T00:00:00.000Z",
+     "in": 0
     }
    ],
    "id": "northstar",
@@ -522,252 +500,252 @@
    "place": "Northstar California (Mount Pluto)",
    "observed": {
     "resort": {
-     "in24": 22,
-     "in48": 22,
-     "in7d": 37,
+     "in24": 18,
+     "in48": 40,
+     "in7d": 55,
      "baseIn": 50,
-     "seasonIn": 45,
-     "updatedText": "Updated November 19, 2026 at 2:46 PM PST",
+     "seasonIn": 63,
+     "updatedText": "Updated November 20, 2026 at 6:33 AM PST",
      "source": "northstarcalifornia.com snow report"
     },
     "snotel": {
      "station": "NRCS SNOTEL 809 Tahoe City Cross",
      "stationName": "Tahoe City Cross",
      "elevationFt": 6760,
-     "lastObs": "2026-11-20T00:00:00-08:00",
-     "depthIn": 23,
-     "depthGain24In": 9,
-     "swe24In": 1.1,
-     "lastSnowAt": "2026-11-19T15:00:00-08:00",
+     "lastObs": "2026-11-20T08:00:00-08:00",
+     "depthIn": 25,
+     "depthGain24In": 6,
+     "swe24In": 1.4,
+     "lastSnowAt": "2026-11-20T04:00:00-08:00",
      "lookbackDays": 30,
      "depthSeries": [
       [
-       "2026-11-13T00:00:00-08:00",
+       "2026-11-13T08:00:00-08:00",
        0
       ],
       [
-       "2026-11-13T03:00:00-08:00",
+       "2026-11-13T11:00:00-08:00",
        0
       ],
       [
-       "2026-11-13T06:00:00-08:00",
+       "2026-11-13T14:00:00-08:00",
        0
       ],
       [
-       "2026-11-13T09:00:00-08:00",
-       0
-      ],
-      [
-       "2026-11-13T12:00:00-08:00",
-       0
-      ],
-      [
-       "2026-11-13T15:00:00-08:00",
-       0
-      ],
-      [
-       "2026-11-13T18:00:00-08:00",
-       2
-      ],
-      [
-       "2026-11-13T21:00:00-08:00",
-       4
-      ],
-      [
-       "2026-11-14T00:00:00-08:00",
-       4
-      ],
-      [
-       "2026-11-14T03:00:00-08:00",
-       4
-      ],
-      [
-       "2026-11-14T06:00:00-08:00",
-       4
-      ],
-      [
-       "2026-11-14T09:00:00-08:00",
-       3
-      ],
-      [
-       "2026-11-14T12:00:00-08:00",
-       3
-      ],
-      [
-       "2026-11-14T15:00:00-08:00",
-       2
-      ],
-      [
-       "2026-11-14T18:00:00-08:00",
-       2
-      ],
-      [
-       "2026-11-14T21:00:00-08:00",
-       2
-      ],
-      [
-       "2026-11-15T00:00:00-08:00",
-       2
-      ],
-      [
-       "2026-11-15T03:00:00-08:00",
-       2
-      ],
-      [
-       "2026-11-15T06:00:00-08:00",
-       2
-      ],
-      [
-       "2026-11-15T09:00:00-08:00",
-       2
-      ],
-      [
-       "2026-11-15T12:00:00-08:00",
+       "2026-11-13T17:00:00-08:00",
        1
       ],
       [
-       "2026-11-15T15:00:00-08:00",
+       "2026-11-13T20:00:00-08:00",
+       3
+      ],
+      [
+       "2026-11-13T23:00:00-08:00",
+       4
+      ],
+      [
+       "2026-11-14T02:00:00-08:00",
+       4
+      ],
+      [
+       "2026-11-14T05:00:00-08:00",
+       4
+      ],
+      [
+       "2026-11-14T08:00:00-08:00",
+       4
+      ],
+      [
+       "2026-11-14T11:00:00-08:00",
+       3
+      ],
+      [
+       "2026-11-14T14:00:00-08:00",
+       2
+      ],
+      [
+       "2026-11-14T17:00:00-08:00",
+       2
+      ],
+      [
+       "2026-11-14T20:00:00-08:00",
+       2
+      ],
+      [
+       "2026-11-14T23:00:00-08:00",
+       2
+      ],
+      [
+       "2026-11-15T02:00:00-08:00",
+       2
+      ],
+      [
+       "2026-11-15T05:00:00-08:00",
+       2
+      ],
+      [
+       "2026-11-15T08:00:00-08:00",
+       2
+      ],
+      [
+       "2026-11-15T11:00:00-08:00",
        1
       ],
       [
-       "2026-11-15T18:00:00-08:00",
-       0
-      ],
-      [
-       "2026-11-15T21:00:00-08:00",
-       0
-      ],
-      [
-       "2026-11-16T00:00:00-08:00",
-       0
-      ],
-      [
-       "2026-11-16T03:00:00-08:00",
+       "2026-11-15T14:00:00-08:00",
        1
       ],
       [
-       "2026-11-16T06:00:00-08:00",
+       "2026-11-15T17:00:00-08:00",
        0
       ],
       [
-       "2026-11-16T09:00:00-08:00",
+       "2026-11-15T20:00:00-08:00",
+       0
+      ],
+      [
+       "2026-11-15T23:00:00-08:00",
+       0
+      ],
+      [
+       "2026-11-16T02:00:00-08:00",
+       1
+      ],
+      [
+       "2026-11-16T05:00:00-08:00",
+       0
+      ],
+      [
+       "2026-11-16T08:00:00-08:00",
+       1
+      ],
+      [
+       "2026-11-16T11:00:00-08:00",
        2
       ],
       [
-       "2026-11-16T12:00:00-08:00",
-       3
-      ],
-      [
-       "2026-11-16T15:00:00-08:00",
+       "2026-11-16T14:00:00-08:00",
        4
       ],
       [
-       "2026-11-16T18:00:00-08:00",
+       "2026-11-16T17:00:00-08:00",
+       3
+      ],
+      [
+       "2026-11-16T20:00:00-08:00",
        4
       ],
       [
-       "2026-11-16T21:00:00-08:00",
+       "2026-11-16T23:00:00-08:00",
+       3
+      ],
+      [
+       "2026-11-17T02:00:00-08:00",
        4
       ],
       [
-       "2026-11-17T00:00:00-08:00",
-       4
-      ],
-      [
-       "2026-11-17T03:00:00-08:00",
+       "2026-11-17T05:00:00-08:00",
        3
       ],
       [
-       "2026-11-17T06:00:00-08:00",
+       "2026-11-17T08:00:00-08:00",
        3
       ],
       [
-       "2026-11-17T09:00:00-08:00",
+       "2026-11-17T11:00:00-08:00",
        3
       ],
       [
-       "2026-11-17T12:00:00-08:00",
+       "2026-11-17T14:00:00-08:00",
        2
       ],
       [
-       "2026-11-17T15:00:00-08:00",
+       "2026-11-17T17:00:00-08:00",
        2
       ],
       [
-       "2026-11-17T18:00:00-08:00",
+       "2026-11-17T20:00:00-08:00",
        2
       ],
       [
-       "2026-11-17T21:00:00-08:00",
+       "2026-11-17T23:00:00-08:00",
        2
       ],
       [
-       "2026-11-18T00:00:00-08:00",
+       "2026-11-18T02:00:00-08:00",
        2
       ],
       [
-       "2026-11-18T03:00:00-08:00",
+       "2026-11-18T05:00:00-08:00",
        2
       ],
       [
-       "2026-11-18T06:00:00-08:00",
+       "2026-11-18T08:00:00-08:00",
        2
       ],
       [
-       "2026-11-18T09:00:00-08:00",
-       2
-      ],
-      [
-       "2026-11-18T12:00:00-08:00",
+       "2026-11-18T11:00:00-08:00",
        3
       ],
       [
-       "2026-11-18T15:00:00-08:00",
-       6
+       "2026-11-18T14:00:00-08:00",
+       5
       ],
       [
-       "2026-11-18T18:00:00-08:00",
-       10
+       "2026-11-18T17:00:00-08:00",
+       8
       ],
       [
-       "2026-11-18T21:00:00-08:00",
-       12
+       "2026-11-18T20:00:00-08:00",
+       11
       ],
       [
-       "2026-11-19T00:00:00-08:00",
+       "2026-11-18T23:00:00-08:00",
        14
       ],
       [
-       "2026-11-19T03:00:00-08:00",
+       "2026-11-19T02:00:00-08:00",
        16
       ],
       [
-       "2026-11-19T06:00:00-08:00",
-       18
+       "2026-11-19T05:00:00-08:00",
+       17
       ],
       [
-       "2026-11-19T09:00:00-08:00",
-       20
+       "2026-11-19T08:00:00-08:00",
+       19
       ],
       [
-       "2026-11-19T12:00:00-08:00",
+       "2026-11-19T11:00:00-08:00",
+       21
+      ],
+      [
+       "2026-11-19T14:00:00-08:00",
        22
       ],
       [
-       "2026-11-19T15:00:00-08:00",
+       "2026-11-19T17:00:00-08:00",
+       24
+      ],
+      [
+       "2026-11-19T20:00:00-08:00",
        23
       ],
       [
-       "2026-11-19T18:00:00-08:00",
+       "2026-11-19T23:00:00-08:00",
        23
       ],
       [
-       "2026-11-19T21:00:00-08:00",
-       23
+       "2026-11-20T02:00:00-08:00",
+       22
       ],
       [
-       "2026-11-20T00:00:00-08:00",
-       23
+       "2026-11-20T05:00:00-08:00",
+       25
+      ],
+      [
+       "2026-11-20T08:00:00-08:00",
+       25
       ]
      ],
      "rule": "Last snow = most recent hour the precipitation gauge reached a new high by at least 0.1 in while air temperature was 34 F or colder"
@@ -779,84 +757,50 @@
   "place": "Golden Gate Bridge",
   "gridpoint": "MTR 83,107",
   "marineZone": "PZZ530 San Francisco Bay",
-  "marineUpdated": "2026-11-19T21:03:00-08:00",
+  "marineUpdated": "2026-11-20T08:42:00-08:00",
   "marine": [
    {
+    "name": "Today",
+    "text": "S wind around 5 kt, backing to NE late this morning and afternoon. Rain likely early this morning, then a slight chance of rain late this morning."
+   },
+   {
     "name": "Tonight",
-    "text": "W wind 15 to 20 kt, easing to 10 to 15 kt late this evening, then becoming SW 5 to 10 kt after midnight, backing to S late. A chance of rain after midnight."
-   },
-   {
-    "name": "Fri",
-    "text": "E wind 5 to 10 kt, backing to NE in the afternoon. A chance of rain in the morning."
-   },
-   {
-    "name": "Fri Night",
-    "text": "NE wind around 5 kt. Patchy fog in the evening."
+    "text": "E wind around 5 kt."
    },
    {
     "name": "Sat",
-    "text": "E wind 5 to 10 kt, veering to SE in the afternoon. A chance of rain in the morning, then rain in the afternoon."
+    "text": "E wind 5 to 10 kt. Rain in the afternoon."
    },
    {
     "name": "Sat Night",
-    "text": "SE wind around 5 kt, backing to NE after midnight. Rain, mainly in the evening."
+    "text": "SE wind 5 to 10 kt, backing to NE after midnight. Rain, mainly in the evening."
    },
    {
     "name": "Sun",
-    "text": "NE wind 5 to 10 kt, easing to around 5 kt in the afternoon."
+    "text": "NE wind 5 to 10 kt, easing to around 5 kt in the afternoon. A chance of rain."
    },
    {
     "name": "Sun Night",
-    "text": "NE wind around 5 kt."
+    "text": "E wind around 5 kt, rising to 5 to 10 kt after midnight."
    },
    {
     "name": "Mon",
-    "text": "NE wind 5 to 10 kt."
+    "text": "E wind 10 to 15 kt, easing to 5 to 10 kt in the afternoon."
    },
    {
     "name": "Mon Night",
-    "text": "E wind 5 to 10 kt, rising to 10 to 15 kt after midnight. A chance of rain after midnight."
+    "text": "E wind 10 to 15 kt, rising to 15 to 20 kt after midnight. A chance of rain after midnight."
    },
    {
     "name": "Tue",
-    "text": "SE wind 20 to 25 kt. Rain likely in the morning, then showers in the afternoon."
+    "text": "SE wind 20 to 25 kt. Rain."
    },
    {
     "name": "Tue Night",
-    "text": "SE wind 20 to 25 kt, easing to 15 to 20 kt after midnight. Rain."
+    "text": "SE wind 20 to 25 kt, becoming S 15 to 20 kt after midnight. Rain in the evening, then showers after midnight."
    }
   ],
   "gusts": [
-   {
-    "start": "2026-11-20T08:00:00.000Z",
-    "end": "2026-11-20T09:00:00.000Z",
-    "kt": 16
-   },
-   {
-    "start": "2026-11-20T09:00:00.000Z",
-    "end": "2026-11-20T10:00:00.000Z",
-    "kt": 13
-   },
-   {
-    "start": "2026-11-20T10:00:00.000Z",
-    "end": "2026-11-20T11:00:00.000Z",
-    "kt": 12
-   },
-   {
-    "start": "2026-11-20T11:00:00.000Z",
-    "end": "2026-11-20T12:00:00.000Z",
-    "kt": 11
-   },
-   {
-    "start": "2026-11-20T12:00:00.000Z",
-    "end": "2026-11-20T14:00:00.000Z",
-    "kt": 10
-   },
-   {
-    "start": "2026-11-20T14:00:00.000Z",
-    "end": "2026-11-20T16:00:00.000Z",
-    "kt": 9
-   },
    {
     "start": "2026-11-20T16:00:00.000Z",
     "end": "2026-11-20T18:00:00.000Z",
@@ -1119,76 +1063,6 @@
    }
   ],
   "hourly": [
-   {
-    "t": "2026-11-20T00:00:00-08:00",
-    "temp": 52,
-    "wind": "13 mph",
-    "dir": "NW",
-    "short": "Partly Cloudy"
-   },
-   {
-    "t": "2026-11-20T01:00:00-08:00",
-    "temp": 52,
-    "wind": "12 mph",
-    "dir": "NW",
-    "short": "Chance Light Rain"
-   },
-   {
-    "t": "2026-11-20T02:00:00-08:00",
-    "temp": 51,
-    "wind": "9 mph",
-    "dir": "NNW",
-    "short": "Light Rain Likely"
-   },
-   {
-    "t": "2026-11-20T03:00:00-08:00",
-    "temp": 51,
-    "wind": "9 mph",
-    "dir": "W",
-    "short": "Chance Light Rain"
-   },
-   {
-    "t": "2026-11-20T04:00:00-08:00",
-    "temp": 51,
-    "wind": "8 mph",
-    "dir": "W",
-    "short": "Light Rain Likely"
-   },
-   {
-    "t": "2026-11-20T05:00:00-08:00",
-    "temp": 51,
-    "wind": "8 mph",
-    "dir": "W",
-    "short": "Light Rain Likely"
-   },
-   {
-    "t": "2026-11-20T06:00:00-08:00",
-    "temp": 51,
-    "wind": "8 mph",
-    "dir": "W",
-    "short": "Light Rain"
-   },
-   {
-    "t": "2026-11-20T07:00:00-08:00",
-    "temp": 51,
-    "wind": "7 mph",
-    "dir": "W",
-    "short": "Chance Light Rain"
-   },
-   {
-    "t": "2026-11-20T08:00:00-08:00",
-    "temp": 51,
-    "wind": "8 mph",
-    "dir": "NW",
-    "short": "Slight Chance Light Rain"
-   },
-   {
-    "t": "2026-11-20T09:00:00-08:00",
-    "temp": 53,
-    "wind": "8 mph",
-    "dir": "WNW",
-    "short": "Slight Chance Light Rain"
-   },
    {
     "t": "2026-11-20T10:00:00-08:00",
     "temp": 54,
@@ -2210,6 +2084,76 @@
     "wind": "13 mph",
     "dir": "SE",
     "short": "Partly Sunny"
+   },
+   {
+    "t": "2026-11-26T12:00:00-08:00",
+    "temp": 60,
+    "wind": "13 mph",
+    "dir": "SE",
+    "short": "Partly Sunny"
+   },
+   {
+    "t": "2026-11-26T13:00:00-08:00",
+    "temp": 60,
+    "wind": "9 mph",
+    "dir": "S",
+    "short": "Partly Sunny"
+   },
+   {
+    "t": "2026-11-26T14:00:00-08:00",
+    "temp": 61,
+    "wind": "9 mph",
+    "dir": "S",
+    "short": "Partly Sunny"
+   },
+   {
+    "t": "2026-11-26T15:00:00-08:00",
+    "temp": 61,
+    "wind": "9 mph",
+    "dir": "S",
+    "short": "Partly Sunny"
+   },
+   {
+    "t": "2026-11-26T16:00:00-08:00",
+    "temp": 60,
+    "wind": "8 mph",
+    "dir": "NW",
+    "short": "Partly Sunny"
+   },
+   {
+    "t": "2026-11-26T17:00:00-08:00",
+    "temp": 60,
+    "wind": "8 mph",
+    "dir": "NW",
+    "short": "Partly Sunny"
+   },
+   {
+    "t": "2026-11-26T18:00:00-08:00",
+    "temp": 60,
+    "wind": "8 mph",
+    "dir": "NW",
+    "short": "Mostly Cloudy"
+   },
+   {
+    "t": "2026-11-26T19:00:00-08:00",
+    "temp": 59,
+    "wind": "7 mph",
+    "dir": "N",
+    "short": "Mostly Cloudy"
+   },
+   {
+    "t": "2026-11-26T20:00:00-08:00",
+    "temp": 59,
+    "wind": "7 mph",
+    "dir": "N",
+    "short": "Mostly Cloudy"
+   },
+   {
+    "t": "2026-11-26T21:00:00-08:00",
+    "temp": 58,
+    "wind": "7 mph",
+    "dir": "N",
+    "short": "Mostly Cloudy"
    }
   ],
   "alerts": [],
@@ -3255,11 +3199,11 @@
    }
   ],
   "obs": {
-   "t": "2026-11-20T01:06",
-   "kt": 3.5,
-   "gustKt": 4.9,
-   "deg": 186,
-   "dir": "S"
+   "t": "2026-11-20T09:54",
+   "kt": 3.1,
+   "gustKt": 5.4,
+   "deg": 151,
+   "dir": "SSE"
   }
  },
  "errors": []
