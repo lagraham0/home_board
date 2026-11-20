@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Wall Board">
+<meta name="robots" content="noindex">
+<title>Wall Board</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:500,600,700|Barlow:400,600|IBM+Plex+Mono:400,600">
+<style>
+/* Display-only wall page for older iPads (iOS 9). Plain CSS: flexbox, no grid, no variables. */
+*{box-sizing:border-box;-webkit-box-sizing:border-box}
+html,body{margin:0;padding:0;background:#e6ecee;color:#13222a}
+body{font-family:"Barlow",-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:14px;line-height:1.4;padding:12px 14px 16px}
+b{font-weight:600}
+.top{display:-webkit-flex;display:flex;-webkit-align-items:baseline;align-items:baseline;-webkit-justify-content:space-between;justify-content:space-between;margin-bottom:10px;padding:0 4px}
+.clock{font-family:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;font-weight:600;font-size:64px;line-height:1;letter-spacing:-1px}
+.clock small{font-size:22px;color:#566870;margin-left:4px;letter-spacing:0}
+.date{font-family:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;font-size:22px;font-weight:500;margin-left:14px}
+.left{display:-webkit-flex;display:flex;-webkit-align-items:baseline;align-items:baseline}
+.status{font-size:13px;font-weight:600;padding:3px 10px;border-radius:999px;border:1px solid #2f7d4f;color:#2f7d4f}
+.status.warn{border-color:#a86d12;color:#a86d12}
+.status.crit{border-color:#b8322a;color:#b8322a}
+.wrap{display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;margin:0 -6px}
+.panel{background:#f8fafa;border:1px solid #cdd7db;border-radius:14px;padding:12px 14px;margin:0 6px 12px}
+.c-sail{-webkit-flex:1 1 540px;flex:1 1 540px}
+.c-snow{-webkit-flex:1 1 400px;flex:1 1 400px}
+.c-events{-webkit-flex:1 1 100%;flex:1 1 100%}
+.lbl{font-family:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#566870;margin:0 0 8px}
+.lbl b{color:#13222a;font-weight:700}
+.row{display:-webkit-flex;display:flex;margin-bottom:8px}
+.grow{-webkit-flex:1 1 auto;flex:1 1 auto;min-width:0}
+.half{-webkit-flex:1 1 50%;flex:1 1 50%;min-width:0;margin-right:12px}
+.half:last-child{margin-right:0}
+.dialbox{width:132px;-webkit-flex:0 0 132px;flex:0 0 132px;text-align:center;margin-right:12px}
+.dialbox svg{display:block;margin:0 auto 4px}
+.cap{font-size:11.5px;color:#566870;margin-bottom:2px}
+.sub{font-size:12.5px;color:#566870}
+.src{font-size:11px;color:#566870;margin:2px 0 0}
+.marine{margin:4px 0 0}
+.empty{color:#566870;font-size:13px;margin:6px 0}
+.flood{color:#1d6c88}.ebb{color:#c4712f}
+.chips{margin-bottom:8px}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;border:1px solid #566870;color:#566870;margin:0 6px 4px 0;white-space:nowrap}
+.chip.crit{border-color:#b8322a;color:#b8322a}.chip.warn{border-color:#a86d12;color:#a86d12}.chip.ok{border-color:#2f7d4f;color:#2f7d4f}
+.stats .stat{-webkit-flex:1 1 25%;flex:1 1 25%;padding-right:8px}
+.stats .fc .mid{color:#4f62aa}
+.stats .fc{border-left:1px dashed #cdd7db;padding-left:8px}
+.stats .fc + .fc{border-left:0}
+.mid{display:block;font-family:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;font-weight:600;font-size:30px;line-height:1}
+.mid small{font-size:14px;color:#566870;margin-left:2px}
+.stat .cap{display:block;margin-top:2px}
+.periods .per{-webkit-flex:1 1 25%;flex:1 1 25%;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;font-size:12px;border:1px solid #cdd7db;border-radius:8px;padding:5px 7px;margin-right:6px}
+.periods .per:last-child{margin-right:0}
+.per .tp{font-family:"IBM Plex Mono",Menlo,monospace;font-size:13px}
+.wxi{width:28px;height:28px;color:#4f62aa;-webkit-flex:0 0 28px;flex:0 0 28px;margin-right:6px}
+.evs{display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap}
+.ev{-webkit-flex:1 1 30%;flex:1 1 30%;display:-webkit-flex;display:flex;padding:6px 10px 6px 0;min-width:280px}
+.ev .when{width:52px;-webkit-flex:0 0 52px;flex:0 0 52px;color:#dd5a32;font-family:"IBM Plex Mono",Menlo,monospace;font-size:12px}
+.ev .when b{font-family:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;font-size:14px;text-transform:uppercase}
+.ev .what{font-size:13.5px;line-height:1.3}
+/* charts (pre-drawn by GitHub) */
+.ch{position:relative;height:0;width:100%}
+.ch svg{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.c-grid{stroke:#cdd7db;stroke-width:1}
+.c-zero{stroke:#566870;stroke-dasharray:2 3}
+.c-t{fill:#566870;font-size:10px;font-family:"IBM Plex Mono",Menlo,monospace}
+.c-lab{fill:#13222a;font-size:10.5px;font-weight:600;font-family:"IBM Plex Mono",Menlo,monospace}
+.c-line{fill:none;stroke-width:2;stroke-linejoin:round}
+.c-line.sea{stroke:#1d6c88}.c-line.snow{stroke:#4f62aa}.c-line.ink{stroke:#566870;stroke-width:1.2}
+.c-area.sea{fill:#1d6c88;fill-opacity:.16}.c-area.snow{fill:#4f62aa;fill-opacity:.2}.c-area.ebb{fill:#c4712f;fill-opacity:.35}.c-area.flood{fill:#1d6c88;fill-opacity:.3}
+.c-band.sea{fill:#1d6c88;fill-opacity:.12}
+.c-bar{fill:#4f62aa;fill-opacity:.75}
+.c-now{stroke:#dd5a32;stroke-width:1.5;stroke-dasharray:3 3}
+.c-dot{fill:#dd5a32;stroke:#f8fafa;stroke-width:1.5}
+.c-mark{fill:#13222a}
+.c-arrow{fill:#1d6c88}
+.dial .ring{fill:none;stroke:#cdd7db;stroke-width:2}
+.dial .tick{stroke:#566870;stroke-width:1.2}
+.dial .card{fill:#566870;font-size:10px;font-weight:700;font-family:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif}
+.dial .wedge{fill:#1d6c88}
+.dial .spd{fill:#13222a;font-size:30px;font-weight:600;font-family:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif}
+.dial .u{fill:#566870;font-size:11px}
+@media (max-width:900px){.c-sail,.c-snow{-webkit-flex:1 1 100%;flex:1 1 100%}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="left"><div class="clock"><span id="clock">--:--</span><small id="ampm"></small></div><div class="date" id="date"></div></div>
+  <div class="status" id="status">Loading…</div>
+</div>
+<div class="wrap">
+  <div class="panel c-sail"><p class="lbl">Sailing · <b>Golden Gate</b></p><div id="sail"><p class="empty">Loading…</p></div>
+    <p class="src">NWS forecast &amp; marine zone PZZ530 · NOAA Tides &amp; Currents · dashed line = time of last update</p></div>
+  <div class="panel c-snow"><p class="lbl">Snow · <b>Heavenly</b></p><div id="snow"><p class="empty">Loading…</p></div></div>
+  <div class="panel c-events"><p class="lbl">This weekend · <b>Bay Area</b></p><div id="events"><p class="empty">Loading…</p></div></div>
+</div>
+<script>
+/* Written in older JavaScript (ES5) on purpose, so iOS 9 Safari can run it. */
+(function () {
+  var DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var lastGenerated = 0;
+  var current = null;
+
+  function el(id) { return document.getElementById(id); }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+
+  /* Clock uses the iPad's own time zone setting. */
+  function tick() {
+    var d = new Date(), h = d.getHours(), ap = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12;
+    el("clock").textContent = h + ":" + pad(d.getMinutes());
+    el("ampm").textContent = ap;
+    el("date").textContent = DAYS[d.getDay()] + ", " + MONTHS[d.getMonth()] + " " + d.getDate();
+  }
+
+  function setStatus(text, level) {
+    var s = el("status");
+    s.textContent = text;
+    s.className = "status" + (level ? " " + level : "");
+  }
+
+  function showStatus() {
+    if (!current) { return; }
+    var mins = current.dataUpdatedAt ? Math.round((new Date().getTime() - current.dataUpdatedAt) / 60000) : null;
+    if (mins === null) { setStatus("Updated " + current.asOf); return; }
+    if (mins <= 90) { setStatus("Updated " + current.asOf); }
+    else if (mins <= 360) { setStatus("Last update " + current.asOf + " · " + Math.floor(mins / 60) + " h ago", "warn"); }
+    else { setStatus("Last update " + Math.floor(mins / 60) + " h ago · check GitHub Actions", "crit"); }
+  }
+
+  function load() {
+    var x = new XMLHttpRequest();
+    x.open("GET", "data/wall.json?t=" + new Date().getTime(), true);
+    x.onreadystatechange = function () {
+      if (x.readyState !== 4) { return; }
+      if (x.status === 200) {
+        try {
+          var d = JSON.parse(x.responseText);
+          if (d.generatedAt !== lastGenerated) {
+            lastGenerated = d.generatedAt;
+            el("sail").innerHTML = d.sail;
+            el("snow").innerHTML = d.snow;
+            el("events").innerHTML = d.events;
+          }
+          current = d;
+          showStatus();
+        } catch (e) {
+          setStatus("Couldn't read the latest update", "warn");
+        }
+      } else {
+        setStatus("Can't reach the board · retrying", "warn");
+      }
+    };
+    x.send();
+  }
+
+  window.onerror = function (msg, src, line) {
+    setStatus("Page error: " + msg + " (line " + line + ")", "crit");
+  };
+
+  tick();
+  setInterval(tick, 15000);
+  load();
+  setInterval(load, 5 * 60 * 1000);
+  setInterval(showStatus, 60 * 1000);
+  /* Reload the whole page every 6 hours so page changes reach the wall. */
+  setTimeout(function () { window.location.reload(); }, 6 * 60 * 60 * 1000);
+})();
+</script>
+</body>
+</html>
