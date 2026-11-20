@@ -121,10 +121,13 @@ const tides = await section("NOAA tides & currents", async () => {
   const p = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date(now)).map((x) => [x.type, x.value]));
   const ymd = `${p.year}${p.month}${p.day}`;
   const b = "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?time_zone=lst_ldt&units=english&format=json&application=home_board";
-  const [t, c, w] = await Promise.all([
+  // Observed wind stations shown side by side (a failed station is left out, never estimated)
+  const WIND = [{ id: "9414290", name: "San Francisco" }, { id: "9414847", name: "Point Potrero, Richmond" }];
+  const [t, c, w, ...wx] = await Promise.all([
     get(b + "&station=9414290&product=predictions&datum=MLLW&interval=hilo&begin_date=" + ymd + "&range=48"),
     get(b + "&station=SFB1203&product=currents_predictions&interval=MAX_SLACK&begin_date=" + ymd + "&range=48"),
     get(b + "&station=9414290&product=wind&date=latest"),
+    ...WIND.slice(1).map((st) => get(b + "&station=" + st.id + "&product=wind&date=latest").catch((e) => { errors.push(`NOAA wind ${st.id}: ${e.message}`); return null; })),
   ]);
   const [th, ch] = await Promise.all([
     get(b + "&station=9414290&product=predictions&datum=MLLW&interval=h&begin_date=" + ymd + "&range=48"),
@@ -152,7 +155,9 @@ const tides = await section("NOAA tides & currents", async () => {
     currentHourly: wch.current_predictions.cp.map((x) => ({ t: iso(x.Time), kt: +(+x.Velocity_Major).toFixed(2) })) };
   out.tideHourly = th.predictions.map((x) => ({ t: iso(x.t), ft: +(+x.v).toFixed(2) }));
   out.currentHourly = ch.current_predictions.cp.map((x) => ({ t: iso(x.Time), kt: +(+x.Velocity_Major).toFixed(2) }));
-  if (w?.data?.[0]) out.obs = { t: iso(w.data[0].t), kt: +(+w.data[0].s).toFixed(1), gustKt: +(+w.data[0].g).toFixed(1), deg: +w.data[0].d, dir: w.data[0].dr };
+  const ob = (x) => (x && x.data && x.data[0]) ? { t: iso(x.data[0].t), kt: +(+x.data[0].s).toFixed(1), gustKt: +(+x.data[0].g).toFixed(1), deg: +x.data[0].d, dir: x.data[0].dr } : null;
+  if (ob(w)) out.obs = ob(w);
+  out.obsList = [w, ...wx].map((x, i) => { const o = ob(x); return o ? { id: WIND[i].id, name: WIND[i].name, ...o } : null; }).filter(Boolean);
   return out;
 });
 
@@ -187,7 +192,7 @@ const events = eventsAge < 6 * 3600e3 ? null : await section("FunCheap weekend",
 });
 
 /* ---------- write files ---------- */
-const keepTides = (s) => s ? Object.fromEntries(["windStation", "tideStation", "currentStation", "tides", "currents", "tideHourly", "currentHourly", "weekend", "obs"].filter((k) => k in s).map((k) => [k, s[k]])) : {};
+const keepTides = (s) => s ? Object.fromEntries(["windStation", "tideStation", "currentStation", "tides", "currents", "tideHourly", "currentHourly", "weekend", "obs", "obsList"].filter((k) => k in s).map((k) => [k, s[k]])) : {};
 const weather = {
   updatedAt: (nwsSail || tides || ski.some((x) => x.fresh)) ? new Date(now).toISOString() : (prevW.updatedAt || null),
   source: "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",

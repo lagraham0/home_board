@@ -194,6 +194,16 @@ function resortHtml(n, now, wrap){
   return html;
 }
 
+/* observed wind dials, one per station (side by side) */
+function obsList(s){ return (s.obsList && s.obsList.length) ? s.obsList : (s.obs ? [Object.assign({ id:"9414290", name:"San Francisco" }, s.obs)] : []); }
+function dialsHtml(s, now, px){
+  const L = obsList(s);
+  if(!L.length) return `<p class="empty">Observed wind unavailable.</p>`;
+  return L.map(o => { const old = o.t && wallMs(o.t) < now - 2*3600e3;
+    return `<div class="dialbox"><svg class="dial" width="${px}" height="${px}" viewBox="0 0 140 140" role="img" aria-label="Observed wind at ${esc(o.name)}">${dialSvg(+o.deg, o.kt)}</svg>` +
+      `<div class="sub"><b>${esc(o.name)}</b><br>${esc(o.dir || "")} · gusts ${esc(o.gustKt)} kt<br>${old ? "last reading " : ""}${esc(wallLabel(o.t))}</div></div>`; }).join("");
+}
+
 
 /* ---------- wall page builders: finished HTML + SVG for the old iPad ---------- */
 const box = (svg, w, h) => svg ? `<div class="ch" style="padding-bottom:${(h / w * 100).toFixed(2)}%">${svg}</div>` : "";
@@ -205,8 +215,6 @@ function buildSail(s, now) {
   const alerts = alertChips(s.alerts);
   if (alerts) html += `<div class="chips">${alerts}</div>`;
   // dial + wind chart
-  const dial = `<svg class="dial" width="120" height="120" viewBox="0 0 140 140">${dialSvg(s.obs ? +s.obs.deg : null, s.obs ? s.obs.kt : null)}</svg>`;
-  const obsTxt = s.obs ? `<b>${esc(s.obs.dir)}</b> · gusts ${esc(s.obs.gustKt)} kt<br>observed ${esc(wallLabel(s.obs.t))}` : "Observed wind unavailable";
   const hrs = (s.hourly || []).filter((h) => Date.parse(h.t) > now - 3600e3 && Date.parse(h.t) <= now + 12 * 3600e3).slice(0, 13)
     .map((h) => ({ t: Date.parse(h.t), r: ktRange(h.wind), deg: DIRS[h.dir] ?? null })).filter((h) => h.r);
   let wind = "";
@@ -216,7 +224,7 @@ function buildSail(s, now) {
     wind = box(lineChart({ pts: hrs.map((h) => ({ t: h.t, y: h.r[1] })), band: hrs.some((h) => h.r[0] !== h.r[1]) ? hrs.map((h) => ({ t: h.t, lo: h.r[0], hi: h.r[1] })) : null,
       w: 560, h: 118, yMax, step, cls: "sea", arrows: hrs.map((h) => ({ t: h.t, deg: h.deg })), nowY: nowObs, label: "Forecast wind" }), 560, 118);
   }
-  html += `<div class="row"><div class="dialbox">${dial}<div class="sub">${obsTxt}</div></div><div class="grow"><div class="cap">Forecast wind, knots · next 12 h · arrows point downwind</div>${wind || '<p class="empty">No hourly forecast.</p>'}</div></div>`;
+  html += `<div class="row"><div class="dials">${dialsHtml(s, now, 110)}</div><div class="grow"><div class="cap">Forecast wind, knots · next 12 h · arrows point downwind</div>${wind || '<p class="empty">No hourly forecast.</p>'}</div></div>`;
   // tide + current
   const tideH = (s.tideHourly || []).map((p) => ({ t: wallMs(p.t), y: p.ft })).filter((p) => p.t >= now - 3600e3 && p.t <= now + 24 * 3600e3);
   const tidesNext = (s.tides || []).filter((t) => t.t >= nowWall);
