@@ -14,7 +14,7 @@
 /* Layout: a wall of instrument-panel widgets — 12-col grid on iPad landscape, 2-col portrait, 1-col phone */
 :root{
   --bg:#e6ecee; --surface:#f8fafa; --ink:#13222a; --muted:#566870; --line:#cdd7db;
-  --accent:#dd5a32; --sea:#1d6c88; --snow:#4f62aa;
+  --accent:#dd5a32; --sea:#1d6c88; --snow:#4f62aa; --ebb:#c4712f;
   --ok:#2f7d4f; --warn:#a86d12; --crit:#b8322a;
   --f-display:"Barlow Semi Condensed","Arial Narrow",system-ui,sans-serif;
   --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -22,10 +22,10 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0e161b; --surface:#152129; --ink:#e4edf0; --muted:#91a3ab; --line:#25353e;
-  --accent:#f0794f; --sea:#55b4d2; --snow:#93a3ea; --ok:#5cbf83; --warn:#e0a640; --crit:#f0695f; color-scheme:dark}}
+  --accent:#f0794f; --sea:#55b4d2; --snow:#93a3ea; --ebb:#e7a061; --ok:#5cbf83; --warn:#e0a640; --crit:#f0695f; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0e161b; --surface:#152129; --ink:#e4edf0; --muted:#91a3ab; --line:#25353e;
-  --accent:#f0794f; --sea:#55b4d2; --snow:#93a3ea; --ok:#5cbf83; --warn:#e0a640; --crit:#f0695f; color-scheme:dark}
+  --accent:#f0794f; --sea:#55b4d2; --snow:#93a3ea; --ebb:#e7a061; --ok:#5cbf83; --warn:#e0a640; --crit:#f0695f; color-scheme:dark}
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -35,11 +35,11 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
   padding-block:18px 28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .board{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;max-width:1400px;margin:0 auto}
 .w{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;min-width:0;display:flex;flex-direction:column;gap:12px}
-.w-clock{grid-column:span 4}.w-commute{grid-column:span 8}
-.w-sail,.w-snow,.w-events{grid-column:span 4}
+.w-clock{grid-column:span 4}.w-sail{grid-column:span 8}
+.w-snow{grid-column:span 8}.w-events{grid-column:span 4}
 .w-cal,.w-rem,.w-groc{grid-column:span 4}
 @media (max-width:1020px){.board{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .w-clock,.w-commute,.w-sail,.w-snow,.w-events,.w-cal,.w-rem,.w-groc{grid-column:span 1}}
+  .w-clock,.w-sail,.w-snow{grid-column:span 2}.w-events,.w-cal,.w-rem,.w-groc{grid-column:span 1}}
 @media (max-width:640px){.board{grid-template-columns:minmax(0,1fr)}.w{grid-column:1/-1!important}}
 
 .hd{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
@@ -63,15 +63,6 @@ a{color:var(--sea)}
 .btn{font:600 13px var(--f-body);background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 12px;cursor:pointer}
 .btn:hover{border-color:var(--muted)}
 .btn.primary{background:var(--ink);color:var(--surface);border-color:var(--ink)}
-
-/* commute */
-.legs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-@media (max-width:640px){.legs{grid-template-columns:minmax(0,1fr)}}
-.leg{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
-.leg.active{border-color:var(--accent);box-shadow:inset 4px 0 0 var(--accent)}
-.leg .when{font-family:var(--f-display);font-weight:600;font-size:15px}
-.leg .route{font-size:13.5px}
-.leg .note{font-size:12.5px;color:var(--muted)}
 
 /* sail */
 .now{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
@@ -132,6 +123,42 @@ a{color:var(--sea)}
 .ev .meta{font-size:12px;color:var(--muted);margin-top:2px}
 @media (max-width:640px){.w-snow .periods{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+/* graphics */
+figure{margin:0;min-width:0}
+figcaption{font-size:11.5px;color:var(--muted);margin-bottom:2px}
+.chart{display:block;width:100%;height:auto;overflow:visible}
+.c-grid{stroke:var(--line);stroke-width:1}
+.c-zero{stroke:var(--muted);stroke-dasharray:2 3}
+.c-t{fill:var(--muted);font:10px var(--f-data)}
+.c-lab{fill:var(--ink);font:600 10.5px var(--f-data)}
+.c-line{fill:none;stroke-width:2;stroke-linejoin:round}
+.c-line.sea{stroke:var(--sea)}.c-line.snow{stroke:var(--snow)}.c-line.ink{stroke:var(--muted);stroke-width:1.2}
+.c-area.sea{fill:var(--sea);opacity:.16}.c-area.snow{fill:var(--snow);opacity:.2}.c-area.ebb{fill:var(--ebb);opacity:.35}.c-area.flood{fill:var(--sea);opacity:.3}
+.c-band.sea{fill:var(--sea);opacity:.12}
+.c-bar{fill:var(--snow);opacity:.75}
+.c-now{stroke:var(--accent);stroke-width:1.5;stroke-dasharray:3 3}
+.c-dot{fill:var(--accent);stroke:var(--surface);stroke-width:1.5}
+.c-mark{fill:var(--ink)}
+.c-arrow{fill:var(--sea)}
+.dial .ring{fill:none;stroke:var(--line);stroke-width:2}
+.dial .tick{stroke:var(--muted);stroke-width:1.2}
+.dial .card{fill:var(--muted);font:700 10px var(--f-display);letter-spacing:.06em}
+.dial .wedge{fill:var(--sea)}
+.dial .spd{fill:var(--ink);font:600 30px var(--f-display)}
+.dial .u{fill:var(--muted);font:500 11px var(--f-body)}
+.sail-grid{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;align-items:start}
+.sail-now{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.sail-now .dial{width:140px;height:140px;flex:none}
+.sail-charts{display:flex;flex-direction:column;gap:10px;min-width:0}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.snow-grid{display:grid;grid-template-columns:150px minmax(0,1.15fr) minmax(0,1fr);gap:16px;align-items:start}
+.snow-stats{display:flex;flex-direction:column;gap:12px}
+.snow-stats .mid{font-size:34px}
+.wxi{width:30px;height:30px;color:var(--snow);flex:none}
+.w-snow .per{flex-direction:row;align-items:center;gap:8px}
+.w-snow .per .pt{display:flex;flex-direction:column;min-width:0}
+@media (max-width:640px){.sail-grid,.snow-grid{grid-template-columns:minmax(0,1fr)}.pair{grid-template-columns:minmax(0,1fr)}.sail-now{flex-direction:row;text-align:left}.snow-stats{flex-direction:row;gap:24px}}
+
 /* sign-in */
 .auth{grid-column:1/-1;max-width:520px;justify-self:center;width:100%}
 .auth p{margin:0}
@@ -170,7 +197,7 @@ a{color:var(--sea)}
       <input id="authCode" inputmode="numeric" placeholder="6-digit code from the email" required aria-label="Sign-in code" autocomplete="one-time-code">
       <button class="btn primary" type="submit">Sign in</button>
     </form>
-    <p class="sub" id="authMsg">Weather, snow and events show without signing in. Lists, drive times and places need a household account.</p>
+    <p class="sub" id="authMsg">Weather, snow and events show without signing in. The household lists need a household account.</p>
   </section>
 
   <!-- Clock -->
@@ -181,59 +208,42 @@ a{color:var(--sea)}
     <div class="add"><button class="btn" id="wake" type="button">Keep screen on</button><span class="sub" id="wakeState"></span></div>
   </section>
 
-  <!-- Commute -->
-  <section class="w w-commute" aria-label="Drive times">
-    <div class="hd"><p class="lbl">Drive · <b id="commuteTitle">Home ⇄ Work</b></p><span id="commuteAge"></span></div>
-    <div class="legs">
-      <div class="leg" id="legWork">
-        <span class="when">To work · leave 7:00 AM</span>
-        <span class="big num" id="workMin">—</span>
-        <span class="route" id="workRoute">Waiting for first traffic check</span>
-        <span class="note" id="workNote"></span>
-        <a class="note" id="mapWork" href="https://www.google.com/maps" target="_blank" rel="noopener">Open in Google Maps</a>
-      </div>
-      <div class="leg" id="legHome">
-        <span class="when">To home · leave 5:00 PM</span>
-        <span class="big num" id="homeMin">—</span>
-        <span class="route" id="homeRoute">Waiting for first traffic check</span>
-        <span class="note" id="homeNote"></span>
-        <a class="note" id="mapHome" href="https://www.google.com/maps" target="_blank" rel="noopener">Open in Google Maps</a>
-      </div>
-    </div>
-    <span class="sub">Live traffic from Google Maps at the time of the last check. Checks run on weekdays while the Mac is on.</span>
-  </section>
-
   <!-- Sailing -->
   <section class="w w-sail" aria-label="Sailing conditions at the Golden Gate">
-    <div class="hd"><p class="lbl">Sailing · <b>Golden Gate</b></p><span id="wxAge"></span></div>
-    <div class="now">
-      <svg class="arrow" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/><g id="arrowG" transform="rotate(0 22 22)"><path d="M22 34 L16 14 L22 18 L28 14 Z"/></g></svg>
-      <div style="min-width:0"><div class="mid num" id="windNow">—<small>kt</small></div><div class="sub" id="windNowSub">Observed wind</div></div>
+    <div class="hd"><p class="lbl">Sailing · <b>Golden Gate</b></p><span class="chips" id="sailAlerts"></span><span id="wxAge"></span></div>
+    <div class="sail-grid">
+      <div class="sail-now">
+        <svg class="dial" id="dial" viewBox="0 0 140 140" role="img" aria-label="Observed wind"></svg>
+        <div class="sub" id="windNowSub">Observed wind</div>
+      </div>
+      <div class="sail-charts">
+        <figure><figcaption>Forecast wind, knots · next 12 h · arrows point downwind</figcaption><div id="windChart"></div></figure>
+        <div class="pair">
+          <figure><figcaption>Tide, ft · next 24 h</figcaption><div id="tideChart"></div><div class="src" id="tides"></div></figure>
+          <figure><figcaption>Current at the Gate, kt · <span style="color:var(--sea)">flood ▲</span> <span style="color:var(--ebb)">ebb ▼</span></figcaption><div id="curChart"></div><div class="src" id="currents"></div></figure>
+        </div>
+      </div>
     </div>
-    <div class="chips" id="sailAlerts"></div>
-    <div><div class="src" style="margin-bottom:2px">Forecast wind, kt</div><div class="strip" id="strip"></div></div>
-    <dl class="kv">
-      <dt>Tides</dt><dd id="tides">—</dd>
-      <dt>Current</dt><dd id="currents">—</dd>
-      <dt>Marine</dt><dd id="marine" class="clamp">—</dd>
-    </dl>
-    <p class="src">NWS forecast &amp; marine zone PZZ530 · NOAA Tides &amp; Currents</p>
+    <p class="sub clamp" id="marine" style="margin:0"></p>
+    <p class="src">NWS forecast &amp; marine zone PZZ530 · NOAA Tides &amp; Currents (stations 9414290, SFB1203) · dashed line = now</p>
   </section>
 
   <!-- Snow -->
   <section class="w w-snow" aria-label="Snow at Heavenly">
     <div class="hd"><p class="lbl">Snow · <b>Heavenly</b></p><span class="chips" id="snowAlerts"></span></div>
-    <div class="stats">
-      <div class="stat"><span class="mid num" id="obs24">—</span><span class="cap">Last 24 h<br>resort report</span></div>
-      <div class="stat"><span class="mid num" id="lastSnow">—</span><span class="cap" id="lastSnowSub">Since snow</span></div>
-      <div class="stat fc fc1"><span class="mid num" id="snow24">—</span><span class="cap">Next 24 h<br>forecast</span></div>
-      <div class="stat fc"><span class="mid num" id="snow72">—</span><span class="cap">Next 72 h<br>forecast</span></div>
+    <div class="snow-grid">
+      <div class="snow-stats">
+        <div class="stat"><span class="mid num" id="obs24">—</span><span class="cap">Last 24 h · resort report</span></div>
+        <div class="stat"><span class="mid num" id="lastSnow">—</span><span class="cap" id="lastSnowSub">Since snow</span></div>
+      </div>
+      <figure><figcaption>Snow depth, in · last 7 days (SNOTEL, 8,540 ft)</figcaption><div id="depthChart"></div></figure>
+      <figure><figcaption id="fcCap">Forecast new snow, in · per 6 h</figcaption><div id="snowBars"></div></figure>
     </div>
     <div class="periods" id="periods"></div>
     <p class="src" id="snotelLine">Sources: Heavenly snow report · NRCS SNOTEL 518 · NWS Reno</p>
   </section>
 
-  <!-- Events -->
+<!-- Events -->
   <section class="w w-events" aria-label="Popular events this weekend">
     <div class="hd"><p class="lbl">This weekend · <b id="evRange">Bay Area</b></p><span id="evAge"></span></div>
     <ul class="list" id="events"><li class="empty">Loading weekend events…</li></ul>
@@ -318,48 +328,151 @@ $("wake").addEventListener("click", async () => {
   }catch(e){ $("wakeState").textContent="This device didn't allow it. Use Settings › Display › Auto-Lock instead."; }
 });
 
-/* ---------- feeds: weather & commute ---------- */
-let wx=null, commute=null;
+/* ---------- feeds: weather ---------- */
+let wx=null;
 const MPH2KT = 0.868976;
 const toKt = s => String(s||"").replace(/\d+(\.\d+)?/g, n => Math.round(+n*MPH2KT)).replace(/\s*mph/i,"");
 const DIRS = {N:0,NNE:22.5,NE:45,ENE:67.5,E:90,ESE:112.5,SE:135,SSE:157.5,S:180,SSW:202.5,SW:225,WSW:247.5,W:270,WNW:292.5,NW:315,NNW:337.5};
 const alertChips = arr => (arr||[]).map(a => { const sev=/warning/i.test(a.event)?"crit":/advisory|watch/i.test(a.event)?"warn":"mute";
   return `<span class="chip ${sev}" title="${esc(a.headline)}">${esc(a.event)}${a.ends?` · until ${esc(fmtTime(a.ends))}`:""}</span>`; }).join("");
 
+/* ---------- charts: inline SVG drawn to scale, colours from theme tokens ---------- */
+const hourLbl = t => new Date(t).toLocaleTimeString("en-US",{timeZone:TZ,hour:"numeric"}).replace(" AM","a").replace(" PM","p");
+const hmLbl = t => new Date(t).toLocaleTimeString("en-US",{timeZone:TZ,hour:"numeric",minute:"2-digit"}).replace(" AM","a").replace(" PM","p");
+const dayLbl = t => new Date(t).toLocaleDateString("en-US",{timeZone:TZ,weekday:"short"});
+const laHour = t => +new Intl.DateTimeFormat("en-US",{timeZone:TZ,hour:"numeric",hourCycle:"h23"}).format(new Date(t));
+const laDate = t => laParts(new Date(t)).ymd;
+const niceStep = (span, n=4) => { for(const st of [0.5,1,2,5,10,20,25,50,100]) if(span/st <= n) return st; return 200; };
+const fmt1 = v => String(Math.round(v*10)/10);
+/* NOAA times are Pacific wall-clock strings; find the matching instant (PST or PDT). */
+const wallMs = s => { for(const off of ["-08:00","-07:00"]){ const m = Date.parse(s.slice(0,16)+":00"+off); if(laParts(new Date(m)).wall === s.slice(0,16)) return m; } return Date.parse(s.slice(0,16)+":00-08:00"); };
+const ktRange = s => { const n = (toKt(s).match(/\d+/g)||[]).map(Number); return n.length ? [Math.min(...n), Math.max(...n)] : null; };
+
+function lineChart({pts, w=560, h=118, yMin=0, yMax, step, cls="sea", signed=false, band=null, marks=[], nowY=null, arrows=null, xDays=false, label=""}){
+  if(!pts || pts.length < 2) return "";
+  const L=30, R=10, T=arrows?24:14, B=18, iw=w-L-R, ih=h-T-B, t0=pts[0].t, t1=pts.at(-1).t, now=Date.now();
+  const X = t => L + (t-t0)/(t1-t0)*iw, Y = v => T + (yMax-v)/(yMax-yMin)*ih, f = n => n.toFixed(1);
+  let g = "";
+  for(let v = Math.ceil(yMin/step)*step; v <= yMax+1e-9; v += step){ const y = f(Y(v));
+    g += `<line class="c-grid${v===0&&yMin<0?" c-zero":""}" x1="${L}" x2="${w-R}" y1="${y}" y2="${y}"/><text class="c-t" x="${L-5}" y="${f(+y+3.5)}" text-anchor="end">${fmt1(Math.abs(v))}</text>`; }
+  if(xDays){ let last = laDate(t0); for(const p of pts){ const d = laDate(p.t); if(d !== last && X(p.t) > L+10 && X(p.t) < w-R-10){ g += `<line class="c-grid" x1="${f(X(p.t))}" x2="${f(X(p.t))}" y1="${T}" y2="${h-B}"/><text class="c-t" x="${f(X(p.t))}" y="${h-4}" text-anchor="middle">${dayLbl(p.t)}</text>`; } last = d; } }
+  else for(const p of pts){ if(laHour(p.t)%3===0 && X(p.t) > L+10 && X(p.t) < w-R-10) g += `<text class="c-t" x="${f(X(p.t))}" y="${h-4}" text-anchor="middle">${hourLbl(p.t)}</text>`; }
+  const path = arr => arr.map((p,i) => `${i?"L":"M"}${f(X(p.t))},${f(Y(p.y))}`).join("");
+  const area = (arr, base) => `${path(arr)}L${f(X(arr.at(-1).t))},${f(Y(base))}L${f(X(arr[0].t))},${f(Y(base))}Z`;
+  let body = "";
+  if(band) body += `<path class="c-band ${cls}" d="${band.map((p,i)=>`${i?"L":"M"}${f(X(p.t))},${f(Y(p.hi))}`).join("")}${band.slice().reverse().map(p=>`L${f(X(p.t))},${f(Y(p.lo))}`).join("")}Z"/>`;
+  if(signed){
+    // split at zero crossings so flood and ebb areas meet exactly on the zero line
+    const seg = []; for(let i=0;i<pts.length;i++){ const a = pts[i], b = pts[i+1]; seg.push(a); if(b && (a.y<0) !== (b.y<0) && a.y !== 0 && b.y !== 0){ seg.push({t:a.t + (b.t-a.t)*(a.y/(a.y-b.y)), y:0}); } }
+    body += `<path class="c-area flood" d="${area(seg.map(p=>({t:p.t,y:Math.max(0,p.y)})),0)}"/><path class="c-area ebb" d="${area(seg.map(p=>({t:p.t,y:Math.min(0,p.y)})),0)}"/>`;
+    body += `<path class="c-line ink" d="${path(seg)}"/>`;
+  } else { body += `<path class="c-area ${cls}" d="${area(pts, yMin)}"/><path class="c-line ${cls}" d="${path(pts)}"/>`; }
+  if(arrows) for(const a of arrows){ if(a.deg==null) continue; body += `<g transform="translate(${f(X(a.t))},11) rotate(${a.deg})"><path class="c-arrow" d="M0,6 L-3.5,-5 L0,-2.5 L3.5,-5Z"/></g>`; }
+  for(const m of marks){ const x = X(m.t), y = Y(m.y); if(x < L || x > w-R) continue;
+    const anchor = x < L+34 ? "start" : x > w-R-34 ? "end" : "middle";
+    body += `<circle class="c-mark" cx="${f(x)}" cy="${f(y)}" r="2.5"/><text class="c-lab" x="${f(x)}" y="${f(m.up ? Math.max(10, y-6) : Math.min(h-B-2, y+13))}" text-anchor="${anchor}">${esc(m.label)}</text>`; }
+  if(now >= t0 && now <= t1){ const x = f(X(now)); body += `<line class="c-now" x1="${x}" x2="${x}" y1="${T}" y2="${h-B}"/>`;
+    if(nowY != null) body += `<circle class="c-dot" cx="${x}" cy="${f(Y(nowY))}" r="4"/>`; }
+  return `<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(label)}">${g}${body}</svg>`;
+}
+function barChart({bars, w=300, h=118, label=""}){
+  if(!bars || !bars.length) return "";
+  const L=26, R=6, T=16, B=18, iw=w-L-R, ih=h-T-B, f = n => n.toFixed(1);
+  const t0 = Date.parse(bars[0].start), t1 = Date.parse(bars.at(-1).end), X = t => L + (t-t0)/(t1-t0)*iw;
+  const max = Math.max(...bars.map(b => b.in)), yMax = Math.max(1, Math.ceil(max)), step = niceStep(yMax, 3), Y = v => T + (yMax-v)/yMax*ih;
+  let g = ""; for(let v=0; v<=yMax+1e-9; v+=step){ const y=f(Y(v)); g += `<line class="c-grid" x1="${L}" x2="${w-R}" y1="${y}" y2="${y}"/><text class="c-t" x="${L-4}" y="${f(+y+3.5)}" text-anchor="end">${fmt1(v)}</text>`; }
+  const days = {}; let body = "";
+  for(const b of bars){ const s = Date.parse(b.start), e = Date.parse(b.end), x0 = X(s)+1.5, x1 = X(e)-1.5;
+    (days[laDate((s+e)/2)] ||= []).push((x0+x1)/2);
+    if(b.in > 0){ body += `<rect class="c-bar" x="${f(x0)}" y="${f(Y(b.in))}" width="${f(Math.max(1,x1-x0))}" height="${f(Y(0)-Y(b.in))}" rx="2"/>`;
+      if(b.in >= 0.1) body += `<text class="c-lab" x="${f((x0+x1)/2)}" y="${f(Y(b.in)-3)}" text-anchor="middle">${fmt1(b.in)}</text>`; } }
+  for(const [d, xs] of Object.entries(days)){ const x = xs.reduce((a,c)=>a+c,0)/xs.length; const [yy,mm,dd] = d.split("-").map(Number);
+    g += `<text class="c-t" x="${f(x)}" y="${h-4}" text-anchor="middle">${new Date(Date.UTC(yy,mm-1,dd,12)).toLocaleDateString("en-US",{timeZone:"UTC",weekday:"short"})}</text>`; }
+  if(max === 0) body += `<text class="c-t" x="${f(L+iw/2)}" y="${f(T+ih/2)}" text-anchor="middle">No new snow forecast</text>`;
+  return `<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(label)}">${g}${body}</svg>`;
+}
+function dialSvg(deg, kt){
+  const c = 70, P = (a, r) => [c + r*Math.sin(a*Math.PI/180), c - r*Math.cos(a*Math.PI/180)].map(n => n.toFixed(1));
+  let s = `<circle class="ring" cx="${c}" cy="${c}" r="60"/>`;
+  for(let a=0; a<360; a+=30){ const [x1,y1] = P(a, a%90 ? 56 : 52), [x2,y2] = P(a, 60); s += `<line class="tick" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`; }
+  for(const [a,l] of [[0,"N"],[90,"E"],[180,"S"],[270,"W"]]){ const [x,y] = P(a, 44); s += `<text class="card" x="${x}" y="${(+y+3.5).toFixed(1)}" text-anchor="middle">${l}</text>`; }
+  // wedge sits on the rim at the direction the wind blows FROM and points into the dial
+  if(deg != null && !isNaN(deg)){ const [ax,ay] = P(deg, 34), [bx,by] = P(deg-12, 66), [cx,cy] = P(deg+12, 66); s += `<polygon class="wedge" points="${ax},${ay} ${bx},${by} ${cx},${cy}"/>`; }
+  s += `<text class="spd" x="${c}" y="${c+8}" text-anchor="middle">${kt == null ? "—" : esc(kt)}</text><text class="u" x="${c}" y="${c+22}" text-anchor="middle">kt</text>`;
+  return s;
+}
+function wxIcon(short, name){
+  const t = (short||"").toLowerCase(), night = /night|tonight|overnight/i.test(name||"");
+  const sun = night ? `<path d="M20 6a9 9 0 1 0 6 14 7 7 0 0 1-6-14z" fill="currentColor" opacity=".85"/>` : `<circle cx="16" cy="16" r="6" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 3v4M16 25v4M3 16h4M25 16h4M6.8 6.8l2.8 2.8M22.4 22.4l2.8 2.8M6.8 25.2l2.8-2.8M22.4 9.6l2.8-2.8"/></g>`;
+  const cloud = (dy=0) => `<path d="M9 ${23+dy}h14a5 5 0 0 0 0-10 7 7 0 0 0-13.4 2A4 4 0 0 0 9 ${23+dy}z" fill="currentColor" opacity=".55"/>`;
+  let body;
+  if(/snow|flurr|sleet|blizzard/.test(t)) body = cloud(-5) + `<g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M11 24v6M8.4 25.5l5.2 3M8.4 28.5l5.2-3M21 24v6M18.4 25.5l5.2 3M18.4 28.5l5.2-3"/></g>`;
+  else if(/thunder/.test(t)) body = cloud(-5) + `<path d="M16 21l-3 6h4l-2 5 6-8h-4l2-3z" fill="currentColor"/>`;
+  else if(/rain|shower|drizzle/.test(t)) body = cloud(-5) + `<g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 24l-1.5 5M17 24l-1.5 5M23 24l-1.5 5"/></g>`;
+  else if(/fog|haze|smoke/.test(t)) body = `<g stroke="currentColor" stroke-width="2.2" stroke-linecap="round" opacity=".7"><path d="M5 12h22M7 17h18M5 22h22"/></g>`;
+  else if(/partly|mostly sunny|mostly clear/.test(t)) body = `<g transform="translate(-4 -4) scale(.8)">${sun}</g>` + cloud(2);
+  else if(/cloud|overcast/.test(t)) body = cloud(-2);
+  else if(/sunny|clear|fair/.test(t)) body = sun;
+  else body = cloud(-2);
+  return `<svg class="wxi" viewBox="0 0 32 32" aria-hidden="true">${body}</svg>`;
+}
+
 function renderWx(){
   if(!wx){ return; }
   $("wxAge").innerHTML = ageChip(wx.updatedAt);
-  const s = wx.sail||{}, n = wx.snow||{}, nowWall = laParts().wall;
-  // sailing
+  const s = wx.sail||{}, n = wx.snow||{}, nowWall = laParts().wall, now = Date.now();
+  /* ---- sailing ---- */
   $("sailAlerts").innerHTML = alertChips(s.alerts);
-  $("sailAlerts").hidden = !(s.alerts||[]).length;
-  if(s.obs){ $("windNow").innerHTML = `${esc(s.obs.kt)}<small>kt ${esc(s.obs.dir)}</small>`;
-    $("windNowSub").textContent = `Gusts ${s.obs.gustKt} kt · observed ${wallLabel(s.obs.t)}, NOAA 9414290`;
-    $("arrowG").setAttribute("transform",`rotate(${(+s.obs.deg||0)} 22 22)`); }
-  const hrs = (s.hourly||[]).filter(h => Date.parse(h.t) > Date.now()-3600e3).slice(0,10);
-  const maxK = Math.max(10, ...hrs.map(h => Math.max(...(toKt(h.wind).match(/\d+/g)||[0]).map(Number))));
-  $("strip").innerHTML = hrs.map(h => { const k=toKt(h.wind); const top=Math.max(...(k.match(/\d+/g)||[0]).map(Number));
-    return `<div class="hr" title="${esc(h.short)} · ${esc(h.dir)}"><span class="t">${esc(fmtHour(h.t).replace(" ",""))}</span><span class="barbox"><span class="bar" style="height:${Math.max(3,Math.round(top/maxK*26))}px"></span></span><span class="k">${esc(k)}</span><span class="t">${esc(h.dir)}</span></div>`; }).join("") || `<span class="empty">No hourly forecast yet.</span>`;
-  const tides = (s.tides||[]).filter(t => t.t >= nowWall).slice(0,3);
-  $("tides").innerHTML = tides.map(t => `<span class="num">${t.type==="High"?"High":"Low"} ${esc(t.ft)} ft ${esc(wallLabel(t.t))}</span>`).join(" · ") || "No tide data yet";
-  const cur = (s.currents||[]).filter(c => c.t >= nowWall).slice(0,3);
-  $("currents").innerHTML = cur.map(c => `<span class="num">${c.type==="slack"?"Slack":esc(c.type[0].toUpperCase()+c.type.slice(1))+" "+esc(c.kt)+" kt"} ${esc(wallLabel(c.t))}</span>`).join(" · ") || "No current data yet";
+  $("dial").innerHTML = dialSvg(s.obs ? +s.obs.deg : null, s.obs ? s.obs.kt : null);
+  if(s.obs) $("windNowSub").innerHTML = `<b>${esc(s.obs.dir)}</b> · gusts ${esc(s.obs.gustKt)} kt<br>observed ${esc(wallLabel(s.obs.t))}`;
+  const hrs = (s.hourly||[]).filter(h => Date.parse(h.t) > now - 3600e3).slice(0,13).map(h => ({ t:Date.parse(h.t), r:ktRange(h.wind), deg:DIRS[h.dir] ?? null })).filter(h => h.r);
+  if(hrs.length > 1){
+    const hi = Math.max(...hrs.map(h => h.r[1]), s.obs ? +s.obs.gustKt||0 : 0), step = niceStep(hi, 4), yMax = Math.max(step*2, Math.ceil(hi/step)*step);
+    const nowObs = s.obs && Math.abs(wallMs(s.obs.t) - now) < 2*3600e3 ? +s.obs.kt : null;
+    $("windChart").innerHTML = lineChart({ pts:hrs.map(h => ({t:h.t, y:h.r[1]})), band:hrs.some(h => h.r[0] !== h.r[1]) ? hrs.map(h => ({t:h.t, lo:h.r[0], hi:h.r[1]})) : null,
+      yMax, step, cls:"sea", arrows:hrs.map(h => ({t:h.t, deg:h.deg})), nowY:nowObs, label:"Forecast wind in knots for the next 12 hours" });
+  } else $("windChart").innerHTML = `<p class="empty">No hourly forecast yet.</p>`;
+  const tideH = (s.tideHourly||[]).map(p => ({t:wallMs(p.t), y:p.ft})).filter(p => p.t >= now - 3600e3 && p.t <= now + 24*3600e3);
+  const tidesNext = (s.tides||[]).filter(t => t.t >= nowWall);
+  if(tideH.length > 1){
+    const hi = Math.max(...tideH.map(p => p.y)), lo = Math.min(0, ...tideH.map(p => p.y)), step = niceStep(hi - lo, 3);
+    const i = tideH.findIndex(p => p.t > now), nowY = i > 0 ? tideH[i-1].y + (tideH[i].y - tideH[i-1].y)*(now - tideH[i-1].t)/(tideH[i].t - tideH[i-1].t) : null;
+    const marks = tidesNext.map(t => ({ t:wallMs(t.t), y:t.ft, up:t.type === "High", label:`${t.type === "High" ? "H" : "L"} ${t.ft} · ${hmLbl(wallMs(t.t))}` })).filter(m => m.t <= tideH.at(-1).t);
+    $("tideChart").innerHTML = lineChart({ pts:tideH, w:300, yMin:Math.floor(lo/step)*step, yMax:Math.ceil((hi+1)/step)*step, step, cls:"sea", marks, nowY, label:"Predicted tide height in feet for the next 24 hours" });
+  } else $("tideChart").innerHTML = "";
+  $("tides").innerHTML = tidesNext.slice(0,2).map(t => `${t.type} ${esc(t.ft)} ft ${esc(wallLabel(t.t))}`).join(" · ") || (tideH.length ? "" : "No tide data yet");
+  const curH = (s.currentHourly||[]).map(p => ({t:wallMs(p.t), y:p.kt})).filter(p => p.t >= now - 3600e3 && p.t <= now + 24*3600e3);
+  const curNext = (s.currents||[]).filter(c => c.t >= nowWall);
+  if(curH.length > 1){
+    const m = Math.max(1, ...curH.map(p => Math.abs(p.y))), step = niceStep(2*m, 4), lim = Math.ceil((m+0.4)/step)*step;
+    const i = curH.findIndex(p => p.t > now), nowY = i > 0 ? curH[i-1].y + (curH[i].y - curH[i-1].y)*(now - curH[i-1].t)/(curH[i].t - curH[i-1].t) : null;
+    const marks = curNext.filter(c => c.type !== "slack").map(c => ({ t:wallMs(c.t), y:c.type === "ebb" ? -c.kt : c.kt, up:c.type !== "ebb", label:`${c.kt}` })).filter(mk => mk.t <= curH.at(-1).t);
+    $("curChart").innerHTML = lineChart({ pts:curH, w:300, yMin:-lim, yMax:lim, step, signed:true, marks, nowY, label:"Predicted current at the Golden Gate in knots, flood above the line and ebb below" });
+  } else $("curChart").innerHTML = "";
+  const slack = curNext.filter(c => c.type === "slack").slice(0,2).map(c => esc(wallLabel(c.t)));
+  $("currents").innerHTML = slack.length ? `Slack ${slack.join(" · ")}` : (curH.length ? "" : "No current data yet");
   const m0 = (s.marine||[])[0];
-  $("marine").textContent = m0 ? `${m0.name}: ${m0.text}` : "—";
-  // snow
+  $("marine").textContent = m0 ? `Marine forecast, ${m0.name}: ${m0.text}` : "";
+  /* ---- snow ---- */
   $("snowAlerts").innerHTML = alertChips(n.alerts);
   const r = n.observed?.resort, sn = n.observed?.snotel;
   $("obs24").innerHTML = r && r.in24 != null ? `${esc(r.in24)}<small>in</small>` : "—";
-  if(sn && sn.lastSnowAt){ const h = (Date.now() - Date.parse(sn.lastSnowAt)) / 3600e3;
+  if(sn && sn.lastSnowAt){ const h = (now - Date.parse(sn.lastSnowAt)) / 3600e3;
     $("lastSnow").textContent = h < 1 ? "<1 h" : h < 48 ? `${Math.round(h)} h` : `${Math.floor(h/24)} d`;
-    $("lastSnowSub").innerHTML = `Since snow<br>${esc(new Date(sn.lastSnowAt).toLocaleString("en-US",{timeZone:TZ,weekday:"short",hour:"numeric",minute:"2-digit"}))}`;
-  } else if(sn){ $("lastSnow").textContent = `${sn.lookbackDays||30}+ d`; $("lastSnowSub").innerHTML = `Since snow<br>none in ${sn.lookbackDays||30} d`; }
-  $("snow24").innerHTML = `${n.snow24hIn ?? "—"}<small>in</small>`;
-  $("snow72").innerHTML = `${n.snow72hIn ?? "—"}<small>in</small>`;
-  $("periods").innerHTML = (n.periods||[]).slice(0,4).map(p => `<div class="per" title="${esc(p.detail||"")}"><span class="n">${esc(p.name)}</span><span class="tp num">${esc(p.temp)}°F</span><span class="s">${esc(p.short)}</span></div>`).join("");
+    $("lastSnowSub").textContent = `Since snow · ${new Date(sn.lastSnowAt).toLocaleString("en-US",{timeZone:TZ,weekday:"short",hour:"numeric",minute:"2-digit"})}`;
+  } else if(sn){ $("lastSnow").textContent = `${sn.lookbackDays||30}+ d`; $("lastSnowSub").textContent = `Since snow · none in ${sn.lookbackDays||30} days`; }
+  const ds = (sn?.depthSeries||[]).map(([t,v]) => ({t:Date.parse(t), y:v}));
+  if(ds.length > 1){
+    const hi = Math.max(...ds.map(p => p.y), 1), step = niceStep(hi, 3), last = ds.at(-1);
+    $("depthChart").innerHTML = lineChart({ pts:ds, w:340, yMax:Math.ceil((hi*1.2)/step)*step, step, cls:"snow", xDays:true,
+      marks:[{t:last.t, y:last.y, up:true, label:`${last.y} in`}], label:"Snow depth in inches over the last 7 days" });
+  } else $("depthChart").innerHTML = sn ? `<p class="empty">Depth now ${esc(sn.depthIn)} in (+${esc(sn.depthGain24In)} in in 24 h). The 7-day chart appears after the next hourly refresh.</p>` : "";
+  $("fcCap").textContent = `Forecast new snow, in · ${n.snow24hIn ?? "—"} next 24 h · ${n.snow72hIn ?? "—"} next 72 h`;
+  $("snowBars").innerHTML = barChart({ bars:(n.blocks||[]).filter(b => Date.parse(b.end) > now), label:"Forecast new snow in inches for each 6-hour period over the next 3 days" }) || `<p class="empty">Chart appears after the next hourly refresh.</p>`;
+  $("periods").innerHTML = (n.periods||[]).slice(0,4).map(p => `<div class="per" title="${esc(p.detail||"")}">${wxIcon(p.short, p.name)}<div class="pt"><span class="n">${esc(p.name)}</span><span class="tp num">${esc(p.temp)}°F</span><span class="s">${esc(p.short)}</span></div></div>`).join("");
   const bits = [];
   if(r) bits.push(`Resort report ${String(r.updatedText||"").replace(/^Updated\s*/i,"").replace(/, \d{4} at/," ")}`);
-  if(sn) bits.push(`SNOTEL ${(sn.elevationFt||8540).toLocaleString()} ft: depth ${sn.depthIn} in, +${sn.depthGain24In} in in 24 h (${fmtTime(sn.lastObs)})`);
+  if(sn) bits.push(`SNOTEL depth ${sn.depthIn} in, +${sn.depthGain24In} in in 24 h (${fmtTime(sn.lastObs)})`);
   if(n.elevationFt) bits.push(`NWS forecast point ${n.elevationFt.toLocaleString()} ft`);
   bits.push("Last snow = latest hour with new gauge precipitation at 34 °F or colder");
   $("snotelLine").textContent = bits.join(" · ");
@@ -377,20 +490,7 @@ function renderEvents(){
     return `<li class="ev"><span class="evwhen num"><b>${esc(day)}</b>${esc(tm)}</span><div style="min-width:0"><a href="${esc(href)}" target="_blank" rel="noopener">${esc(e.title)}</a><div class="meta">${esc([e.venue,e.city,e.price].filter(Boolean).join(" · "))}</div></div></li>`; }).join("")
     : `<li class="empty">No events listed yet.</li>`;
 }
-function renderCommute(){
-  const p = laParts(), weekday = !["Sat","Sun"].includes(p.wd);
-  $("legWork").classList.toggle("active", weekday && p.hour < 12);
-  $("legHome").classList.toggle("active", weekday && p.hour >= 12);
-  if(!commute){ return; }
-  $("commuteAge").innerHTML = ageChip(commute.updatedAt);
-  for(const [k,pre] of [["toWork","work"],["toHome","home"]]){ const l=commute[k]; if(!l) continue;
-    $(pre+"Min").innerHTML = l.minutes!=null ? `${l.minutes}<small>min</small>` : esc(l.text||"—");
-    $(pre+"Route").textContent = [l.via && `via ${l.via}`, l.miles].filter(Boolean).join(" · ");
-    $(pre+"Note").textContent = [l.note, l.checkedAt && `checked ${fmtTime(l.checkedAt)}`].filter(Boolean).join(" · ");
-  }
-}
-setInterval(()=>{ renderWx(); renderCommute(); renderEvents(); }, 60000);
-renderCommute();
+setInterval(()=>{ renderWx(); renderEvents(); }, 60000);
 
 /* ---------- shared lists (Supabase) ---------- */
 const CFG = window.HOME_BOARD_CONFIG || {};
@@ -432,18 +532,7 @@ async function refreshItems(){
   if(error){ $("dbstate").textContent = "Couldn't load lists"; console.error(error); return; }
   items = data || []; splitItems();
 }
-async function refreshSettings(){
-  const { data, error } = await sb.from("settings").select("key,value");
-  if(error){ console.error(error); return; }
-  const map = Object.fromEntries((data||[]).map(r => [r.key, r.value]));
-  const pl = map.places;
-  if(pl){
-    $("commuteTitle").textContent = `${pl.homeLabel || "Home"} ⇄ ${pl.workLabel || "Work"}`;
-    const u = (o,d) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(o)}&destination=${encodeURIComponent(d)}&travelmode=driving`;
-    if(pl.homeQuery && pl.workQuery){ $("mapWork").href = u(pl.homeQuery, pl.workQuery); $("mapHome").href = u(pl.workQuery, pl.homeQuery); }
-  }
-  if(map.commute){ commute = map.commute; renderCommute(); }
-}
+async function refreshSettings(){ /* places and drive times were removed from the board */ }
 async function write(q){ const { error } = await q; if(error){ $("dbstate").textContent = "Couldn't save. " + error.message; console.error(error); } await refreshItems(); }
 
 document.addEventListener("change", e => { const c = e.target; if(!live || c.type !== "checkbox" || !c.dataset.id) return;
@@ -481,7 +570,6 @@ async function onSignedIn(){
   await Promise.all([refreshItems(), refreshSettings()]);
   sb.channel("board")
     .on("postgres_changes", { event:"*", schema:"public", table:"items" }, () => refreshItems())
-    .on("postgres_changes", { event:"*", schema:"public", table:"settings" }, () => refreshSettings())
     .subscribe();
   setInterval(() => { if(live){ refreshItems(); refreshSettings(); } }, 120000);
 }
@@ -497,14 +585,6 @@ $("codeForm").addEventListener("submit", async e => { e.preventDefault(); if(!sb
   if(error){ $("authMsg").textContent = "That code didn't work: " + error.message; return; }
   $("authCode").value = ""; $("codeForm").hidden = true; });
 $("signOut").addEventListener("click", async () => { if(sb){ await sb.auth.signOut(); location.reload(); } });
-
-/* Used by the Mac drive-time task: saves live traffic to the household database. */
-window.homeBoard = {
-  isLive: () => live,
-  saveCommute: async (obj) => { if(!live) throw new Error("not signed in");
-    const { error } = await sb.from("settings").upsert({ key:"commute", value:obj, updated_at:new Date().toISOString() });
-    if(error) throw new Error(error.message); return "saved"; }
-};
 
 (async () => {
   if(!CONFIGURED || !window.supabase){ $("dbstate").textContent = CONFIGURED ? "Lists unavailable" : "Setup needed";
