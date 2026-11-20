@@ -45,6 +45,7 @@ const nws = await section("NWS forecast", async () => {
       alerts: alerts(ha),
       periods: hf.properties.periods.slice(0, 6).map((p) => ({ name: p.name, temp: p.temperature, short: p.shortForecast, detail: p.detailedForecast, pop: p.probabilityOfPrecipitation?.value ?? null })),
       snow24hIn: remaining(24), snow72hIn: remaining(72),
+      blocks: blocks.filter((x) => x.e > now && x.s < now + 72 * 3600e3).map((x) => ({ start: new Date(x.s).toISOString(), end: new Date(x.e).toISOString(), in: +x.in.toFixed(1) })),
     },
     sail: {
       place: "Golden Gate Bridge", gridpoint: "MTR 83,107", marineZone: "PZZ530 San Francisco Bay",
@@ -84,6 +85,7 @@ const snotel = await section("SNOTEL", async () => {
     depthGain24In: Math.max(0, S.SNWD[lastObs] - Math.min(...w)),
     swe24In: +Math.max(0, S.PREC[p24.at(-1)] - S.PREC[p24[0]]).toFixed(1),
     lastSnowAt: last ? iso(last) : null, lookbackDays: 30,
+    depthSeries: (() => { const wk = dh.filter((h) => ms(h) >= ms(lastObs) - 7 * 86400e3); return wk.filter((h, i) => i % 3 === 0 || i === wk.length - 1).map((h) => [iso(h), S.SNWD[h]]); })(),
     rule: "Last snow = most recent hour the precipitation gauge reached a new high by at least 0.1 in while air temperature was 34 F or colder" };
 });
 
@@ -97,10 +99,16 @@ const tides = await section("NOAA tides & currents", async () => {
     get(b + "&station=SFB1203&product=currents_predictions&interval=MAX_SLACK&begin_date=" + ymd + "&range=48"),
     get(b + "&station=9414290&product=wind&date=latest"),
   ]);
+  const [th, ch] = await Promise.all([
+    get(b + "&station=9414290&product=predictions&datum=MLLW&interval=h&begin_date=" + ymd + "&range=48"),
+    get(b + "&station=SFB1203&product=currents_predictions&interval=h&begin_date=" + ymd + "&range=48"),
+  ]);
   const iso = (s) => s.replace(" ", "T");
   const out = { windStation: "NOAA 9414290 San Francisco", tideStation: "NOAA 9414290 San Francisco", currentStation: "NOAA SFB1203 Golden Gate Bridge, 0.46 nm E",
     tides: t.predictions.map((x) => ({ t: iso(x.t), type: x.type === "H" ? "High" : "Low", ft: +(+x.v).toFixed(1) })),
     currents: c.current_predictions.cp.map((x) => ({ t: iso(x.Time), type: x.Type, kt: +Math.abs(+x.Velocity_Major).toFixed(1) })) };
+  out.tideHourly = th.predictions.map((x) => ({ t: iso(x.t), ft: +(+x.v).toFixed(2) }));
+  out.currentHourly = ch.current_predictions.cp.map((x) => ({ t: iso(x.Time), kt: +(+x.Velocity_Major).toFixed(2) }));
   if (w?.data?.[0]) out.obs = { t: iso(w.data[0].t), kt: +(+w.data[0].s).toFixed(1), gustKt: +(+w.data[0].g).toFixed(1), deg: +w.data[0].d, dir: w.data[0].dr };
   return out;
 });
@@ -136,7 +144,7 @@ const events = eventsAge < 6 * 3600e3 ? null : await section("FunCheap weekend",
 });
 
 /* ---------- write files ---------- */
-const keepTides = (s) => s ? Object.fromEntries(["windStation", "tideStation", "currentStation", "tides", "currents", "obs"].filter((k) => k in s).map((k) => [k, s[k]])) : {};
+const keepTides = (s) => s ? Object.fromEntries(["windStation", "tideStation", "currentStation", "tides", "currents", "tideHourly", "currentHourly", "obs"].filter((k) => k in s).map((k) => [k, s[k]])) : {};
 const weather = {
   updatedAt: (nws || tides || resort || snotel) ? new Date(now).toISOString() : (prevW.updatedAt || null),
   source: "api.weather.gov; skiheavenly.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
