@@ -265,7 +265,7 @@ figcaption{font-size:11.5px;color:var(--muted);margin-bottom:2px}
 
   <!-- Calendar -->
   <section class="w w-cal" aria-label="Household calendar">
-    <div class="hd"><p class="lbl">Calendar · <b>Next 7 days</b></p></div>
+    <div class="hd"><p class="lbl">Calendar · <b>Next 5 events</b></p></div>
     <div id="cal"><p class="empty">Loading shared calendar…</p></div>
     <form class="add" id="calForm" autocomplete="off">
       <input id="calTitle" placeholder="Add event" required aria-label="Event name">
@@ -570,7 +570,7 @@ function renderEvents(){
     return `<li class="ev"><span class="evwhen num"><b>${esc(day)}</b>${esc(tm)}</span><div style="min-width:0"><a href="${esc(href)}" target="_blank" rel="noopener">${esc(e.title)}</a><div class="meta">${esc([e.venue,e.city,e.price].filter(Boolean).join(" · "))}</div></div></li>`; }).join("")
     : `<li class="empty">No events listed yet.</li>`;
 }
-setInterval(()=>{ renderWx(); renderEvents(); }, 60000);
+setInterval(()=>{ renderWx(); renderEvents(); if(live) renderCal(); }, 60000);
 
 /* ---------- shared lists (Supabase) ---------- */
 const CFG = window.HOME_BOARD_CONFIG || {};
@@ -590,9 +590,11 @@ function renderRem(){
     : `<li class="empty">No reminders. Add one below.</li>`;
 }
 function renderCal(){
-  const today = laParts().ymd, end = addDays(today,7);
-  const up = events.filter(e => e.date && e.date >= today && e.date < end).sort((a,b)=> (a.date+(a.time||"00:00")) < (b.date+(b.time||"00:00")) ? -1 : 1);
-  if(!up.length){ $("cal").innerHTML = `<p class="empty">Nothing on the household calendar this week. Add an event below.</p>`; return; }
+  const lp = laParts(), today = lp.ymd, nowHM = lp.wall.slice(11);
+  // upcoming = later days, all-day events today, and today's timed events that haven't started yet
+  const up = events.filter(e => e.date && (e.date > today || (e.date === today && (!e.time || e.time >= nowHM))))
+    .sort((a,b)=> (a.date+(a.time||"00:00")) < (b.date+(b.time||"00:00")) ? -1 : 1).slice(0,5);
+  if(!up.length){ $("cal").innerHTML = `<p class="empty">No upcoming events on the household calendar. Add one below.</p>`; return; }
   let html="", cur=null;
   for(const e of up){ if(e.date!==cur){ if(cur) html+="</ul>"; cur=e.date; html+=`<div class="day ${e.date===today?"today":""}">${esc(dayName(e.date))}</div><ul class="list">`; }
     const t = e.time ? (()=>{let [h,m]=e.time.split(":").map(Number);const ap=h>=12?"PM":"AM";h=h%12||12;return `${h}:${String(m).padStart(2,"0")} ${ap}`})() : "All day";
