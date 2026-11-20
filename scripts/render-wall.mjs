@@ -42,15 +42,16 @@ const fmt1 = v => String(Math.round(v*10)/10);
 const wallMs = s => { for(const off of ["-08:00","-07:00"]){ const m = Date.parse(s.slice(0,16)+":00"+off); if(laParts(new Date(m)).wall === s.slice(0,16)) return m; } return Date.parse(s.slice(0,16)+":00-08:00"); };
 const ktRange = s => { const n = (toKt(s).match(/\d+/g)||[]).map(Number); return n.length ? [Math.min(...n), Math.max(...n)] : null; };
 
-function lineChart({pts, w=560, h=118, yMin=0, yMax, step, cls="sea", signed=false, band=null, marks=[], nowY=null, arrows=null, xDays=false, label=""}){
+function lineChart({pts, w=560, h=118, yMin=0, yMax, step, cls="sea", signed=false, band=null, marks=[], nowY=null, arrows=null, xDays=false, xHours=3, dayLines=false, label=""}){
   if(!pts || pts.length < 2) return "";
-  const L=30, R=10, T=arrows?24:14, B=18, iw=w-L-R, ih=h-T-B, t0=pts[0].t, t1=pts[pts.length-1].t, now=Date.now();
+  const L=30, R=10, T=dayLines ? (arrows?38:20) : (arrows?24:14), B=18, iw=w-L-R, ih=h-T-B, t0=pts[0].t, t1=pts[pts.length-1].t, now=Date.now();
   const X = t => L + (t-t0)/(t1-t0)*iw, Y = v => T + (yMax-v)/(yMax-yMin)*ih, f = n => n.toFixed(1);
   let g = "";
   for(let v = Math.ceil(yMin/step)*step; v <= yMax+1e-9; v += step){ const y = f(Y(v));
-    g += `<line class="c-grid${v===0&&yMin<0?" c-zero":""}" x1="${L}" x2="${w-R}" y1="${y}" y2="${y}"/><text class="c-t" x="${L-5}" y="${f(+y+3.5)}" text-anchor="end">${fmt1(Math.abs(v))}</text>`; }
+    g += `<line class="c-grid${v===0&&yMin<0?" c-zero":""}" x1="${L}" x2="${w-R}" y1="${y}" y2="${y}"/><text class="c-t" x="${L-5}" y="${f(+y+3.5)}" text-anchor="end">${fmt1(signed ? Math.abs(v) : v)}</text>`; }
   if(xDays){ let last = laDate(t0); for(const p of pts){ const d = laDate(p.t); if(d !== last && X(p.t) > L+10 && X(p.t) < w-R-10){ g += `<line class="c-grid" x1="${f(X(p.t))}" x2="${f(X(p.t))}" y1="${T}" y2="${h-B}"/><text class="c-t" x="${f(X(p.t))}" y="${h-4}" text-anchor="middle">${dayLbl(p.t)}</text>`; } last = d; } }
-  else for(const p of pts){ if(laHour(p.t)%3===0 && X(p.t) > L+10 && X(p.t) < w-R-10) g += `<text class="c-t" x="${f(X(p.t))}" y="${h-4}" text-anchor="middle">${hourLbl(p.t)}</text>`; }
+  else for(const p of pts){ if(laHour(p.t)%xHours===0 && X(p.t) > L+10 && X(p.t) < w-R-10) g += `<text class="c-t" x="${f(X(p.t))}" y="${h-4}" text-anchor="middle">${hourLbl(p.t)}</text>`; }
+  if(dayLines){ let prev = null; for(const p of pts){ const d = laDate(p.t); if(d !== prev){ const x = X(p.t); if(prev !== null) g += `<line class="c-day" x1="${f(x)}" x2="${f(x)}" y1="4" y2="${h-B}"/>`; if(x < w-R-30) g += `<text class="c-dayl" x="${f(x+5)}" y="13">${dayLbl(p.t).toUpperCase()}</text>`; prev = d; } } }
   const path = arr => arr.map((p,i) => `${i?"L":"M"}${f(X(p.t))},${f(Y(p.y))}`).join("");
   const area = (arr, base) => `${path(arr)}L${f(X(arr[arr.length-1].t))},${f(Y(base))}L${f(X(arr[0].t))},${f(Y(base))}Z`;
   let body = "";
@@ -61,7 +62,7 @@ function lineChart({pts, w=560, h=118, yMin=0, yMax, step, cls="sea", signed=fal
     body += `<path class="c-area flood" d="${area(seg.map(p=>({t:p.t,y:Math.max(0,p.y)})),0)}"/><path class="c-area ebb" d="${area(seg.map(p=>({t:p.t,y:Math.min(0,p.y)})),0)}"/>`;
     body += `<path class="c-line ink" d="${path(seg)}"/>`;
   } else { body += `<path class="c-area ${cls}" d="${area(pts, yMin)}"/><path class="c-line ${cls}" d="${path(pts)}"/>`; }
-  if(arrows) for(const a of arrows){ if(a.deg==null) continue; body += `<g transform="translate(${f(X(a.t))},11) rotate(${a.deg})"><path class="c-arrow" d="M0,6 L-3.5,-5 L0,-2.5 L3.5,-5Z"/></g>`; }
+  if(arrows) for(const a of arrows){ if(a.deg==null) continue; body += `<g transform="translate(${f(X(a.t))},${dayLines?26:11}) rotate(${a.deg})"><path class="c-arrow" d="M0,6 L-3.5,-5 L0,-2.5 L3.5,-5Z"/></g>`; }
   for(const m of marks){ const x = X(m.t), y = Y(m.y); if(x < L || x > w-R) continue;
     const anchor = x < L+34 ? "start" : x > w-R-34 ? "end" : "middle";
     body += `<circle class="c-mark" cx="${f(x)}" cy="${f(y)}" r="2.5"/><text class="c-lab" x="${f(x)}" y="${f(m.up ? Math.max(10, y-6) : Math.min(h-B-2, y+13))}" text-anchor="${anchor}">${esc(m.label)}</text>`; }
@@ -75,11 +76,14 @@ function barChart({bars, w=300, h=118, label=""}){
   const t0 = Date.parse(bars[0].start), t1 = Date.parse(bars[bars.length-1].end), X = t => L + (t-t0)/(t1-t0)*iw;
   const max = Math.max(...bars.map(b => b.in)), yMax = Math.max(1, Math.ceil(max)), step = niceStep(yMax, 3), Y = v => T + (yMax-v)/yMax*ih;
   let g = ""; for(let v=0; v<=yMax+1e-9; v+=step){ const y=f(Y(v)); g += `<line class="c-grid" x1="${L}" x2="${w-R}" y1="${y}" y2="${y}"/><text class="c-t" x="${L-4}" y="${f(+y+3.5)}" text-anchor="end">${fmt1(v)}</text>`; }
-  const days = {}; let body = "";
+  const days = {}, cand = []; let body = "";
   for(const b of bars){ const s = Date.parse(b.start), e = Date.parse(b.end), x0 = X(s)+1.5, x1 = X(e)-1.5;
     { const dk = laDate((s+e)/2); if(!days[dk]) days[dk] = []; days[dk].push((x0+x1)/2); }
     if(b.in > 0){ body += `<rect class="c-bar" x="${f(x0)}" y="${f(Y(b.in))}" width="${f(Math.max(1,x1-x0))}" height="${f(Y(0)-Y(b.in))}" rx="2"/>`;
-      if(b.in >= 0.1) body += `<text class="c-lab" x="${f((x0+x1)/2)}" y="${f(Y(b.in)-3)}" text-anchor="middle">${fmt1(b.in)}</text>`; } }
+      if(b.in >= 0.1) cand.push({ x:(x0+x1)/2, v:b.in }); } }
+  // value labels: when two would overlap, keep the larger amount
+  const kept = []; cand.sort((a,b) => b.v - a.v).forEach(c => { if(kept.every(k => Math.abs(k.x - c.x) >= 24)) kept.push(c); });
+  kept.forEach(c => { body += `<text class="c-lab" x="${f(c.x)}" y="${f(Y(c.v)-3)}" text-anchor="middle">${fmt1(c.v)}</text>`; });
   for(const [d, xs] of Object.entries(days)){ const x = xs.reduce((a,c)=>a+c,0)/xs.length; const [yy,mm,dd] = d.split("-").map(Number);
     g += `<text class="c-t" x="${f(x)}" y="${h-4}" text-anchor="middle">${new Date(Date.UTC(yy,mm-1,dd,12)).toLocaleDateString("en-US",{timeZone:"UTC",weekday:"short"})}</text>`; }
   if(max === 0) body += `<text class="c-t" x="${f(L+iw/2)}" y="${f(T+ih/2)}" text-anchor="middle">No new snow forecast</text>`;
@@ -111,6 +115,85 @@ function wxIcon(short, name){
   return `<svg class="wxi" viewBox="0 0 32 32" aria-hidden="true">${body}</svg>`;
 }
 
+/* ---------- coming weekend: wind + gusts, tide, current (Sat 00:00 → Mon 00:00) ---------- */
+function weekendHtml(s, now, wrap){
+  wrap = wrap || (svg => svg);
+  const wk = s.weekend; if(!wk || !wk.saturday) return "";
+  const [Y,M,D] = wk.saturday.split("-").map(Number);
+  const ymdOf = n => new Date(Date.UTC(Y, M-1, D+n)).toISOString().slice(0,10);
+  const t0 = wallMs(`${wk.saturday}T00:00`), t1 = wallMs(`${ymdOf(2)}T00:00`);
+  const dLbl = ymd => { const [y,m,d] = ymd.split("-").map(Number); return new Date(Date.UTC(y,m-1,d,12)).toLocaleDateString("en-US",{timeZone:"UTC",weekday:"short",month:"short",day:"numeric"}); };
+  let html = `<div class="wk-h"><span class="lbl">Next Weekend · <b>${esc(dLbl(wk.saturday))} – ${esc(dLbl(ymdOf(1)))}</b></span></div>`;
+  // wind, with the band up to the NWS gust forecast
+  const hrs = (s.hourly||[]).map(h => ({ t:Date.parse(h.t), r:ktRange(h.wind), deg:DIRS[h.dir] ?? null })).filter(h => h.r && h.t >= t0 && h.t <= t1);
+  const gustAt = t => { const g = (s.gusts||[]).find(x => Date.parse(x.start) <= t && t < Date.parse(x.end)); return g ? g.kt : null; };
+  if(hrs.length > 1){
+    const band = hrs.map(h => { const gk = gustAt(h.t); return { t:h.t, lo:h.r[1], hi:Math.max(h.r[1], gk == null ? h.r[1] : gk) }; });
+    const hasGust = band.some(b => b.hi > b.lo);
+    const hi = Math.max(...band.map(b => b.hi)), step = niceStep(hi, 4), yMax = Math.max(step*2, Math.ceil(hi/step)*step);
+    const covered = hrs[hrs.length-1].t < t1 - 3*3600e3 ? ` · forecast ends ${esc(dayLbl(hrs[hrs.length-1].t))} ${esc(hourLbl(hrs[hrs.length-1].t))}` : "";
+    html += `<div class="cap">Wind, knots · line = sustained${hasGust ? ", shading up to forecast gusts" : ""} · arrows point downwind${covered}</div>` +
+      wrap(lineChart({ pts:hrs.map(h => ({t:h.t, y:h.r[1]})), band:hasGust ? band : null, w:620, h:124, yMax, step, cls:"sea",
+        arrows:hrs.filter((h,i) => i%3 === 0).map(h => ({t:h.t, deg:h.deg})), xHours:6, dayLines:true, label:"Weekend wind forecast in knots" }), 620, 124);
+  } else html += `<p class="empty">The weekend wind forecast isn't out yet. NWS hourly forecasts reach about 6 days ahead.</p>`;
+  // tide
+  const tideH = (wk.tideHourly||[]).map(p => ({ t:wallMs(p.t), y:p.ft })).filter(p => p.t >= t0 && p.t <= t1);
+  if(tideH.length > 1){
+    const hi = Math.max(...tideH.map(p => p.y)), lo = Math.min(0, ...tideH.map(p => p.y)), step = niceStep(hi - lo, 4);
+    const marks = (wk.tides||[]).map(t => ({ t:wallMs(t.t), y:t.ft, up:t.type === "High", label:`${t.ft} · ${hmLbl(wallMs(t.t))}` })).filter(m => m.t >= t0 && m.t <= t1);
+    html += `<div class="cap">Tide, ft · highs and lows marked</div>` +
+      wrap(lineChart({ pts:tideH, w:620, h:112, yMin:Math.floor(lo/step)*step, yMax:Math.ceil((hi+1)/step)*step, step, cls:"sea", marks, xHours:6, dayLines:true, label:"Weekend tide in feet" }), 620, 112);
+  }
+  // current
+  const curH = (wk.currentHourly||[]).map(p => ({ t:wallMs(p.t), y:p.kt })).filter(p => p.t >= t0 && p.t <= t1);
+  if(curH.length > 1){
+    const m = Math.max(1, ...curH.map(p => Math.abs(p.y))), step = niceStep(2*m, 4), lim = Math.ceil((m+0.5)/step)*step;
+    const marks = (wk.currents||[]).filter(c => c.type !== "slack").map(c => ({ t:wallMs(c.t), y:c.type === "ebb" ? -c.kt : c.kt, up:c.type !== "ebb", label:`${c.kt} · ${hmLbl(wallMs(c.t))}` })).filter(mk => mk.t >= t0 && mk.t <= t1);
+    const slack = (wk.currents||[]).filter(c => c.type === "slack").map(c => wallMs(c.t)).filter(t => t >= t0 && t <= t1);
+    html += `<div class="cap">Current at the Gate, kt · <span class="flood">flood ▲</span> <span class="ebb">ebb ▼</span> · peaks marked</div>` +
+      wrap(lineChart({ pts:curH, w:620, h:112, yMin:-lim, yMax:lim, step, signed:true, marks, xHours:6, dayLines:true, label:"Weekend current at the Golden Gate in knots" }), 620, 112) +
+      (slack.length ? `<div class="src">Slack water: ${slack.map(t => esc(dayLbl(t) + " " + hmLbl(t))).join(" · ")}</div>` : "");
+  }
+  // NWS marine forecast text for the weekend periods
+  const wdNow = dayLbl(now);
+  const isWeekendNow = wdNow === "Sat" || wdNow === "Sun";
+  const mar = (s.marine||[]).filter((p, i) => /^(Sat|Sun)/.test(p.name) || (isWeekendNow && i < 2 && /^(Today|This|Tonight|Rest)/.test(p.name)));
+  html += mar.length ? `<div class="wk-mar">` + mar.map(p => `<p class="sub"><b>${esc(p.name)}:</b> ${esc(p.text)}</p>`).join("") + `</div>`
+    : `<p class="sub">The NWS marine forecast for the weekend isn't published yet. It covers about 5 days ahead.</p>`;
+  return html;
+}
+
+/* ---------- one ski resort: observed snow, 7-day depth, forecast bars, forecast periods ---------- */
+function resortHtml(n, now, wrap){
+  wrap = wrap || (svg => svg);
+  if(!n) return "";
+  const r = n.observed && n.observed.resort, sn = n.observed && n.observed.snotel;
+  let html = `<div class="resort"><div class="hd"><p class="lbl"><b>${esc(n.name || "Resort")}</b></p><span class="chips">${alertChips(n.alerts)}</span></div><div class="snow-grid">`;
+  let since = "—", sinceSub = "Since snow";
+  if(sn && sn.lastSnowAt){ const h = (now - Date.parse(sn.lastSnowAt)) / 3600e3;
+    since = h < 1 ? "&lt;1 h" : h < 48 ? `${Math.round(h)} h` : `${Math.floor(h/24)} d`;
+    sinceSub = `Since snow · ${esc(new Date(sn.lastSnowAt).toLocaleString("en-US",{timeZone:TZ,weekday:"short",hour:"numeric",minute:"2-digit"}))}`;
+  } else if(sn){ since = `${sn.lookbackDays||30}+ d`; sinceSub = `Since snow · none in ${sn.lookbackDays||30} days`; }
+  html += `<div class="snow-stats"><div class="stat"><span class="mid num">${r && r.in24 != null ? esc(r.in24) + "<small>in</small>" : "—"}</span><span class="cap">Last 24 h · resort report</span></div>` +
+    `<div class="stat"><span class="mid num">${since}</span><span class="cap">${sinceSub}</span></div></div>`;
+  const ds = ((sn && sn.depthSeries) || []).map(([t,v]) => ({t:Date.parse(t), y:v}));
+  let depth = "";
+  if(ds.length > 1){ const hi = Math.max(...ds.map(p => p.y), 1), step = niceStep(hi, 3), lp = ds[ds.length-1];
+    depth = wrap(lineChart({ pts:ds, w:340, h:118, yMax:Math.ceil((hi*1.2)/step)*step, step, cls:"snow", xDays:true, marks:[{t:lp.t, y:lp.y, up:true, label:`${lp.y} in`}], label:`${n.name} snow depth over the last 7 days` }), 340, 118); }
+  else if(sn) depth = `<p class="empty">Depth now ${esc(sn.depthIn)} in (+${esc(sn.depthGain24In)} in in 24 h).</p>`;
+  const stn = sn ? `SNOTEL ${esc(sn.stationName || "")}${sn.stationName ? ", " : ""}${(sn.elevationFt||0).toLocaleString()} ft` : "SNOTEL";
+  html += `<figure><figcaption>Snow depth, in · last 7 days (${stn})</figcaption>${depth}</figure>`;
+  const bars = barChart({ bars:(n.blocks||[]).filter(b => Date.parse(b.end) > now), w:300, h:118, label:`${n.name} forecast new snow per 6 hours` });
+  html += `<figure><figcaption>Forecast new snow, in · ${n.snow24hIn ?? "—"} next 24 h · ${n.snow72hIn ?? "—"} next 72 h</figcaption>${bars ? wrap(bars, 300, 118) : '<p class="empty">No forecast data yet.</p>'}</figure></div>`;
+  html += `<div class="periods">` + (n.periods||[]).slice(0,4).map(p => `<div class="per" title="${esc(p.detail||"")}">${wxIcon(p.short, p.name)}<div class="pt"><span class="n">${esc(p.name)}</span><span class="tp num">${esc(p.temp)}°F</span><span class="s">${esc(p.short)}</span></div></div>`).join("") + `</div>`;
+  const bits = [];
+  if(r) bits.push(`Resort report ${String(r.updatedText||"").replace(/^Updated\s*/i,"").replace(/, \d{4} at/," ")}`);
+  if(sn) bits.push(`SNOTEL depth ${sn.depthIn} in, +${sn.depthGain24In} in in 24 h (${fmtTime(sn.lastObs)})`);
+  if(n.elevationFt) bits.push(`NWS forecast point ${n.elevationFt.toLocaleString()} ft`);
+  html += `<p class="src">${esc(bits.join(" · "))}</p></div>`;
+  return html;
+}
+
 
 /* ---------- wall page builders: finished HTML + SVG for the old iPad ---------- */
 const box = (svg, w, h) => svg ? `<div class="ch" style="padding-bottom:${(h / w * 100).toFixed(2)}%">${svg}</div>` : "";
@@ -124,7 +207,7 @@ function buildSail(s, now) {
   // dial + wind chart
   const dial = `<svg class="dial" width="120" height="120" viewBox="0 0 140 140">${dialSvg(s.obs ? +s.obs.deg : null, s.obs ? s.obs.kt : null)}</svg>`;
   const obsTxt = s.obs ? `<b>${esc(s.obs.dir)}</b> · gusts ${esc(s.obs.gustKt)} kt<br>observed ${esc(wallLabel(s.obs.t))}` : "Observed wind unavailable";
-  const hrs = (s.hourly || []).filter((h) => Date.parse(h.t) > now - 3600e3).slice(0, 13)
+  const hrs = (s.hourly || []).filter((h) => Date.parse(h.t) > now - 3600e3 && Date.parse(h.t) <= now + 12 * 3600e3).slice(0, 13)
     .map((h) => ({ t: Date.parse(h.t), r: ktRange(h.wind), deg: DIRS[h.dir] ?? null })).filter((h) => h.r);
   let wind = "";
   if (hrs.length > 1) {
@@ -159,42 +242,14 @@ function buildSail(s, now) {
     `<div class="half"><div class="cap">Current at the Gate, kt · <span class="flood">flood ▲</span> <span class="ebb">ebb ▼</span></div>${cur}<div class="src">${slack.length ? "Slack " + slack.join(" · ") : ""}</div></div></div>`;
   const m0 = (s.marine || [])[0];
   if (m0) html += `<p class="sub marine">Marine forecast, ${esc(m0.name)}: ${esc(m0.text)}</p>`;
+  const wk = weekendHtml(s, now, box);
+  if (wk) html += `<div class="wkend">${wk}</div>`;
   return html;
 }
 
-function buildSnow(n, now) {
-  let html = "";
-  const alerts = alertChips(n.alerts);
-  if (alerts) html += `<div class="chips">${alerts}</div>`;
-  const r = n.observed && n.observed.resort, sn = n.observed && n.observed.snotel;
-  let since = "—", sinceSub = "Since snow";
-  if (sn && sn.lastSnowAt) {
-    const h = (now - Date.parse(sn.lastSnowAt)) / 3600e3;
-    since = h < 1 ? "&lt;1 h" : h < 48 ? `${Math.round(h)} h` : `${Math.floor(h / 24)} d`;
-    sinceSub = `Since snow · ${esc(new Date(sn.lastSnowAt).toLocaleString("en-US", { timeZone: TZ, weekday: "short", hour: "numeric", minute: "2-digit" }))}`;
-  } else if (sn) { since = `${sn.lookbackDays || 30}+ d`; sinceSub = `Since snow · none in ${sn.lookbackDays || 30} days`; }
-  html += `<div class="row stats">` +
-    `<div class="stat"><span class="mid">${r && r.in24 != null ? esc(r.in24) + "<small>in</small>" : "—"}</span><span class="cap">Last 24 h · resort report</span></div>` +
-    `<div class="stat"><span class="mid">${since}</span><span class="cap">${sinceSub}</span></div>` +
-    `<div class="stat fc"><span class="mid">${n.snow24hIn ?? "—"}<small>in</small></span><span class="cap">Next 24 h · forecast</span></div>` +
-    `<div class="stat fc"><span class="mid">${n.snow72hIn ?? "—"}<small>in</small></span><span class="cap">Next 72 h · forecast</span></div></div>`;
-  const ds = ((sn && sn.depthSeries) || []).map(([t, v]) => ({ t: Date.parse(t), y: v }));
-  let depth = "";
-  if (ds.length > 1) {
-    const hi = Math.max(...ds.map((p) => p.y), 1), step = niceStep(hi, 3), lp = last(ds);
-    depth = box(lineChart({ pts: ds, w: 340, h: 118, yMax: Math.ceil((hi * 1.2) / step) * step, step, cls: "snow", xDays: true, marks: [{ t: lp.t, y: lp.y, up: true, label: `${lp.y} in` }], label: "Snow depth" }), 340, 118);
-  }
-  const bars = barChart({ bars: (n.blocks || []).filter((b) => Date.parse(b.end) > now), w: 300, h: 118, label: "Forecast new snow" });
-  html += `<div class="row"><div class="half"><div class="cap">Snow depth, in · last 7 days (SNOTEL, 8,540 ft)</div>${depth || '<p class="empty">No depth data.</p>'}</div>` +
-    `<div class="half"><div class="cap">Forecast new snow, in · per 6 h</div>${box(bars, 300, 118) || '<p class="empty">No forecast data.</p>'}</div></div>`;
-  html += `<div class="row periods">` + (n.periods || []).slice(0, 4).map((p) =>
-    `<div class="per">${wxIcon(p.short, p.name)}<div><b>${esc(p.name)}</b><br><span class="tp">${esc(p.temp)}°F</span> ${esc(p.short)}</div></div>`).join("") + `</div>`;
-  const bits = [];
-  if (r) bits.push(`Resort report ${String(r.updatedText || "").replace(/^Updated\s*/i, "").replace(/, \d{4} at/, " ")}`);
-  if (sn) bits.push(`SNOTEL depth ${sn.depthIn} in, +${sn.depthGain24In} in in 24 h (${fmtTime(sn.lastObs)})`);
-  bits.push("Last snow = latest hour with new gauge precipitation at 34 °F or colder");
-  html += `<p class="src">${esc(bits.join(" · "))}</p>`;
-  return html;
+function buildSnow(w, now) {
+  const resorts = w.ski || (w.snow ? [Object.assign({ name: "Heavenly" }, w.snow)] : []);
+  return resorts.length ? resorts.map((r) => resortHtml(r, now, box)).join("") : `<p class="empty">No ski data yet.</p>`;
 }
 
 function buildEvents(e) {
@@ -218,7 +273,7 @@ const wall = {
   dataUpdatedAt: w.updatedAt ? Date.parse(w.updatedAt) : null,
   asOf,
   sail: buildSail(w.sail || {}, now),
-  snow: buildSnow(w.snow || {}, now),
+  snow: buildSnow(w, now),
   events: buildEvents(ev),
 };
 await writeFile("data/wall.json", JSON.stringify(wall) + "\n");
