@@ -1,0 +1,52 @@
+{
+ "updatedAt": "2026-11-20T00:59:16.616Z",
+ "weekend": "Nov 20 - Nov 22, 2026",
+ "source": "sf.funcheap.com/weekend — Top 5 Most Popular Events",
+ "events": [
+  {
+   "url": "https://sf.funcheap.com/annual-great-dickens-christmas-fair/",
+   "title": "SF’s 42nd Annual Great Dickens Christmas Fair (Nov. 21-Dec. 20)",
+   "start": "2026-11-21T10:00:00-08:00",
+   "end": "2026-11-21T18:00:00-08:00",
+   "venue": "Cow Palace",
+   "city": "Daly City",
+   "price": "$35"
+  },
+  {
+   "url": "https://sf.funcheap.com/colmas-asian-night-market-parol-lantern-workshop/",
+   "title": "Colma’s Asian Night Market & Parol Lantern Workshop",
+   "start": "2026-11-20T17:00:00-08:00",
+   "end": "2026-11-20T20:00:00-08:00",
+   "venue": "Colma Community Center Parking Lot",
+   "city": "Colma",
+   "price": "Free"
+  },
+  {
+   "url": "https://sf.funcheap.com/sfs-secondhand-saturday-2025-w-sunset-mercantile-season-finale/",
+   "title": "SF’s “Secondhand Saturday” 2026 w/ Sunset Mercantile (Season Finale)",
+   "start": "2026-11-21T10:00:00-08:00",
+   "end": "2026-11-21T16:00:00-08:00",
+   "venue": "Sunset Community Mercantile",
+   "city": "San Francisco",
+   "price": "Free"
+  },
+  {
+   "url": "https://sf.funcheap.com/san-francisco-chocolate-salon-golden-gate-park-fall-2026/",
+   "title": "$2 Off: San Francisco Fall Holiday Chocolate Salon and Festival (2026)",
+   "start": "2026-11-22T11:00:00-08:00",
+   "end": "2026-11-22T16:30:00-08:00",
+   "venue": "San Francisco County Fair Building",
+   "city": "San Francisco",
+   "price": "$18.47"
+  },
+  {
+   "url": "https://sf.funcheap.com/sun-bass-free-dj-popup-crissy-field-sf/",
+   "title": "“Sun Down Bass Up” Free DJ Pop-Up in Crissy Field (SF)",
+   "start": "2026-11-21T12:00:00-08:00",
+   "end": "2026-11-21T17:00:00-08:00",
+   "venue": "Crissy Field",
+   "city": "San Francisco",
+   "price": "Free"
+  }
+ ]
+}
