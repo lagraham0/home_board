@@ -166,3 +166,6 @@ await section("Supabase keep-alive", async () => {
 });
 
 console.log(errors.length ? `Done with ${errors.length} problem(s):\n- ${errors.join("\n- ")}` : "Done. All sources updated.");
+
+/* ---------- build the display-only wall page data (wall.html) ---------- */
+await import("./render-wall.mjs").catch((e) => console.error("[wall page]", e.message));
