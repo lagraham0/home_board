@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-20T00:59:16.616Z",
+ "updatedAt": "2026-11-20T01:01:31.066Z",
  "source": "api.weather.gov; skiheavenly.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "snow": {
   "place": "Heavenly Mountain Resort",
@@ -104,13 +104,6 @@
   ],
   "hourly": [
    {
-    "t": "2026-11-19T16:00:00-08:00",
-    "temp": 56,
-    "wind": "21 mph",
-    "dir": "WNW",
-    "short": "Mostly Sunny"
-   },
-   {
     "t": "2026-11-19T17:00:00-08:00",
     "temp": 55,
     "wind": "21 mph",
@@ -185,6 +178,13 @@
     "temp": 51,
     "wind": "10 mph",
     "dir": "WNW",
+    "short": "Light Rain Likely"
+   },
+   {
+    "t": "2026-11-20T04:00:00-08:00",
+    "temp": 51,
+    "wind": "9 mph",
+    "dir": "NNW",
     "short": "Light Rain Likely"
    }
   ],
