@@ -35,7 +35,14 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
   padding-block:18px 28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .board{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;max-width:1400px;margin:0 auto}
 .w{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;min-width:0;display:flex;flex-direction:column;gap:12px}
-.w-clock{grid-column:span 4}.w-sail{grid-column:span 8}
+.board{grid-auto-flow:row dense}
+.w-clock{grid-column:1/-1!important;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 18px;padding:10px 18px}
+.w-clock .hb-time{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.w-clock .hb-side{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.w-clock .clock{font-size:46px;line-height:1}
+.w-clock .clock .ampm{font-size:18px}
+.w-clock .date{font-size:20px}
+.w-sail{grid-column:span 8}
 .w-snow{grid-column:span 8}.w-events{grid-column:span 4}
 .w-cal,.w-rem,.w-groc{grid-column:span 4}
 @media (max-width:1020px){.board{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -216,12 +223,10 @@ figcaption{font-size:11.5px;color:var(--muted);margin-bottom:2px}
   </section>
 
   <!-- Clock -->
-  <section class="w w-clock" aria-label="Date and time">
-    <div class="hd"><p class="lbl">Home</p><span class="sub" id="dbstate">Connecting…</span></div>
-    <div><span class="clock num" id="clock">--:--</span></div>
-    <div class="date" id="date"></div>
-    <div class="add"><button class="btn" id="wake" type="button">Keep screen on</button><span class="sub" id="wakeState"></span></div>
-  </section>
+  <header class="w w-clock" aria-label="Date and time">
+    <div class="hb-time"><span class="clock num" id="clock">--:--</span><span class="date" id="date"></span></div>
+    <div class="hb-side"><span class="sub" id="dbstate">Connecting…</span><button class="btn" id="wake" type="button">Keep screen on</button><span class="sub" id="wakeState"></span></div>
+  </header>
 
   <!-- Sailing -->
   <section class="w w-sail" aria-label="Sailing conditions at the Golden Gate">
