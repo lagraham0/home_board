@@ -87,6 +87,26 @@ b{font-weight:600}
 .dial .wedge{fill:#1d6c88}
 .dial .spd{fill:#13222a;font-size:30px;font-weight:600;font-family:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif}
 .dial .u{fill:#566870;font-size:11px}
+.wkend{border-top:1px solid #cdd7db;margin-top:10px;padding-top:10px}
+.wk-h .lbl{display:block;margin-bottom:2px}
+.wkend .cap{margin-top:6px}
+.wk-mar p{margin:4px 0 0}
+.c-day{stroke:#566870;stroke-width:1;stroke-opacity:.55}
+.c-dayl{fill:#13222a;font-size:11px;font-weight:700;letter-spacing:1px;font-family:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif}
+.resort + .resort{border-top:1px solid #cdd7db;margin-top:10px;padding-top:10px}
+.resort .hd{display:-webkit-flex;display:flex;-webkit-align-items:baseline;align-items:baseline;-webkit-flex-wrap:wrap;flex-wrap:wrap}
+.resort .hd .lbl{margin-right:10px}
+.resort .hd .lbl b{font-size:15px}
+.snow-grid{display:-webkit-flex;display:flex;margin-bottom:8px}
+.snow-stats{width:130px;-webkit-flex:0 0 130px;flex:0 0 130px;margin-right:12px}
+.snow-stats .stat{margin-bottom:10px}
+.snow-grid figure{-webkit-flex:1 1 40%;flex:1 1 40%;min-width:0;margin:0 12px 0 0}
+.snow-grid figure:last-child{margin-right:0}
+.snow-grid figcaption{font-size:11.5px;color:#566870;margin-bottom:2px}
+.periods{display:-webkit-flex;display:flex;margin-bottom:4px}
+.per .pt{min-width:0}
+.per .pt span{display:block}
+.per .n{font-weight:600}
 @media (max-width:900px){.c-sail,.c-snow{-webkit-flex:1 1 100%;flex:1 1 100%}}
 </style>
 </head>
@@ -98,7 +118,7 @@ b{font-weight:600}
 <div class="wrap">
   <div class="panel c-sail"><p class="lbl">Sailing · <b>Golden Gate</b></p><div id="sail"><p class="empty">Loading…</p></div>
     <p class="src">NWS forecast &amp; marine zone PZZ530 · NOAA Tides &amp; Currents · dashed line = time of last update</p></div>
-  <div class="panel c-snow"><p class="lbl">Snow · <b>Heavenly</b></p><div id="snow"><p class="empty">Loading…</p></div></div>
+  <div class="panel c-snow"><p class="lbl">Skiing</p><div id="snow"><p class="empty">Loading…</p></div></div>
   <div class="panel c-events"><p class="lbl">This weekend · <b>Bay Area</b></p><div id="events"><p class="empty">Loading…</p></div></div>
 </div>
 <script>
