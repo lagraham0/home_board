@@ -285,6 +285,9 @@ figcaption{font-size:11.5px;color:var(--muted);margin-bottom:2px}
 </main>
 <footer class="foot"><span>Lists are shared with everyone in the household.</span><button class="btn" id="signOut" type="button" hidden>Sign out</button></footer>
 
+<script>
+window.addEventListener("error", function(e){ var el = document.getElementById("dbstate"); if(el) el.textContent = "Page error: " + (e.message || "unknown") + " (line " + (e.lineno || "?") + ")"; });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script src="config.js"></script>
 <script>
@@ -350,7 +353,7 @@ const ktRange = s => { const n = (toKt(s).match(/\d+/g)||[]).map(Number); return
 
 function lineChart({pts, w=560, h=118, yMin=0, yMax, step, cls="sea", signed=false, band=null, marks=[], nowY=null, arrows=null, xDays=false, label=""}){
   if(!pts || pts.length < 2) return "";
-  const L=30, R=10, T=arrows?24:14, B=18, iw=w-L-R, ih=h-T-B, t0=pts[0].t, t1=pts.at(-1).t, now=Date.now();
+  const L=30, R=10, T=arrows?24:14, B=18, iw=w-L-R, ih=h-T-B, t0=pts[0].t, t1=pts[pts.length-1].t, now=Date.now();
   const X = t => L + (t-t0)/(t1-t0)*iw, Y = v => T + (yMax-v)/(yMax-yMin)*ih, f = n => n.toFixed(1);
   let g = "";
   for(let v = Math.ceil(yMin/step)*step; v <= yMax+1e-9; v += step){ const y = f(Y(v));
@@ -358,7 +361,7 @@ function lineChart({pts, w=560, h=118, yMin=0, yMax, step, cls="sea", signed=fal
   if(xDays){ let last = laDate(t0); for(const p of pts){ const d = laDate(p.t); if(d !== last && X(p.t) > L+10 && X(p.t) < w-R-10){ g += `<line class="c-grid" x1="${f(X(p.t))}" x2="${f(X(p.t))}" y1="${T}" y2="${h-B}"/><text class="c-t" x="${f(X(p.t))}" y="${h-4}" text-anchor="middle">${dayLbl(p.t)}</text>`; } last = d; } }
   else for(const p of pts){ if(laHour(p.t)%3===0 && X(p.t) > L+10 && X(p.t) < w-R-10) g += `<text class="c-t" x="${f(X(p.t))}" y="${h-4}" text-anchor="middle">${hourLbl(p.t)}</text>`; }
   const path = arr => arr.map((p,i) => `${i?"L":"M"}${f(X(p.t))},${f(Y(p.y))}`).join("");
-  const area = (arr, base) => `${path(arr)}L${f(X(arr.at(-1).t))},${f(Y(base))}L${f(X(arr[0].t))},${f(Y(base))}Z`;
+  const area = (arr, base) => `${path(arr)}L${f(X(arr[arr.length-1].t))},${f(Y(base))}L${f(X(arr[0].t))},${f(Y(base))}Z`;
   let body = "";
   if(band) body += `<path class="c-band ${cls}" d="${band.map((p,i)=>`${i?"L":"M"}${f(X(p.t))},${f(Y(p.hi))}`).join("")}${band.slice().reverse().map(p=>`L${f(X(p.t))},${f(Y(p.lo))}`).join("")}Z"/>`;
   if(signed){
@@ -378,12 +381,12 @@ function lineChart({pts, w=560, h=118, yMin=0, yMax, step, cls="sea", signed=fal
 function barChart({bars, w=300, h=118, label=""}){
   if(!bars || !bars.length) return "";
   const L=26, R=6, T=16, B=18, iw=w-L-R, ih=h-T-B, f = n => n.toFixed(1);
-  const t0 = Date.parse(bars[0].start), t1 = Date.parse(bars.at(-1).end), X = t => L + (t-t0)/(t1-t0)*iw;
+  const t0 = Date.parse(bars[0].start), t1 = Date.parse(bars[bars.length-1].end), X = t => L + (t-t0)/(t1-t0)*iw;
   const max = Math.max(...bars.map(b => b.in)), yMax = Math.max(1, Math.ceil(max)), step = niceStep(yMax, 3), Y = v => T + (yMax-v)/yMax*ih;
   let g = ""; for(let v=0; v<=yMax+1e-9; v+=step){ const y=f(Y(v)); g += `<line class="c-grid" x1="${L}" x2="${w-R}" y1="${y}" y2="${y}"/><text class="c-t" x="${L-4}" y="${f(+y+3.5)}" text-anchor="end">${fmt1(v)}</text>`; }
   const days = {}; let body = "";
   for(const b of bars){ const s = Date.parse(b.start), e = Date.parse(b.end), x0 = X(s)+1.5, x1 = X(e)-1.5;
-    (days[laDate((s+e)/2)] ||= []).push((x0+x1)/2);
+    { const dk = laDate((s+e)/2); if(!days[dk]) days[dk] = []; days[dk].push((x0+x1)/2); }
     if(b.in > 0){ body += `<rect class="c-bar" x="${f(x0)}" y="${f(Y(b.in))}" width="${f(Math.max(1,x1-x0))}" height="${f(Y(0)-Y(b.in))}" rx="2"/>`;
       if(b.in >= 0.1) body += `<text class="c-lab" x="${f((x0+x1)/2)}" y="${f(Y(b.in)-3)}" text-anchor="middle">${fmt1(b.in)}</text>`; } }
   for(const [d, xs] of Object.entries(days)){ const x = xs.reduce((a,c)=>a+c,0)/xs.length; const [yy,mm,dd] = d.split("-").map(Number);
@@ -437,7 +440,7 @@ function renderWx(){
   if(tideH.length > 1){
     const hi = Math.max(...tideH.map(p => p.y)), lo = Math.min(0, ...tideH.map(p => p.y)), step = niceStep(hi - lo, 3);
     const i = tideH.findIndex(p => p.t > now), nowY = i > 0 ? tideH[i-1].y + (tideH[i].y - tideH[i-1].y)*(now - tideH[i-1].t)/(tideH[i].t - tideH[i-1].t) : null;
-    const marks = tidesNext.map(t => ({ t:wallMs(t.t), y:t.ft, up:t.type === "High", label:`${t.type === "High" ? "H" : "L"} ${t.ft} · ${hmLbl(wallMs(t.t))}` })).filter(m => m.t <= tideH.at(-1).t);
+    const marks = tidesNext.map(t => ({ t:wallMs(t.t), y:t.ft, up:t.type === "High", label:`${t.type === "High" ? "H" : "L"} ${t.ft} · ${hmLbl(wallMs(t.t))}` })).filter(m => m.t <= tideH[tideH.length-1].t);
     $("tideChart").innerHTML = lineChart({ pts:tideH, w:300, yMin:Math.floor(lo/step)*step, yMax:Math.ceil((hi+1)/step)*step, step, cls:"sea", marks, nowY, label:"Predicted tide height in feet for the next 24 hours" });
   } else $("tideChart").innerHTML = "";
   $("tides").innerHTML = tidesNext.slice(0,2).map(t => `${t.type} ${esc(t.ft)} ft ${esc(wallLabel(t.t))}`).join(" · ") || (tideH.length ? "" : "No tide data yet");
@@ -446,7 +449,7 @@ function renderWx(){
   if(curH.length > 1){
     const m = Math.max(1, ...curH.map(p => Math.abs(p.y))), step = niceStep(2*m, 4), lim = Math.ceil((m+0.4)/step)*step;
     const i = curH.findIndex(p => p.t > now), nowY = i > 0 ? curH[i-1].y + (curH[i].y - curH[i-1].y)*(now - curH[i-1].t)/(curH[i].t - curH[i-1].t) : null;
-    const marks = curNext.filter(c => c.type !== "slack").map(c => ({ t:wallMs(c.t), y:c.type === "ebb" ? -c.kt : c.kt, up:c.type !== "ebb", label:`${c.kt}` })).filter(mk => mk.t <= curH.at(-1).t);
+    const marks = curNext.filter(c => c.type !== "slack").map(c => ({ t:wallMs(c.t), y:c.type === "ebb" ? -c.kt : c.kt, up:c.type !== "ebb", label:`${c.kt}` })).filter(mk => mk.t <= curH[curH.length-1].t);
     $("curChart").innerHTML = lineChart({ pts:curH, w:300, yMin:-lim, yMax:lim, step, signed:true, marks, nowY, label:"Predicted current at the Golden Gate in knots, flood above the line and ebb below" });
   } else $("curChart").innerHTML = "";
   const slack = curNext.filter(c => c.type === "slack").slice(0,2).map(c => esc(wallLabel(c.t)));
@@ -463,7 +466,7 @@ function renderWx(){
   } else if(sn){ $("lastSnow").textContent = `${sn.lookbackDays||30}+ d`; $("lastSnowSub").textContent = `Since snow · none in ${sn.lookbackDays||30} days`; }
   const ds = (sn?.depthSeries||[]).map(([t,v]) => ({t:Date.parse(t), y:v}));
   if(ds.length > 1){
-    const hi = Math.max(...ds.map(p => p.y), 1), step = niceStep(hi, 3), last = ds.at(-1);
+    const hi = Math.max(...ds.map(p => p.y), 1), step = niceStep(hi, 3), last = ds[ds.length-1];
     $("depthChart").innerHTML = lineChart({ pts:ds, w:340, yMax:Math.ceil((hi*1.2)/step)*step, step, cls:"snow", xDays:true,
       marks:[{t:last.t, y:last.y, up:true, label:`${last.y} in`}], label:"Snow depth in inches over the last 7 days" });
   } else $("depthChart").innerHTML = sn ? `<p class="empty">Depth now ${esc(sn.depthIn)} in (+${esc(sn.depthGain24In)} in in 24 h). The 7-day chart appears after the next hourly refresh.</p>` : "";
@@ -595,6 +598,3 @@ $("signOut").addEventListener("click", async () => { if(sb){ await sb.auth.signO
   if(session) onSignedIn(); else showSignIn();
 })();
 })();
-</script>
-</body>
-</html>
