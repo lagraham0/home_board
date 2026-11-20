@@ -153,7 +153,10 @@ figcaption{font-size:11.5px;color:var(--muted);margin-bottom:2px}
 .dial .wedge{fill:var(--sea)}
 .dial .spd{fill:var(--ink);font:600 30px var(--f-display)}
 .dial .u{fill:var(--muted);font:500 11px var(--f-body)}
-.sail-grid{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;align-items:start}
+.sail-grid{display:grid;grid-template-columns:268px minmax(0,1fr);gap:16px;align-items:start}
+.dials{display:flex;gap:10px}
+.dialbox{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;width:129px}
+.dialbox .dial{width:120px;height:120px}
 .sail-now{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
 .sail-now .dial{width:140px;height:140px;flex:none}
 .sail-charts{display:flex;flex-direction:column;gap:10px;min-width:0}
@@ -233,8 +236,7 @@ figcaption{font-size:11.5px;color:var(--muted);margin-bottom:2px}
     <div class="hd"><p class="lbl">Sailing · <b>Golden Gate</b></p><span class="chips" id="sailAlerts"></span><span id="wxAge"></span></div>
     <div class="sail-grid">
       <div class="sail-now">
-        <svg class="dial" id="dial" viewBox="0 0 140 140" role="img" aria-label="Observed wind"></svg>
-        <div class="sub" id="windNowSub">Observed wind</div>
+        <div class="dials" id="dials"><p class="empty">Loading observed wind…</p></div>
       </div>
       <div class="sail-charts">
         <figure><figcaption>Forecast wind, knots · next 12 h · arrows point downwind</figcaption><div id="windChart"></div></figure>
@@ -516,14 +518,23 @@ function resortHtml(n, now, wrap){
   return html;
 }
 
+/* observed wind dials, one per station (side by side) */
+function obsList(s){ return (s.obsList && s.obsList.length) ? s.obsList : (s.obs ? [Object.assign({ id:"9414290", name:"San Francisco" }, s.obs)] : []); }
+function dialsHtml(s, now, px){
+  const L = obsList(s);
+  if(!L.length) return `<p class="empty">Observed wind unavailable.</p>`;
+  return L.map(o => { const old = o.t && wallMs(o.t) < now - 2*3600e3;
+    return `<div class="dialbox"><svg class="dial" width="${px}" height="${px}" viewBox="0 0 140 140" role="img" aria-label="Observed wind at ${esc(o.name)}">${dialSvg(+o.deg, o.kt)}</svg>` +
+      `<div class="sub"><b>${esc(o.name)}</b><br>${esc(o.dir || "")} · gusts ${esc(o.gustKt)} kt<br>${old ? "last reading " : ""}${esc(wallLabel(o.t))}</div></div>`; }).join("");
+}
+
 function renderWx(){
   if(!wx){ return; }
   $("wxAge").innerHTML = ageChip(wx.updatedAt);
   const s = wx.sail||{}, n = wx.snow||{}, nowWall = laParts().wall, now = Date.now();
   /* ---- sailing ---- */
   $("sailAlerts").innerHTML = alertChips(s.alerts);
-  $("dial").innerHTML = dialSvg(s.obs ? +s.obs.deg : null, s.obs ? s.obs.kt : null);
-  if(s.obs) $("windNowSub").innerHTML = `<b>${esc(s.obs.dir)}</b> · gusts ${esc(s.obs.gustKt)} kt<br>observed ${esc(wallLabel(s.obs.t))}`;
+  $("dials").innerHTML = dialsHtml(s, now, 120);
   const hrs = (s.hourly||[]).filter(h => Date.parse(h.t) > now - 3600e3 && Date.parse(h.t) <= now + 12*3600e3).slice(0,13).map(h => ({ t:Date.parse(h.t), r:ktRange(h.wind), deg:DIRS[h.dir] ?? null })).filter(h => h.r);
   if(hrs.length > 1){
     const hi = Math.max(...hrs.map(h => h.r[1]), s.obs ? +s.obs.gustKt||0 : 0), step = niceStep(hi, 4), yMax = Math.max(step*2, Math.ceil(hi/step)*step);
