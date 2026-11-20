@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-20T02:15:01.219Z",
+ "updatedAt": "2026-11-20T02:16:05.878Z",
  "source": "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "ski": [
   {
@@ -1121,13 +1121,6 @@
   ],
   "hourly": [
    {
-    "t": "2026-11-19T17:00:00-08:00",
-    "temp": 55,
-    "wind": "21 mph",
-    "dir": "WNW",
-    "short": "Sunny"
-   },
-   {
     "t": "2026-11-19T18:00:00-08:00",
     "temp": 55,
     "wind": "21 mph",
@@ -2207,6 +2200,13 @@
    },
    {
     "t": "2026-11-26T04:00:00-08:00",
+    "temp": 55,
+    "wind": "12 mph",
+    "dir": "ENE",
+    "short": "Slight Chance Light Rain"
+   },
+   {
+    "t": "2026-11-26T05:00:00-08:00",
     "temp": 55,
     "wind": "12 mph",
     "dir": "ENE",
