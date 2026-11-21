@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-21T00:17:22.152Z",
+ "updatedAt": "2026-11-21T07:00:19.678Z",
  "weekend": "Nov 20 - Nov 22, 2026",
  "source": "sf.funcheap.com/weekend — Top 5 Most Popular Events",
  "events": [
@@ -40,12 +40,12 @@
    "price": "$18.47"
   },
   {
-   "url": "https://sf.funcheap.com/sun-bass-free-dj-popup-crissy-field-sf/",
-   "title": "“Sun Down Bass Up” Free DJ Pop-Up in Crissy Field (SF)",
-   "start": "2026-11-21T12:00:00-08:00",
-   "end": "2026-11-21T17:00:00-08:00",
-   "venue": "Crissy Field",
-   "city": "San Francisco",
+   "url": "https://sf.funcheap.com/from-the-e-harvest-night-market-sf/",
+   "title": "From the E: Harvest Night Market (SF)",
+   "start": "2026-11-20T16:30:00-08:00",
+   "end": "2026-11-20T20:30:00-08:00",
+   "venue": "Ocean Ave & Mission St.",
+   "city": "CA 94112",
    "price": "Free"
   }
  ]
