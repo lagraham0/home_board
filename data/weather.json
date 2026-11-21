@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-21T15:38:30.978Z",
+ "updatedAt": "2026-11-21T16:00:20.008Z",
  "source": "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "ski": [
   {
@@ -12,7 +12,7 @@
      "name": "Today",
      "temp": 26,
      "short": "Partly Sunny",
-     "detail": "Partly sunny, with a high near 26. Southwest wind 15 to 25 mph, with gusts as high as 40 mph.",
+     "detail": "Partly sunny, with a high near 26. Southwest wind 20 to 25 mph, with gusts as high as 40 mph.",
      "pop": 1
     },
     {
@@ -801,11 +801,6 @@
    }
   ],
   "gusts": [
-   {
-    "start": "2026-11-21T14:00:00.000Z",
-    "end": "2026-11-21T15:00:00.000Z",
-    "kt": 9
-   },
    {
     "start": "2026-11-21T15:00:00.000Z",
     "end": "2026-11-21T17:00:00.000Z",
@@ -3234,30 +3229,30 @@
    }
   ],
   "obs": {
-   "t": "2026-11-21T07:30",
-   "kt": 8.8,
-   "gustKt": 12.4,
-   "deg": 8,
-   "dir": "N"
+   "t": "2026-11-21T07:54",
+   "kt": 7.4,
+   "gustKt": 8.4,
+   "deg": 28,
+   "dir": "NNE"
   },
   "obsList": [
    {
     "id": "9414290",
     "name": "San Francisco",
-    "t": "2026-11-21T07:30",
-    "kt": 8.8,
-    "gustKt": 12.4,
-    "deg": 8,
-    "dir": "N"
+    "t": "2026-11-21T07:54",
+    "kt": 7.4,
+    "gustKt": 8.4,
+    "deg": 28,
+    "dir": "NNE"
    },
    {
     "id": "9414847",
     "name": "Point Potrero, Richmond",
-    "t": "2026-11-21T07:30",
-    "kt": 5.6,
-    "gustKt": 7.8,
-    "deg": 353,
-    "dir": "N"
+    "t": "2026-11-21T07:54",
+    "kt": 2.9,
+    "gustKt": 5.3,
+    "deg": 15,
+    "dir": "NNE"
    }
   ]
  },
