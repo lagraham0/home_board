@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-11-21T07:00:19.678Z",
- "weekend": "Nov 20 - Nov 22, 2026",
+ "updatedAt": "2026-11-21T13:00:30.897Z",
+ "weekend": "Nov 21 - Nov 22, 2026",
  "source": "sf.funcheap.com/weekend — Top 5 Most Popular Events",
  "events": [
   {
@@ -11,15 +11,6 @@
    "venue": "Cow Palace",
    "city": "Daly City",
    "price": "$35"
-  },
-  {
-   "url": "https://sf.funcheap.com/colmas-asian-night-market-parol-lantern-workshop/",
-   "title": "Colma’s Asian Night Market & Parol Lantern Workshop",
-   "start": "2026-11-20T17:00:00-08:00",
-   "end": "2026-11-20T20:00:00-08:00",
-   "venue": "Colma Community Center Parking Lot",
-   "city": "Colma",
-   "price": "Free"
   },
   {
    "url": "https://sf.funcheap.com/sfs-secondhand-saturday-2025-w-sunset-mercantile-season-finale/",
@@ -40,12 +31,21 @@
    "price": "$18.47"
   },
   {
-   "url": "https://sf.funcheap.com/from-the-e-harvest-night-market-sf/",
-   "title": "From the E: Harvest Night Market (SF)",
-   "start": "2026-11-20T16:30:00-08:00",
-   "end": "2026-11-20T20:30:00-08:00",
-   "venue": "Ocean Ave & Mission St.",
-   "city": "CA 94112",
+   "url": "https://sf.funcheap.com/sun-bass-free-dj-popup-crissy-field-sf/",
+   "title": "“Sun Down Bass Up” Free DJ Pop-Up in Crissy Field (SF)",
+   "start": "2026-11-21T12:00:00-08:00",
+   "end": "2026-11-21T17:00:00-08:00",
+   "venue": "Crissy Field",
+   "city": "San Francisco",
+   "price": "Free"
+  },
+  {
+   "url": "https://sf.funcheap.com/lego-holiday-workshop-san-mateo/",
+   "title": "Lego Holiday Workshop San Mateo",
+   "start": "2026-11-21T11:00:00-08:00",
+   "end": "2026-11-21T19:00:00-08:00",
+   "venue": "Hilllsdale Shopping Center",
+   "city": "San Mateo",
    "price": "Free"
   }
  ]
