@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-22T22:48:38.676Z",
+ "updatedAt": "2026-11-22T23:00:21.674Z",
  "source": "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "ski": [
   {
@@ -9,9 +9,9 @@
    "alerts": [],
    "periods": [
     {
-     "name": "Today",
+     "name": "This Afternoon",
      "temp": 27,
-     "short": "Cloudy then Chance Light Snow",
+     "short": "Chance Light Snow",
      "detail": "A chance of snow after 4pm. Cloudy, with a high near 27. Southwest wind 10 to 15 mph, with gusts as high as 25 mph. Chance of precipitation is 40%. New snow accumulation of less than half an inch possible.",
      "pop": 35
     },
@@ -426,8 +426,8 @@
      "pop": 62
     }
    ],
-   "snow24hIn": 0.7,
-   "snow72hIn": 1.3,
+   "snow24hIn": 0.6,
+   "snow72hIn": 1.2,
    "blocks": [
     {
      "start": "2026-11-22T18:00:00.000Z",
@@ -801,11 +801,6 @@
    }
   ],
   "gusts": [
-   {
-    "start": "2026-11-22T21:00:00.000Z",
-    "end": "2026-11-22T22:00:00.000Z",
-    "kt": 9
-   },
    {
     "start": "2026-11-22T22:00:00.000Z",
     "end": "2026-11-23T00:00:00.000Z",
@@ -2189,8 +2184,8 @@
   "alerts": [
    {
     "event": "Small Craft Advisory",
-    "headline": "Small Craft Advisory issued November 22 at 8:12AM PST until November 24 at 3:00PM PST by NWS San Francisco CA",
-    "ends": "2026-11-24T15:00:00-08:00"
+    "headline": "Small Craft Advisory issued November 22 at 2:58PM PST until November 24 at 9:00PM PST by NWS San Francisco CA",
+    "ends": "2026-11-24T21:00:00-08:00"
    }
   ],
   "windStation": "NOAA 9414290 San Francisco",
@@ -3235,30 +3230,30 @@
    }
   ],
   "obs": {
-   "t": "2026-11-22T14:42",
-   "kt": 5.8,
-   "gustKt": 7,
-   "deg": 12,
-   "dir": "NNE"
+   "t": "2026-11-22T14:54",
+   "kt": 6.4,
+   "gustKt": 8.8,
+   "deg": 1,
+   "dir": "N"
   },
   "obsList": [
    {
     "id": "9414290",
     "name": "San Francisco",
-    "t": "2026-11-22T14:42",
-    "kt": 5.8,
-    "gustKt": 7,
-    "deg": 12,
-    "dir": "NNE"
+    "t": "2026-11-22T14:54",
+    "kt": 6.4,
+    "gustKt": 8.8,
+    "deg": 1,
+    "dir": "N"
    },
    {
     "id": "9414847",
     "name": "Point Potrero, Richmond",
-    "t": "2026-11-22T14:42",
-    "kt": 3.1,
-    "gustKt": 6.6,
-    "deg": 359,
-    "dir": "N"
+    "t": "2026-11-22T14:54",
+    "kt": 6.6,
+    "gustKt": 9.7,
+    "deg": 342,
+    "dir": "NNW"
    }
   ]
  },
