@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-22T01:36:23.062Z",
+ "updatedAt": "2026-11-22T02:00:19.265Z",
  "source": "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "ski": [
   {
@@ -384,13 +384,6 @@
    "alerts": [],
    "periods": [
     {
-     "name": "This Afternoon",
-     "temp": 32,
-     "short": "Mostly Cloudy",
-     "detail": "Mostly cloudy, with a high near 32. South wind around 5 mph.",
-     "pop": 1
-    },
-    {
      "name": "Tonight",
      "temp": 24,
      "short": "Mostly Cloudy then Chance Light Snow",
@@ -424,6 +417,13 @@
      "short": "Mostly Cloudy",
      "detail": "Mostly cloudy, with a low around 27. Southeast wind 0 to 5 mph.",
      "pop": 3
+    },
+    {
+     "name": "Tuesday",
+     "temp": 37,
+     "short": "Partly Sunny then Light Snow Likely",
+     "detail": "Snow likely after 4pm. Partly sunny, with a high near 37. South wind around 5 mph, with gusts as high as 20 mph. Chance of precipitation is 70%. New snow accumulation of less than one inch possible.",
+     "pop": 65
     }
    ],
    "snow24hIn": 0,
@@ -801,11 +801,6 @@
    }
   ],
   "gusts": [
-   {
-    "start": "2026-11-22T00:00:00.000Z",
-    "end": "2026-11-22T01:00:00.000Z",
-    "kt": 13
-   },
    {
     "start": "2026-11-22T01:00:00.000Z",
     "end": "2026-11-22T03:00:00.000Z",
@@ -3219,29 +3214,29 @@
    }
   ],
   "obs": {
-   "t": "2026-11-21T17:30",
-   "kt": 0.8,
-   "gustKt": 1.8,
-   "deg": 235,
-   "dir": "SW"
+   "t": "2026-11-21T17:54",
+   "kt": 4.1,
+   "gustKt": 4.5,
+   "deg": 189,
+   "dir": "S"
   },
   "obsList": [
    {
     "id": "9414290",
     "name": "San Francisco",
-    "t": "2026-11-21T17:30",
-    "kt": 0.8,
-    "gustKt": 1.8,
-    "deg": 235,
-    "dir": "SW"
+    "t": "2026-11-21T17:54",
+    "kt": 4.1,
+    "gustKt": 4.5,
+    "deg": 189,
+    "dir": "S"
    },
    {
     "id": "9414847",
     "name": "Point Potrero, Richmond",
-    "t": "2026-11-21T17:30",
-    "kt": 1.4,
-    "gustKt": 3.9,
-    "deg": 277,
+    "t": "2026-11-21T17:54",
+    "kt": 2.7,
+    "gustKt": 4.5,
+    "deg": 281,
     "dir": "W"
    }
   ]
