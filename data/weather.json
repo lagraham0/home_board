@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-22T17:24:44.272Z",
+ "updatedAt": "2026-11-22T18:00:20.632Z",
  "source": "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "ski": [
   {
@@ -12,7 +12,7 @@
      "name": "Today",
      "temp": 27,
      "short": "Mostly Cloudy then Slight Chance Light Snow",
-     "detail": "A slight chance of snow after 4pm. Mostly cloudy, with a high near 27. Southwest wind 15 to 25 mph, with gusts as high as 40 mph. Chance of precipitation is 20%.",
+     "detail": "A slight chance of snow after 4pm. Mostly cloudy, with a high near 27. Southwest wind around 15 mph, with gusts as high as 25 mph. Chance of precipitation is 20%.",
      "pop": 15
     },
     {
@@ -54,11 +54,6 @@
    "snow24hIn": 0,
    "snow72hIn": 0,
    "blocks": [
-    {
-     "start": "2026-11-22T12:00:00.000Z",
-     "end": "2026-11-22T18:00:00.000Z",
-     "in": 0
-    },
     {
      "start": "2026-11-22T18:00:00.000Z",
      "end": "2026-11-23T00:00:00.000Z",
@@ -117,6 +112,11 @@
     {
      "start": "2026-11-25T12:00:00.000Z",
      "end": "2026-11-25T18:00:00.000Z",
+     "in": 0
+    },
+    {
+     "start": "2026-11-25T18:00:00.000Z",
+     "end": "2026-11-26T00:00:00.000Z",
      "in": 0
     }
    ],
@@ -387,7 +387,7 @@
      "name": "Today",
      "temp": 32,
      "short": "Chance Light Snow",
-     "detail": "A chance of snow. Mostly cloudy, with a high near 32. Southwest wind 0 to 10 mph. Chance of precipitation is 30%.",
+     "detail": "A chance of snow. Mostly cloudy, with a high near 32. Southwest wind 0 to 5 mph. Chance of precipitation is 30%.",
      "pop": 32
     },
     {
@@ -429,11 +429,6 @@
    "snow24hIn": 0,
    "snow72hIn": 0.6,
    "blocks": [
-    {
-     "start": "2026-11-22T12:00:00.000Z",
-     "end": "2026-11-22T18:00:00.000Z",
-     "in": 0
-    },
     {
      "start": "2026-11-22T18:00:00.000Z",
      "end": "2026-11-23T00:00:00.000Z",
@@ -492,6 +487,11 @@
     {
      "start": "2026-11-25T12:00:00.000Z",
      "end": "2026-11-25T18:00:00.000Z",
+     "in": 0
+    },
+    {
+     "start": "2026-11-25T18:00:00.000Z",
+     "end": "2026-11-26T00:00:00.000Z",
      "in": 0
     }
    ],
@@ -802,11 +802,6 @@
   ],
   "gusts": [
    {
-    "start": "2026-11-22T16:00:00.000Z",
-    "end": "2026-11-22T17:00:00.000Z",
-    "kt": 11
-   },
-   {
     "start": "2026-11-22T17:00:00.000Z",
     "end": "2026-11-22T20:00:00.000Z",
     "kt": 12
@@ -1108,20 +1103,6 @@
    }
   ],
   "hourly": [
-   {
-    "t": "2026-11-22T08:00:00-08:00",
-    "temp": 51,
-    "wind": "9 mph",
-    "dir": "NNE",
-    "short": "Cloudy"
-   },
-   {
-    "t": "2026-11-22T09:00:00-08:00",
-    "temp": 51,
-    "wind": "9 mph",
-    "dir": "NNE",
-    "short": "Cloudy"
-   },
    {
     "t": "2026-11-22T10:00:00-08:00",
     "temp": 51,
@@ -2199,6 +2180,20 @@
     "wind": "23 mph",
     "dir": "SSW",
     "short": "Light Rain Likely"
+   },
+   {
+    "t": "2026-11-28T20:00:00-08:00",
+    "temp": 59,
+    "wind": "23 mph",
+    "dir": "SSW",
+    "short": "Light Rain Likely"
+   },
+   {
+    "t": "2026-11-28T21:00:00-08:00",
+    "temp": 59,
+    "wind": "23 mph",
+    "dir": "SSW",
+    "short": "Light Rain Likely"
    }
   ],
   "alerts": [
@@ -3250,30 +3245,30 @@
    }
   ],
   "obs": {
-   "t": "2026-11-22T09:18",
-   "kt": 11.1,
-   "gustKt": 14.4,
-   "deg": 38,
-   "dir": "NE"
+   "t": "2026-11-22T09:54",
+   "kt": 8.9,
+   "gustKt": 11.3,
+   "deg": 27,
+   "dir": "NNE"
   },
   "obsList": [
    {
     "id": "9414290",
     "name": "San Francisco",
-    "t": "2026-11-22T09:18",
-    "kt": 11.1,
-    "gustKt": 14.4,
-    "deg": 38,
-    "dir": "NE"
+    "t": "2026-11-22T09:54",
+    "kt": 8.9,
+    "gustKt": 11.3,
+    "deg": 27,
+    "dir": "NNE"
    },
    {
     "id": "9414847",
     "name": "Point Potrero, Richmond",
-    "t": "2026-11-22T09:12",
-    "kt": 1.9,
-    "gustKt": 4.3,
-    "deg": 101,
-    "dir": "E"
+    "t": "2026-11-22T09:54",
+    "kt": 2.3,
+    "gustKt": 6.6,
+    "deg": 54,
+    "dir": "NE"
    }
   ]
  },
