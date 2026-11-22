@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-22T08:51:48.491Z",
+ "updatedAt": "2026-11-22T09:00:20.954Z",
  "source": "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "ski": [
   {
@@ -3253,30 +3253,30 @@
    }
   ],
   "obs": {
-   "t": "2026-11-22T00:42",
-   "kt": 3.1,
-   "gustKt": 4.3,
-   "deg": 34,
-   "dir": "NE"
+   "t": "2026-11-22T00:54",
+   "kt": 3.7,
+   "gustKt": 4.7,
+   "deg": 27,
+   "dir": "NNE"
   },
   "obsList": [
    {
     "id": "9414290",
     "name": "San Francisco",
-    "t": "2026-11-22T00:42",
-    "kt": 3.1,
-    "gustKt": 4.3,
-    "deg": 34,
-    "dir": "NE"
+    "t": "2026-11-22T00:54",
+    "kt": 3.7,
+    "gustKt": 4.7,
+    "deg": 27,
+    "dir": "NNE"
    },
    {
     "id": "9414847",
     "name": "Point Potrero, Richmond",
-    "t": "2026-11-22T00:42",
+    "t": "2026-11-22T00:48",
     "kt": 2.9,
-    "gustKt": 4.1,
-    "deg": 343,
-    "dir": "NNW"
+    "gustKt": 4.3,
+    "deg": 357,
+    "dir": "N"
    }
   ]
  },
