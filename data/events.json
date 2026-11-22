@@ -1,44 +1,8 @@
 {
- "updatedAt": "2026-11-22T03:00:23.304Z",
- "weekend": "Nov 21 - Nov 22, 2026",
+ "updatedAt": "2026-11-22T10:00:18.559Z",
+ "weekend": "Nov 22 - Nov 22, 2026",
  "source": "sf.funcheap.com/weekend — Top 5 Most Popular Events",
  "events": [
-  {
-   "url": "https://sf.funcheap.com/annual-great-dickens-christmas-fair/",
-   "title": "SF’s 42nd Annual Great Dickens Christmas Fair (Nov. 21-Dec. 20)",
-   "start": "2026-11-21T10:00:00-08:00",
-   "end": "2026-11-21T18:00:00-08:00",
-   "venue": "Cow Palace",
-   "city": "Daly City",
-   "price": "$35"
-  },
-  {
-   "url": "https://sf.funcheap.com/sfs-secondhand-saturday-2025-w-sunset-mercantile-season-finale/",
-   "title": "SF’s “Secondhand Saturday” 2026 w/ Sunset Mercantile (Season Finale)",
-   "start": "2026-11-21T10:00:00-08:00",
-   "end": "2026-11-21T16:00:00-08:00",
-   "venue": "Sunset Community Mercantile",
-   "city": "San Francisco",
-   "price": "Free"
-  },
-  {
-   "url": "https://sf.funcheap.com/lego-holiday-workshop-san-mateo/",
-   "title": "Lego Holiday Workshop San Mateo",
-   "start": "2026-11-21T11:00:00-08:00",
-   "end": "2026-11-21T19:00:00-08:00",
-   "venue": "Hilllsdale Shopping Center",
-   "city": "San Mateo",
-   "price": "Free"
-  },
-  {
-   "url": "https://sf.funcheap.com/sun-bass-free-dj-popup-crissy-field-sf/",
-   "title": "“Sun Down Bass Up” Free DJ Pop-Up in Crissy Field (SF)",
-   "start": "2026-11-21T12:00:00-08:00",
-   "end": "2026-11-21T17:00:00-08:00",
-   "venue": "Crissy Field",
-   "city": "San Francisco",
-   "price": "Free"
-  },
   {
    "url": "https://sf.funcheap.com/san-francisco-chocolate-salon-golden-gate-park-fall-2026/",
    "title": "$2 Off: San Francisco Fall Holiday Chocolate Salon and Festival (2026)",
@@ -47,6 +11,42 @@
    "venue": "San Francisco County Fair Building",
    "city": "San Francisco",
    "price": "$18.47"
+  },
+  {
+   "url": "https://sf.funcheap.com/free-heydoh-tasting-popup-ferry-building-sf/",
+   "title": "Free Heydoh Tasting Pop-Up at the Ferry Building (SF)",
+   "start": "2026-11-22T13:00:00-08:00",
+   "end": "2026-11-22T16:00:00-08:00",
+   "venue": "1 Ferry Plaza",
+   "city": "94105",
+   "price": "Free"
+  },
+  {
+   "url": "https://sf.funcheap.com/hawaiian-arts-fest-kumu-kawika-alfiche-hlau-keikialii-oakland/",
+   "title": "Hawaiian Arts Fest with Kumu Kawika Alfiche and Hālau o Keikiali`i (Oakland)",
+   "start": "2026-11-22T12:00:00-08:00",
+   "end": "2026-11-22T17:00:00-08:00",
+   "venue": "Oakland Asian Cultural Center",
+   "city": "Oakland",
+   "price": "Free"
+  },
+  {
+   "url": "https://sf.funcheap.com/free-chanukah-fair-live-music-latkes-sf/",
+   "title": "Free Chanukah Fair w/ Live Music + Latkes (SF)",
+   "start": "2026-11-22T10:30:00-08:00",
+   "end": "2026-11-22T15:00:00-08:00",
+   "venue": "Congregation Am Tikvah",
+   "city": null,
+   "price": "Free"
+  },
+  {
+   "url": "https://sf.funcheap.com/sfs-42nd-annual-great-dickens-christmas-fair-nov-21-dec-20/",
+   "title": "SF’s 42nd Annual Great Dickens Christmas Fair (Nov. 21-Dec. 20)",
+   "start": "2026-11-22T10:00:00-08:00",
+   "end": "2026-11-22T18:00:00-08:00",
+   "venue": "Cow Palace",
+   "city": "Daly City",
+   "price": "$35"
   }
  ]
 }
