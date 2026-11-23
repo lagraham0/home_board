@@ -1,52 +1,52 @@
 {
- "updatedAt": "2026-11-23T05:00:20.941Z",
- "weekend": "Nov 22 - Nov 22, 2026",
+ "updatedAt": "2026-11-23T11:00:22.451Z",
+ "weekend": "Nov 27 - Nov 29, 2026",
  "source": "sf.funcheap.com/weekend — Top 5 Most Popular Events",
  "events": [
   {
-   "url": "https://sf.funcheap.com/san-francisco-chocolate-salon-golden-gate-park-fall-2026/",
-   "title": "$2 Off: San Francisco Fall Holiday Chocolate Salon and Festival (2026)",
-   "start": "2026-11-22T11:00:00-08:00",
-   "end": "2026-11-22T16:30:00-08:00",
-   "venue": "San Francisco County Fair Building",
+   "url": "https://sf.funcheap.com/ghirardelli-squares-holiday-lighting-ceremony/",
+   "title": "Ghirardelli Square’s 46-Ft Tree Lighting: Santa, Candy & Sing-Along (2026)",
+   "start": "2026-11-27T16:30:00-08:00",
+   "end": "2026-11-27T20:00:00-08:00",
+   "venue": "Ghirardelli Square",
    "city": "San Francisco",
-   "price": "$18.47"
-  },
-  {
-   "url": "https://sf.funcheap.com/free-heydoh-tasting-popup-ferry-building-sf/",
-   "title": "Free Heydoh Tasting Pop-Up at the Ferry Building (SF)",
-   "start": "2026-11-22T13:00:00-08:00",
-   "end": "2026-11-22T16:00:00-08:00",
-   "venue": "1 Ferry Plaza",
-   "city": "94105",
    "price": "Free"
   },
   {
-   "url": "https://sf.funcheap.com/free-chanukah-fair-live-music-latkes-sf/",
-   "title": "Free Chanukah Fair w/ Live Music + Latkes (SF)",
-   "start": "2026-11-22T10:30:00-08:00",
-   "end": "2026-11-22T15:00:00-08:00",
-   "venue": "Congregation Am Tikvah",
-   "city": null,
+   "url": "https://sf.funcheap.com/thrive-citys-winter-wonderland-tree-lighting-ceremony-sf/",
+   "title": "Thrive City’s “Winter Wonderland” 2026 Tree Lighting Ceremony (SF)",
+   "start": "2026-11-27T16:00:00-08:00",
+   "end": "2026-11-27T18:00:00-08:00",
+   "venue": "Thrive City",
+   "city": "1 Warriors Way San Francisco",
    "price": "Free"
   },
   {
-   "url": "https://sf.funcheap.com/sfs-42nd-annual-great-dickens-christmas-fair-nov-21-dec-20/",
+   "url": "https://sf.funcheap.com/sj-holiday-craft-fair-2026-w350-makers-santa-clara-nov-2728/",
+   "title": "SJ Made Holiday Craft Fair 2026 w/350+ Makers in Santa Clara (Nov. 27-28)",
+   "start": "2026-11-27T11:00:00-08:00",
+   "end": "2026-11-27T18:00:00-08:00",
+   "venue": "Santa Clara Convention Center",
+   "city": "Santa Clara",
+   "price": "Free"
+  },
+  {
+   "url": "https://sf.funcheap.com/3rd-annual-holiday-tree-lighting-carousel-lighting-free-ice-skating-yerba-buena-gardens/",
+   "title": "3rd Annual Holiday Tree Lighting, Carousel Lighting + Free Ice Skating (Yerba Buena Gardens)",
+   "start": "2026-11-28T16:30:00-08:00",
+   "end": "2026-11-28T19:00:00-08:00",
+   "venue": "Yerba Buena Gardens",
+   "city": "San Francisco",
+   "price": "Free"
+  },
+  {
+   "url": "https://sf.funcheap.com/sfs-42nd-annual-great-dickens-christmas-fair-nov-21-dec-20-2/",
    "title": "SF’s 42nd Annual Great Dickens Christmas Fair (Nov. 21-Dec. 20)",
-   "start": "2026-11-22T10:00:00-08:00",
-   "end": "2026-11-22T18:00:00-08:00",
+   "start": "2026-11-27T10:00:00-08:00",
+   "end": "2026-11-27T18:00:00-08:00",
    "venue": "Cow Palace",
    "city": "Daly City",
    "price": "$35"
-  },
-  {
-   "url": "https://sf.funcheap.com/hawaiian-arts-fest-kumu-kawika-alfiche-hlau-keikialii-oakland/",
-   "title": "Hawaiian Arts Fest with Kumu Kawika Alfiche and Hālau o Keikiali`i (Oakland)",
-   "start": "2026-11-22T12:00:00-08:00",
-   "end": "2026-11-22T17:00:00-08:00",
-   "venue": "Oakland Asian Cultural Center",
-   "city": "Oakland",
-   "price": "Free"
   }
  ]
 }
