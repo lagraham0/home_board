@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-24T21:32:10.119Z",
+ "updatedAt": "2026-11-24T22:00:21.221Z",
  "source": "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "ski": [
   {
@@ -384,7 +384,7 @@
    "alerts": [],
    "periods": [
     {
-     "name": "This Afternoon",
+     "name": "Today",
      "temp": 41,
      "short": "Mostly Cloudy",
      "detail": "Mostly cloudy, with a high near 41. South wind around 5 mph.",
@@ -801,11 +801,6 @@
    }
   ],
   "gusts": [
-   {
-    "start": "2026-11-24T20:00:00.000Z",
-    "end": "2026-11-24T21:00:00.000Z",
-    "kt": 19
-   },
    {
     "start": "2026-11-24T21:00:00.000Z",
     "end": "2026-11-24T22:00:00.000Z",
@@ -3240,28 +3235,28 @@
    }
   ],
   "obs": {
-   "t": "2026-11-24T13:24",
-   "kt": 5,
-   "gustKt": 8.9,
-   "deg": 107,
+   "t": "2026-11-24T13:54",
+   "kt": 1.9,
+   "gustKt": 4.7,
+   "deg": 108,
    "dir": "ESE"
   },
   "obsList": [
    {
     "id": "9414290",
     "name": "San Francisco",
-    "t": "2026-11-24T13:24",
-    "kt": 5,
-    "gustKt": 8.9,
-    "deg": 107,
+    "t": "2026-11-24T13:54",
+    "kt": 1.9,
+    "gustKt": 4.7,
+    "deg": 108,
     "dir": "ESE"
    },
    {
     "id": "9414847",
     "name": "Point Potrero, Richmond",
-    "t": "2026-11-24T13:24",
-    "kt": 1.4,
-    "gustKt": 2.7,
+    "t": "2026-11-24T13:54",
+    "kt": 0,
+    "gustKt": 1.6,
     "deg": 0,
     "dir": "N"
    }
