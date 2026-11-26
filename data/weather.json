@@ -1,11 +1,11 @@
 {
- "updatedAt": "2026-11-25T23:48:12.729Z",
+ "updatedAt": "2026-11-26T00:00:21.727Z",
  "source": "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "ski": [
   {
    "gridpoint": "REV 37,81",
    "elevationFt": 9203,
-   "forecastUpdated": "2026-11-25T18:30:40+00:00",
+   "forecastUpdated": "2026-11-25T23:30:43+00:00",
    "alerts": [],
    "periods": [
     {
@@ -54,11 +54,6 @@
    "snow24hIn": 0,
    "snow72hIn": 0,
    "blocks": [
-    {
-     "start": "2026-11-25T18:00:00.000Z",
-     "end": "2026-11-26T00:00:00.000Z",
-     "in": 0
-    },
     {
      "start": "2026-11-26T00:00:00.000Z",
      "end": "2026-11-26T06:00:00.000Z",
@@ -117,6 +112,11 @@
     {
      "start": "2026-11-28T18:00:00.000Z",
      "end": "2026-11-29T00:00:00.000Z",
+     "in": 0
+    },
+    {
+     "start": "2026-11-29T00:00:00.000Z",
+     "end": "2026-11-29T06:00:00.000Z",
      "in": 0
     }
    ],
@@ -380,14 +380,14 @@
   {
    "gridpoint": "REV 31,96",
    "elevationFt": 7198,
-   "forecastUpdated": "2026-11-25T18:30:40+00:00",
+   "forecastUpdated": "2026-11-25T23:30:43+00:00",
    "alerts": [],
    "periods": [
     {
      "name": "This Afternoon",
      "temp": 43,
      "short": "Sunny",
-     "detail": "Sunny, with a high near 43. West wind around 0 mph.",
+     "detail": "Sunny, with a high near 43. Wind around 0 mph.",
      "pop": 0
     },
     {
@@ -429,11 +429,6 @@
    "snow24hIn": 0,
    "snow72hIn": 0,
    "blocks": [
-    {
-     "start": "2026-11-25T18:00:00.000Z",
-     "end": "2026-11-26T00:00:00.000Z",
-     "in": 0
-    },
     {
      "start": "2026-11-26T00:00:00.000Z",
      "end": "2026-11-26T06:00:00.000Z",
@@ -492,6 +487,11 @@
     {
      "start": "2026-11-28T18:00:00.000Z",
      "end": "2026-11-29T00:00:00.000Z",
+     "in": 0
+    },
+    {
+     "start": "2026-11-29T00:00:00.000Z",
+     "end": "2026-11-29T06:00:00.000Z",
      "in": 0
     }
    ],
@@ -1062,13 +1062,6 @@
    }
   ],
   "hourly": [
-   {
-    "t": "2026-11-25T15:00:00-08:00",
-    "temp": 61,
-    "wind": "5 mph",
-    "dir": "N",
-    "short": "Mostly Sunny"
-   },
    {
     "t": "2026-11-25T16:00:00-08:00",
     "temp": 60,
@@ -2153,6 +2146,13 @@
     "wind": "22 mph",
     "dir": "S",
     "short": "Chance Light Rain"
+   },
+   {
+    "t": "2026-12-02T03:00:00-08:00",
+    "temp": 55,
+    "wind": "22 mph",
+    "dir": "S",
+    "short": "Chance Light Rain"
    }
   ],
   "alerts": [],
@@ -3203,30 +3203,30 @@
    }
   ],
   "obs": {
-   "t": "2026-11-25T15:42",
-   "kt": 6.4,
-   "gustKt": 8.2,
-   "deg": 350,
-   "dir": "N"
+   "t": "2026-11-25T15:54",
+   "kt": 6.6,
+   "gustKt": 8.4,
+   "deg": 343,
+   "dir": "NNW"
   },
   "obsList": [
    {
     "id": "9414290",
     "name": "San Francisco",
-    "t": "2026-11-25T15:42",
-    "kt": 6.4,
-    "gustKt": 8.2,
-    "deg": 350,
-    "dir": "N"
+    "t": "2026-11-25T15:54",
+    "kt": 6.6,
+    "gustKt": 8.4,
+    "deg": 343,
+    "dir": "NNW"
    },
    {
     "id": "9414847",
     "name": "Point Potrero, Richmond",
-    "t": "2026-11-25T15:42",
-    "kt": 3.1,
-    "gustKt": 9.7,
-    "deg": 351,
-    "dir": "N"
+    "t": "2026-11-25T15:54",
+    "kt": 6.6,
+    "gustKt": 10.7,
+    "deg": 227,
+    "dir": "SW"
    }
   ]
  },
