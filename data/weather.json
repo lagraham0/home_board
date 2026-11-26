@@ -1,54 +1,54 @@
 {
- "updatedAt": "2026-11-26T18:00:23.617Z",
+ "updatedAt": "2026-11-26T19:00:23.010Z",
  "source": "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "ski": [
   {
    "gridpoint": "REV 37,81",
    "elevationFt": 9203,
-   "forecastUpdated": "2026-11-26T11:30:45+00:00",
+   "forecastUpdated": "2026-11-26T18:30:41+00:00",
    "alerts": [],
    "periods": [
     {
      "name": "Thanksgiving Day",
-     "temp": 43,
-     "short": "Partly Sunny",
-     "detail": "Partly sunny, with a high near 43. West wind around 15 mph, with gusts as high as 30 mph.",
+     "temp": 42,
+     "short": "Mostly Cloudy",
+     "detail": "Mostly cloudy, with a high near 42. West wind 0 to 5 mph.",
      "pop": 0
     },
     {
      "name": "Tonight",
-     "temp": 33,
+     "temp": 32,
      "short": "Mostly Cloudy",
-     "detail": "Mostly cloudy, with a low around 33. Southwest wind around 15 mph, with gusts as high as 30 mph.",
+     "detail": "Mostly cloudy, with a low around 32. West wind 0 to 10 mph.",
      "pop": 0
     },
     {
      "name": "Friday",
      "temp": 43,
-     "short": "Partly Sunny",
-     "detail": "Partly sunny, with a high near 43. West wind 15 to 20 mph, with gusts as high as 30 mph.",
+     "short": "Mostly Cloudy",
+     "detail": "Mostly cloudy, with a high near 43. West wind 5 to 10 mph.",
      "pop": 0
     },
     {
      "name": "Friday Night",
-     "temp": 33,
+     "temp": 35,
      "short": "Mostly Cloudy",
-     "detail": "Mostly cloudy, with a low around 33. Southwest wind 20 to 50 mph, with gusts as high as 75 mph.",
+     "detail": "Mostly cloudy, with a low around 35. Southwest wind 10 to 25 mph.",
      "pop": 0
     },
     {
      "name": "Saturday",
-     "temp": 40,
+     "temp": 41,
      "short": "Partly Sunny",
-     "detail": "Partly sunny, with a high near 40. West wind 10 to 45 mph, with gusts as high as 65 mph.",
+     "detail": "Partly sunny, with a high near 41. West wind 0 to 15 mph.",
      "pop": 0
     },
     {
      "name": "Saturday Night",
-     "temp": 32,
+     "temp": 33,
      "short": "Partly Cloudy",
-     "detail": "Partly cloudy, with a low around 32. Southwest wind 10 to 40 mph, with gusts as high as 60 mph.",
-     "pop": 6
+     "detail": "Partly cloudy, with a low around 33. Southwest wind 0 to 20 mph.",
+     "pop": 3
     }
    ],
    "snow24hIn": 0,
@@ -137,240 +137,240 @@
      "station": "NRCS SNOTEL 518 Heavenly Valley",
      "stationName": "Heavenly Valley",
      "elevationFt": 8540,
-     "lastObs": "2026-11-26T09:00:00-08:00",
-     "depthIn": 15,
+     "lastObs": "2026-11-26T10:00:00-08:00",
+     "depthIn": 14,
      "depthGain24In": 0,
      "swe24In": 0,
      "lastSnowAt": "2026-11-20T00:00:00-08:00",
      "lookbackDays": 30,
      "depthSeries": [
       [
-       "2026-11-19T09:00:00-08:00",
-       19
+       "2026-11-19T10:00:00-08:00",
+       20
       ],
       [
-       "2026-11-19T12:00:00-08:00",
+       "2026-11-19T13:00:00-08:00",
        22
       ],
       [
-       "2026-11-19T15:00:00-08:00",
+       "2026-11-19T16:00:00-08:00",
+       25
+      ],
+      [
+       "2026-11-19T19:00:00-08:00",
+       25
+      ],
+      [
+       "2026-11-19T22:00:00-08:00",
        24
       ],
       [
-       "2026-11-19T18:00:00-08:00",
+       "2026-11-20T01:00:00-08:00",
        24
       ],
       [
-       "2026-11-19T21:00:00-08:00",
+       "2026-11-20T04:00:00-08:00",
        24
       ],
       [
-       "2026-11-20T00:00:00-08:00",
-       24
-      ],
-      [
-       "2026-11-20T03:00:00-08:00",
-       24
-      ],
-      [
-       "2026-11-20T06:00:00-08:00",
-       24
-      ],
-      [
-       "2026-11-20T09:00:00-08:00",
+       "2026-11-20T07:00:00-08:00",
        23
       ],
       [
-       "2026-11-20T12:00:00-08:00",
+       "2026-11-20T10:00:00-08:00",
+       23
+      ],
+      [
+       "2026-11-20T13:00:00-08:00",
+       23
+      ],
+      [
+       "2026-11-20T16:00:00-08:00",
        22
       ],
       [
-       "2026-11-20T15:00:00-08:00",
+       "2026-11-20T19:00:00-08:00",
        22
       ],
       [
-       "2026-11-20T18:00:00-08:00",
+       "2026-11-20T22:00:00-08:00",
        22
       ],
       [
-       "2026-11-20T21:00:00-08:00",
-       22
-      ],
-      [
-       "2026-11-21T00:00:00-08:00",
+       "2026-11-21T01:00:00-08:00",
        21
       ],
       [
-       "2026-11-21T03:00:00-08:00",
+       "2026-11-21T04:00:00-08:00",
        21
       ],
       [
-       "2026-11-21T06:00:00-08:00",
+       "2026-11-21T07:00:00-08:00",
        21
       ],
       [
-       "2026-11-21T09:00:00-08:00",
+       "2026-11-21T10:00:00-08:00",
        21
       ],
       [
-       "2026-11-21T12:00:00-08:00",
+       "2026-11-21T13:00:00-08:00",
        22
       ],
       [
-       "2026-11-21T15:00:00-08:00",
+       "2026-11-21T16:00:00-08:00",
        22
       ],
       [
-       "2026-11-21T18:00:00-08:00",
+       "2026-11-21T19:00:00-08:00",
        20
       ],
       [
-       "2026-11-21T21:00:00-08:00",
+       "2026-11-21T22:00:00-08:00",
        20
       ],
       [
-       "2026-11-22T00:00:00-08:00",
-       20
-      ],
-      [
-       "2026-11-22T03:00:00-08:00",
-       20
-      ],
-      [
-       "2026-11-22T06:00:00-08:00",
+       "2026-11-22T01:00:00-08:00",
        19
       ],
       [
-       "2026-11-22T09:00:00-08:00",
+       "2026-11-22T04:00:00-08:00",
        19
       ],
       [
-       "2026-11-22T12:00:00-08:00",
+       "2026-11-22T07:00:00-08:00",
        19
       ],
       [
-       "2026-11-22T15:00:00-08:00",
+       "2026-11-22T10:00:00-08:00",
        19
       ],
       [
-       "2026-11-22T18:00:00-08:00",
+       "2026-11-22T13:00:00-08:00",
        19
       ],
       [
-       "2026-11-22T21:00:00-08:00",
+       "2026-11-22T16:00:00-08:00",
+       19
+      ],
+      [
+       "2026-11-22T19:00:00-08:00",
        18
       ],
       [
-       "2026-11-23T00:00:00-08:00",
+       "2026-11-22T22:00:00-08:00",
        18
       ],
       [
-       "2026-11-23T03:00:00-08:00",
+       "2026-11-23T01:00:00-08:00",
        18
       ],
       [
-       "2026-11-23T06:00:00-08:00",
+       "2026-11-23T04:00:00-08:00",
        18
       ],
       [
-       "2026-11-23T09:00:00-08:00",
+       "2026-11-23T07:00:00-08:00",
        18
       ],
       [
-       "2026-11-23T12:00:00-08:00",
+       "2026-11-23T10:00:00-08:00",
+       18
+      ],
+      [
+       "2026-11-23T13:00:00-08:00",
        17
       ],
       [
-       "2026-11-23T15:00:00-08:00",
+       "2026-11-23T16:00:00-08:00",
+       18
+      ],
+      [
+       "2026-11-23T19:00:00-08:00",
        17
       ],
       [
-       "2026-11-23T18:00:00-08:00",
+       "2026-11-23T22:00:00-08:00",
        17
       ],
       [
-       "2026-11-23T21:00:00-08:00",
+       "2026-11-24T01:00:00-08:00",
        17
       ],
       [
-       "2026-11-24T00:00:00-08:00",
+       "2026-11-24T04:00:00-08:00",
        17
       ],
       [
-       "2026-11-24T03:00:00-08:00",
+       "2026-11-24T07:00:00-08:00",
        17
       ],
       [
-       "2026-11-24T06:00:00-08:00",
-       17
-      ],
-      [
-       "2026-11-24T09:00:00-08:00",
-       17
-      ],
-      [
-       "2026-11-24T12:00:00-08:00",
+       "2026-11-24T10:00:00-08:00",
        16
       ],
       [
-       "2026-11-24T15:00:00-08:00",
+       "2026-11-24T13:00:00-08:00",
        17
       ],
       [
-       "2026-11-24T18:00:00-08:00",
+       "2026-11-24T16:00:00-08:00",
        16
       ],
       [
-       "2026-11-24T21:00:00-08:00",
+       "2026-11-24T19:00:00-08:00",
        16
       ],
       [
-       "2026-11-25T00:00:00-08:00",
+       "2026-11-24T22:00:00-08:00",
        16
       ],
       [
-       "2026-11-25T03:00:00-08:00",
+       "2026-11-25T01:00:00-08:00",
        16
       ],
       [
-       "2026-11-25T06:00:00-08:00",
+       "2026-11-25T04:00:00-08:00",
        16
       ],
       [
-       "2026-11-25T09:00:00-08:00",
+       "2026-11-25T07:00:00-08:00",
        16
       ],
       [
-       "2026-11-25T12:00:00-08:00",
+       "2026-11-25T10:00:00-08:00",
+       16
+      ],
+      [
+       "2026-11-25T13:00:00-08:00",
        15
       ],
       [
-       "2026-11-25T15:00:00-08:00",
+       "2026-11-25T16:00:00-08:00",
        15
       ],
       [
-       "2026-11-25T18:00:00-08:00",
+       "2026-11-25T19:00:00-08:00",
        15
       ],
       [
-       "2026-11-25T21:00:00-08:00",
+       "2026-11-25T22:00:00-08:00",
        15
       ],
       [
-       "2026-11-26T00:00:00-08:00",
+       "2026-11-26T01:00:00-08:00",
        15
       ],
       [
-       "2026-11-26T03:00:00-08:00",
+       "2026-11-26T04:00:00-08:00",
        15
       ],
       [
-       "2026-11-26T06:00:00-08:00",
+       "2026-11-26T07:00:00-08:00",
        15
       ],
       [
-       "2026-11-26T09:00:00-08:00",
-       15
+       "2026-11-26T10:00:00-08:00",
+       14
       ]
      ],
      "rule": "Last snow = most recent hour the precipitation gauge reached a new high by at least 0.1 in while air temperature was 34 F or colder"
@@ -380,50 +380,50 @@
   {
    "gridpoint": "REV 31,96",
    "elevationFt": 7198,
-   "forecastUpdated": "2026-11-26T11:30:45+00:00",
+   "forecastUpdated": "2026-11-26T18:30:41+00:00",
    "alerts": [],
    "periods": [
     {
      "name": "Thanksgiving Day",
-     "temp": 51,
+     "temp": 50,
      "short": "Mostly Cloudy",
-     "detail": "Mostly cloudy. High near 51, with temperatures falling to around 42 in the afternoon. West wind 0 to 5 mph.",
+     "detail": "Mostly cloudy. High near 50, with temperatures falling to around 41 in the afternoon. Northwest wind around 0 mph.",
      "pop": 0
     },
     {
      "name": "Tonight",
-     "temp": 34,
+     "temp": 33,
      "short": "Mostly Cloudy",
-     "detail": "Mostly cloudy, with a low around 34. Southeast wind 0 to 5 mph.",
+     "detail": "Mostly cloudy, with a low around 33. North wind around 0 mph.",
      "pop": 0
     },
     {
      "name": "Friday",
-     "temp": 51,
+     "temp": 52,
      "short": "Mostly Cloudy",
-     "detail": "Mostly cloudy. High near 51, with temperatures falling to around 39 in the afternoon. Southwest wind 0 to 5 mph.",
-     "pop": 2
+     "detail": "Mostly cloudy. High near 52, with temperatures falling to around 42 in the afternoon. Southwest wind 0 to 5 mph.",
+     "pop": 0
     },
     {
      "name": "Friday Night",
-     "temp": 33,
+     "temp": 34,
      "short": "Mostly Cloudy",
-     "detail": "Mostly cloudy, with a low around 33. Southwest wind 0 to 10 mph, with gusts as high as 20 mph.",
-     "pop": 2
+     "detail": "Mostly cloudy, with a low around 34. Southwest wind 0 to 5 mph, with gusts as high as 20 mph.",
+     "pop": 0
     },
     {
      "name": "Saturday",
-     "temp": 49,
-     "short": "Partly Sunny",
-     "detail": "Partly sunny, with a high near 49. West wind 0 to 5 mph.",
+     "temp": 50,
+     "short": "Mostly Cloudy",
+     "detail": "Mostly cloudy, with a high near 50. West wind 0 to 5 mph.",
      "pop": 0
     },
     {
      "name": "Saturday Night",
-     "temp": 34,
+     "temp": 35,
      "short": "Partly Cloudy",
-     "detail": "Partly cloudy, with a low around 34. Southwest wind 0 to 10 mph, with gusts as high as 35 mph.",
-     "pop": 10
+     "detail": "Partly cloudy, with a low around 35. Southwest wind 0 to 10 mph, with gusts as high as 30 mph.",
+     "pop": 4
     }
    ],
    "snow24hIn": 0,
@@ -512,7 +512,7 @@
      "station": "NRCS SNOTEL 809 Tahoe City Cross",
      "stationName": "Tahoe City Cross",
      "elevationFt": 6760,
-     "lastObs": "2026-11-26T09:00:00-08:00",
+     "lastObs": "2026-11-26T10:00:00-08:00",
      "depthIn": 12,
      "depthGain24In": 0,
      "swe24In": 0,
@@ -520,231 +520,231 @@
      "lookbackDays": 30,
      "depthSeries": [
       [
-       "2026-11-19T09:00:00-08:00",
-       20
+       "2026-11-19T10:00:00-08:00",
+       21
       ],
       [
-       "2026-11-19T12:00:00-08:00",
+       "2026-11-19T13:00:00-08:00",
        22
       ],
       [
-       "2026-11-19T15:00:00-08:00",
-       23
-      ],
-      [
-       "2026-11-19T18:00:00-08:00",
-       23
-      ],
-      [
-       "2026-11-19T21:00:00-08:00",
-       23
-      ],
-      [
-       "2026-11-20T00:00:00-08:00",
-       23
-      ],
-      [
-       "2026-11-20T03:00:00-08:00",
-       23
-      ],
-      [
-       "2026-11-20T06:00:00-08:00",
-       25
-      ],
-      [
-       "2026-11-20T09:00:00-08:00",
-       25
-      ],
-      [
-       "2026-11-20T12:00:00-08:00",
+       "2026-11-19T16:00:00-08:00",
        24
       ],
       [
-       "2026-11-20T15:00:00-08:00",
+       "2026-11-19T19:00:00-08:00",
+       23
+      ],
+      [
+       "2026-11-19T22:00:00-08:00",
+       23
+      ],
+      [
+       "2026-11-20T01:00:00-08:00",
        22
       ],
       [
-       "2026-11-20T18:00:00-08:00",
+       "2026-11-20T04:00:00-08:00",
+       24
+      ],
+      [
+       "2026-11-20T07:00:00-08:00",
+       26
+      ],
+      [
+       "2026-11-20T10:00:00-08:00",
+       24
+      ],
+      [
+       "2026-11-20T13:00:00-08:00",
+       23
+      ],
+      [
+       "2026-11-20T16:00:00-08:00",
        22
       ],
       [
-       "2026-11-20T21:00:00-08:00",
+       "2026-11-20T19:00:00-08:00",
        22
       ],
       [
-       "2026-11-21T00:00:00-08:00",
+       "2026-11-20T22:00:00-08:00",
+       22
+      ],
+      [
+       "2026-11-21T01:00:00-08:00",
        21
       ],
       [
-       "2026-11-21T03:00:00-08:00",
+       "2026-11-21T04:00:00-08:00",
        21
       ],
       [
-       "2026-11-21T06:00:00-08:00",
+       "2026-11-21T07:00:00-08:00",
        21
       ],
       [
-       "2026-11-21T09:00:00-08:00",
+       "2026-11-21T10:00:00-08:00",
        20
       ],
       [
-       "2026-11-21T12:00:00-08:00",
+       "2026-11-21T13:00:00-08:00",
+       20
+      ],
+      [
+       "2026-11-21T16:00:00-08:00",
        21
       ],
       [
-       "2026-11-21T15:00:00-08:00",
+       "2026-11-21T19:00:00-08:00",
        20
       ],
       [
-       "2026-11-21T18:00:00-08:00",
+       "2026-11-21T22:00:00-08:00",
        20
       ],
       [
-       "2026-11-21T21:00:00-08:00",
+       "2026-11-22T01:00:00-08:00",
        20
       ],
       [
-       "2026-11-22T00:00:00-08:00",
+       "2026-11-22T04:00:00-08:00",
        20
       ],
       [
-       "2026-11-22T03:00:00-08:00",
+       "2026-11-22T07:00:00-08:00",
        19
       ],
       [
-       "2026-11-22T06:00:00-08:00",
+       "2026-11-22T10:00:00-08:00",
        19
       ],
       [
-       "2026-11-22T09:00:00-08:00",
-       19
-      ],
-      [
-       "2026-11-22T12:00:00-08:00",
-       19
-      ],
-      [
-       "2026-11-22T15:00:00-08:00",
+       "2026-11-22T13:00:00-08:00",
        18
       ],
       [
-       "2026-11-22T18:00:00-08:00",
+       "2026-11-22T16:00:00-08:00",
        18
       ],
       [
-       "2026-11-22T21:00:00-08:00",
+       "2026-11-22T19:00:00-08:00",
        18
       ],
       [
-       "2026-11-23T00:00:00-08:00",
+       "2026-11-22T22:00:00-08:00",
        18
       ],
       [
-       "2026-11-23T03:00:00-08:00",
+       "2026-11-23T01:00:00-08:00",
        18
       ],
       [
-       "2026-11-23T06:00:00-08:00",
+       "2026-11-23T04:00:00-08:00",
        17
       ],
       [
-       "2026-11-23T09:00:00-08:00",
+       "2026-11-23T07:00:00-08:00",
        17
       ],
       [
-       "2026-11-23T12:00:00-08:00",
+       "2026-11-23T10:00:00-08:00",
        17
       ],
       [
-       "2026-11-23T15:00:00-08:00",
+       "2026-11-23T13:00:00-08:00",
        16
       ],
       [
-       "2026-11-23T18:00:00-08:00",
+       "2026-11-23T16:00:00-08:00",
        16
       ],
       [
-       "2026-11-23T21:00:00-08:00",
+       "2026-11-23T19:00:00-08:00",
        16
       ],
       [
-       "2026-11-24T00:00:00-08:00",
+       "2026-11-23T22:00:00-08:00",
        16
       ],
       [
-       "2026-11-24T03:00:00-08:00",
+       "2026-11-24T01:00:00-08:00",
        16
       ],
       [
-       "2026-11-24T06:00:00-08:00",
-       16
-      ],
-      [
-       "2026-11-24T09:00:00-08:00",
+       "2026-11-24T04:00:00-08:00",
        15
       ],
       [
-       "2026-11-24T12:00:00-08:00",
+       "2026-11-24T07:00:00-08:00",
+       16
+      ],
+      [
+       "2026-11-24T10:00:00-08:00",
+       16
+      ],
+      [
+       "2026-11-24T13:00:00-08:00",
        15
       ],
       [
-       "2026-11-24T15:00:00-08:00",
+       "2026-11-24T16:00:00-08:00",
        15
       ],
       [
-       "2026-11-24T18:00:00-08:00",
+       "2026-11-24T19:00:00-08:00",
        14
       ],
       [
-       "2026-11-24T21:00:00-08:00",
+       "2026-11-24T22:00:00-08:00",
        14
       ],
       [
-       "2026-11-25T00:00:00-08:00",
+       "2026-11-25T01:00:00-08:00",
        14
       ],
       [
-       "2026-11-25T03:00:00-08:00",
+       "2026-11-25T04:00:00-08:00",
        14
       ],
       [
-       "2026-11-25T06:00:00-08:00",
+       "2026-11-25T07:00:00-08:00",
        14
       ],
       [
-       "2026-11-25T09:00:00-08:00",
-       14
-      ],
-      [
-       "2026-11-25T12:00:00-08:00",
-       14
-      ],
-      [
-       "2026-11-25T15:00:00-08:00",
-       12
-      ],
-      [
-       "2026-11-25T18:00:00-08:00",
+       "2026-11-25T10:00:00-08:00",
        13
       ],
       [
-       "2026-11-25T21:00:00-08:00",
+       "2026-11-25T13:00:00-08:00",
+       13
+      ],
+      [
+       "2026-11-25T16:00:00-08:00",
        12
       ],
       [
-       "2026-11-26T00:00:00-08:00",
+       "2026-11-25T19:00:00-08:00",
        12
       ],
       [
-       "2026-11-26T03:00:00-08:00",
+       "2026-11-25T22:00:00-08:00",
        12
       ],
       [
-       "2026-11-26T06:00:00-08:00",
+       "2026-11-26T01:00:00-08:00",
        12
       ],
       [
-       "2026-11-26T09:00:00-08:00",
+       "2026-11-26T04:00:00-08:00",
+       12
+      ],
+      [
+       "2026-11-26T07:00:00-08:00",
+       12
+      ],
+      [
+       "2026-11-26T10:00:00-08:00",
        12
       ]
      ],
@@ -939,7 +939,7 @@
    {
     "start": "2026-11-30T06:00:00.000Z",
     "end": "2026-11-30T09:00:00.000Z",
-    "kt": 28
+    "kt": 29
    },
    {
     "start": "2026-11-30T09:00:00.000Z",
@@ -969,62 +969,52 @@
    {
     "start": "2026-12-01T00:00:00.000Z",
     "end": "2026-12-01T03:00:00.000Z",
-    "kt": 14
+    "kt": 15
    },
    {
     "start": "2026-12-01T03:00:00.000Z",
     "end": "2026-12-01T06:00:00.000Z",
-    "kt": 15
+    "kt": 17
    },
    {
     "start": "2026-12-01T06:00:00.000Z",
     "end": "2026-12-01T09:00:00.000Z",
-    "kt": 23
+    "kt": 26
    },
    {
     "start": "2026-12-01T09:00:00.000Z",
     "end": "2026-12-01T12:00:00.000Z",
-    "kt": 22
+    "kt": 25
    },
    {
     "start": "2026-12-01T12:00:00.000Z",
     "end": "2026-12-01T15:00:00.000Z",
-    "kt": 20
+    "kt": 22
    },
    {
     "start": "2026-12-01T15:00:00.000Z",
     "end": "2026-12-01T18:00:00.000Z",
-    "kt": 22
+    "kt": 24
    },
    {
     "start": "2026-12-01T18:00:00.000Z",
     "end": "2026-12-01T21:00:00.000Z",
-    "kt": 24
+    "kt": 26
    },
    {
     "start": "2026-12-01T21:00:00.000Z",
     "end": "2026-12-02T00:00:00.000Z",
-    "kt": 28
+    "kt": 30
    },
    {
     "start": "2026-12-02T00:00:00.000Z",
-    "end": "2026-12-02T03:00:00.000Z",
-    "kt": 21
-   },
-   {
-    "start": "2026-12-02T03:00:00.000Z",
-    "end": "2026-12-02T06:00:00.000Z",
-    "kt": 18
-   },
-   {
-    "start": "2026-12-02T06:00:00.000Z",
     "end": "2026-12-02T09:00:00.000Z",
-    "kt": 20
+    "kt": 25
    },
    {
     "start": "2026-12-02T09:00:00.000Z",
     "end": "2026-12-02T12:00:00.000Z",
-    "kt": 14
+    "kt": 17
    },
    {
     "start": "2026-12-02T12:00:00.000Z",
@@ -1033,23 +1023,23 @@
    },
    {
     "start": "2026-12-02T15:00:00.000Z",
+    "end": "2026-12-02T18:00:00.000Z",
+    "kt": 9
+   },
+   {
+    "start": "2026-12-02T18:00:00.000Z",
     "end": "2026-12-02T21:00:00.000Z",
-    "kt": 8
+    "kt": 10
    },
    {
     "start": "2026-12-02T21:00:00.000Z",
     "end": "2026-12-03T00:00:00.000Z",
-    "kt": 10
+    "kt": 11
    },
    {
     "start": "2026-12-03T00:00:00.000Z",
-    "end": "2026-12-03T03:00:00.000Z",
-    "kt": 12
-   },
-   {
-    "start": "2026-12-03T03:00:00.000Z",
     "end": "2026-12-03T06:00:00.000Z",
-    "kt": 11
+    "kt": 12
    },
    {
     "start": "2026-12-03T06:00:00.000Z",
@@ -1058,53 +1048,36 @@
    },
    {
     "start": "2026-12-03T09:00:00.000Z",
-    "end": "2026-12-03T15:00:00.000Z",
-    "kt": 11
-   },
-   {
-    "start": "2026-12-03T15:00:00.000Z",
-    "end": "2026-12-03T17:00:00.000Z",
-    "kt": 12
-   },
-   {
-    "start": "2026-12-03T17:00:00.000Z",
     "end": "2026-12-03T18:00:00.000Z",
-    "kt": 13
+    "kt": 11
    },
    {
     "start": "2026-12-03T18:00:00.000Z",
     "end": "2026-12-03T21:00:00.000Z",
-    "kt": 14
-   },
-   {
-    "start": "2026-12-03T21:00:00.000Z",
-    "end": "2026-12-03T22:00:00.000Z",
     "kt": 15
    },
    {
-    "start": "2026-12-03T22:00:00.000Z",
+    "start": "2026-12-03T21:00:00.000Z",
+    "end": "2026-12-04T00:00:00.000Z",
+    "kt": 17
+   },
+   {
+    "start": "2026-12-04T00:00:00.000Z",
     "end": "2026-12-04T03:00:00.000Z",
     "kt": 16
    }
   ],
   "hourly": [
    {
-    "t": "2026-11-26T10:00:00-08:00",
-    "temp": 56,
-    "wind": "7 mph",
-    "dir": "NNE",
-    "short": "Mostly Cloudy"
-   },
-   {
     "t": "2026-11-26T11:00:00-08:00",
-    "temp": 57,
+    "temp": 58,
     "wind": "6 mph",
     "dir": "N",
     "short": "Partly Sunny"
    },
    {
     "t": "2026-11-26T12:00:00-08:00",
-    "temp": 58,
+    "temp": 59,
     "wind": "6 mph",
     "dir": "N",
     "short": "Partly Sunny"
@@ -1118,17 +1091,17 @@
    },
    {
     "t": "2026-11-26T14:00:00-08:00",
-    "temp": 60,
+    "temp": 61,
     "wind": "5 mph",
     "dir": "N",
-    "short": "Mostly Sunny"
+    "short": "Partly Sunny"
    },
    {
     "t": "2026-11-26T15:00:00-08:00",
-    "temp": 61,
+    "temp": 62,
     "wind": "3 mph",
     "dir": "N",
-    "short": "Mostly Sunny"
+    "short": "Partly Sunny"
    },
    {
     "t": "2026-11-26T16:00:00-08:00",
@@ -1153,7 +1126,7 @@
    },
    {
     "t": "2026-11-26T19:00:00-08:00",
-    "temp": 59,
+    "temp": 58,
     "wind": "3 mph",
     "dir": "NNW",
     "short": "Mostly Cloudy"
@@ -1174,7 +1147,7 @@
    },
    {
     "t": "2026-11-26T22:00:00-08:00",
-    "temp": 56,
+    "temp": 55,
     "wind": "6 mph",
     "dir": "N",
     "short": "Mostly Cloudy"
@@ -1188,7 +1161,7 @@
    },
    {
     "t": "2026-11-27T00:00:00-08:00",
-    "temp": 55,
+    "temp": 54,
     "wind": "7 mph",
     "dir": "N",
     "short": "Mostly Cloudy"
@@ -1209,31 +1182,31 @@
    },
    {
     "t": "2026-11-27T03:00:00-08:00",
-    "temp": 54,
+    "temp": 53,
     "wind": "7 mph",
     "dir": "NNE",
-    "short": "Mostly Cloudy"
+    "short": "Partly Cloudy"
    },
    {
     "t": "2026-11-27T04:00:00-08:00",
     "temp": 53,
     "wind": "7 mph",
     "dir": "NNE",
-    "short": "Cloudy"
+    "short": "Mostly Cloudy"
    },
    {
     "t": "2026-11-27T05:00:00-08:00",
     "temp": 53,
     "wind": "7 mph",
     "dir": "NNE",
-    "short": "Cloudy"
+    "short": "Mostly Cloudy"
    },
    {
     "t": "2026-11-27T06:00:00-08:00",
     "temp": 53,
     "wind": "7 mph",
     "dir": "NE",
-    "short": "Cloudy"
+    "short": "Mostly Cloudy"
    },
    {
     "t": "2026-11-27T07:00:00-08:00",
@@ -1258,14 +1231,14 @@
    },
    {
     "t": "2026-11-27T10:00:00-08:00",
-    "temp": 56,
+    "temp": 57,
     "wind": "8 mph",
     "dir": "NNE",
     "short": "Mostly Cloudy"
    },
    {
     "t": "2026-11-27T11:00:00-08:00",
-    "temp": 59,
+    "temp": 58,
     "wind": "7 mph",
     "dir": "NNE",
     "short": "Mostly Cloudy"
@@ -1296,7 +1269,7 @@
     "temp": 62,
     "wind": "5 mph",
     "dir": "NNW",
-    "short": "Mostly Cloudy"
+    "short": "Cloudy"
    },
    {
     "t": "2026-11-27T16:00:00-08:00",
@@ -1321,87 +1294,87 @@
    },
    {
     "t": "2026-11-27T19:00:00-08:00",
-    "temp": 60,
+    "temp": 59,
     "wind": "5 mph",
     "dir": "N",
-    "short": "Mostly Cloudy"
+    "short": "Cloudy"
    },
    {
     "t": "2026-11-27T20:00:00-08:00",
     "temp": 59,
     "wind": "5 mph",
     "dir": "N",
-    "short": "Mostly Cloudy"
+    "short": "Cloudy"
    },
    {
     "t": "2026-11-27T21:00:00-08:00",
-    "temp": 59,
+    "temp": 58,
     "wind": "5 mph",
     "dir": "N",
-    "short": "Mostly Cloudy"
+    "short": "Cloudy"
    },
    {
     "t": "2026-11-27T22:00:00-08:00",
     "temp": 58,
     "wind": "7 mph",
     "dir": "NNE",
-    "short": "Mostly Cloudy"
+    "short": "Cloudy"
    },
    {
     "t": "2026-11-27T23:00:00-08:00",
     "temp": 58,
     "wind": "7 mph",
     "dir": "NNE",
-    "short": "Mostly Cloudy"
+    "short": "Cloudy"
    },
    {
     "t": "2026-11-28T00:00:00-08:00",
-    "temp": 58,
+    "temp": 57,
     "wind": "7 mph",
     "dir": "NNE",
-    "short": "Mostly Cloudy"
+    "short": "Cloudy"
    },
    {
     "t": "2026-11-28T01:00:00-08:00",
     "temp": 57,
     "wind": "8 mph",
     "dir": "NNE",
-    "short": "Mostly Cloudy"
+    "short": "Cloudy"
    },
    {
     "t": "2026-11-28T02:00:00-08:00",
-    "temp": 57,
+    "temp": 56,
     "wind": "8 mph",
     "dir": "NNE",
-    "short": "Mostly Cloudy"
+    "short": "Cloudy"
    },
    {
     "t": "2026-11-28T03:00:00-08:00",
     "temp": 56,
     "wind": "8 mph",
     "dir": "NNE",
-    "short": "Mostly Cloudy"
+    "short": "Cloudy"
    },
    {
     "t": "2026-11-28T04:00:00-08:00",
-    "temp": 56,
+    "temp": 55,
     "wind": "10 mph",
     "dir": "NE",
-    "short": "Mostly Cloudy"
+    "short": "Cloudy"
    },
    {
     "t": "2026-11-28T05:00:00-08:00",
-    "temp": 55,
+    "temp": 56,
     "wind": "10 mph",
     "dir": "NE",
-    "short": "Mostly Cloudy"
+    "short": "Cloudy"
    },
    {
     "t": "2026-11-28T06:00:00-08:00",
-    "temp": 55,
+    "temp": 56,
     "wind": "10 mph",
     "dir": "NE",
-    "short": "Mostly Cloudy"
+    "short": "Cloudy"
    },
    {
     "t": "2026-11-28T07:00:00-08:00",
@@ -1426,7 +1399,7 @@
    },
    {
     "t": "2026-11-28T10:00:00-08:00",
-    "temp": 58,
+    "temp": 59,
     "wind": "13 mph",
     "dir": "NE",
     "short": "Mostly Cloudy"
@@ -1440,31 +1413,31 @@
    },
    {
     "t": "2026-11-28T12:00:00-08:00",
-    "temp": 61,
+    "temp": 62,
     "wind": "13 mph",
     "dir": "NE",
     "short": "Mostly Cloudy"
    },
    {
     "t": "2026-11-28T13:00:00-08:00",
-    "temp": 62,
+    "temp": 63,
     "wind": "10 mph",
     "dir": "NE",
-    "short": "Partly Sunny"
+    "short": "Mostly Sunny"
    },
    {
     "t": "2026-11-28T14:00:00-08:00",
     "temp": 63,
     "wind": "10 mph",
     "dir": "NE",
-    "short": "Partly Sunny"
+    "short": "Mostly Sunny"
    },
    {
     "t": "2026-11-28T15:00:00-08:00",
     "temp": 63,
     "wind": "10 mph",
     "dir": "NE",
-    "short": "Partly Sunny"
+    "short": "Mostly Sunny"
    },
    {
     "t": "2026-11-28T16:00:00-08:00",
@@ -1555,42 +1528,42 @@
     "temp": 57,
     "wind": "12 mph",
     "dir": "S",
-    "short": "Light Rain Likely"
+    "short": "Chance Light Rain"
    },
    {
     "t": "2026-11-29T05:00:00-08:00",
-    "temp": 57,
+    "temp": 58,
     "wind": "12 mph",
     "dir": "S",
-    "short": "Light Rain Likely"
+    "short": "Chance Light Rain"
    },
    {
     "t": "2026-11-29T06:00:00-08:00",
-    "temp": 57,
+    "temp": 58,
     "wind": "12 mph",
     "dir": "S",
-    "short": "Light Rain Likely"
+    "short": "Chance Light Rain"
    },
    {
     "t": "2026-11-29T07:00:00-08:00",
     "temp": 58,
     "wind": "13 mph",
     "dir": "SSE",
-    "short": "Light Rain Likely"
+    "short": "Chance Light Rain"
    },
    {
     "t": "2026-11-29T08:00:00-08:00",
     "temp": 59,
     "wind": "13 mph",
     "dir": "SSE",
-    "short": "Light Rain Likely"
+    "short": "Chance Light Rain"
    },
    {
     "t": "2026-11-29T09:00:00-08:00",
     "temp": 60,
     "wind": "13 mph",
     "dir": "SSE",
-    "short": "Light Rain Likely"
+    "short": "Chance Light Rain"
    },
    {
     "t": "2026-11-29T10:00:00-08:00",
@@ -1601,7 +1574,7 @@
    },
    {
     "t": "2026-11-29T11:00:00-08:00",
-    "temp": 61,
+    "temp": 62,
     "wind": "17 mph",
     "dir": "SSE",
     "short": "Light Rain"
@@ -1636,549 +1609,556 @@
    },
    {
     "t": "2026-11-29T16:00:00-08:00",
-    "temp": 61,
-    "wind": "22 mph",
+    "temp": 62,
+    "wind": "28 mph",
     "dir": "SSW",
     "short": "Light Rain"
    },
    {
     "t": "2026-11-29T17:00:00-08:00",
     "temp": 62,
-    "wind": "22 mph",
+    "wind": "28 mph",
     "dir": "SSW",
     "short": "Light Rain"
    },
    {
     "t": "2026-11-29T18:00:00-08:00",
     "temp": 62,
-    "wind": "22 mph",
+    "wind": "28 mph",
     "dir": "SSW",
     "short": "Light Rain"
    },
    {
     "t": "2026-11-29T19:00:00-08:00",
     "temp": 62,
-    "wind": "24 mph",
+    "wind": "31 mph",
     "dir": "SW",
     "short": "Light Rain"
    },
    {
     "t": "2026-11-29T20:00:00-08:00",
     "temp": 62,
-    "wind": "24 mph",
+    "wind": "31 mph",
     "dir": "SW",
     "short": "Light Rain"
    },
    {
     "t": "2026-11-29T21:00:00-08:00",
     "temp": 62,
-    "wind": "24 mph",
+    "wind": "31 mph",
     "dir": "SW",
     "short": "Light Rain"
    },
    {
     "t": "2026-11-29T22:00:00-08:00",
     "temp": 62,
-    "wind": "23 mph",
+    "wind": "29 mph",
     "dir": "SW",
     "short": "Light Rain"
    },
    {
     "t": "2026-11-29T23:00:00-08:00",
-    "temp": 61,
-    "wind": "23 mph",
+    "temp": 62,
+    "wind": "29 mph",
     "dir": "SW",
     "short": "Light Rain"
    },
    {
     "t": "2026-11-30T00:00:00-08:00",
     "temp": 61,
-    "wind": "23 mph",
+    "wind": "29 mph",
     "dir": "SW",
     "short": "Light Rain"
    },
    {
     "t": "2026-11-30T01:00:00-08:00",
     "temp": 60,
-    "wind": "18 mph",
+    "wind": "24 mph",
     "dir": "SW",
     "short": "Light Rain"
    },
    {
     "t": "2026-11-30T02:00:00-08:00",
-    "temp": 60,
-    "wind": "18 mph",
+    "temp": 61,
+    "wind": "24 mph",
     "dir": "SW",
     "short": "Light Rain"
    },
    {
     "t": "2026-11-30T03:00:00-08:00",
-    "temp": 60,
-    "wind": "18 mph",
+    "temp": 61,
+    "wind": "24 mph",
     "dir": "SW",
     "short": "Light Rain"
    },
    {
     "t": "2026-11-30T04:00:00-08:00",
-    "temp": 60,
-    "wind": "14 mph",
+    "temp": 61,
+    "wind": "16 mph",
     "dir": "SW",
-    "short": "Light Rain Likely"
+    "short": "Light Rain"
    },
    {
     "t": "2026-11-30T05:00:00-08:00",
-    "temp": 60,
-    "wind": "14 mph",
+    "temp": 61,
+    "wind": "16 mph",
     "dir": "SW",
-    "short": "Light Rain Likely"
+    "short": "Light Rain"
    },
    {
     "t": "2026-11-30T06:00:00-08:00",
     "temp": 60,
-    "wind": "14 mph",
+    "wind": "16 mph",
     "dir": "SW",
-    "short": "Light Rain Likely"
+    "short": "Light Rain"
    },
    {
     "t": "2026-11-30T07:00:00-08:00",
     "temp": 60,
-    "wind": "10 mph",
+    "wind": "12 mph",
     "dir": "SW",
-    "short": "Light Rain Likely"
+    "short": "Light Rain"
    },
    {
     "t": "2026-11-30T08:00:00-08:00",
     "temp": 60,
-    "wind": "10 mph",
+    "wind": "12 mph",
     "dir": "SW",
-    "short": "Light Rain Likely"
+    "short": "Light Rain"
    },
    {
     "t": "2026-11-30T09:00:00-08:00",
     "temp": 60,
-    "wind": "10 mph",
+    "wind": "12 mph",
     "dir": "SW",
-    "short": "Light Rain Likely"
+    "short": "Light Rain"
    },
    {
     "t": "2026-11-30T10:00:00-08:00",
-    "temp": 59,
-    "wind": "12 mph",
+    "temp": 60,
+    "wind": "13 mph",
     "dir": "SSW",
-    "short": "Light Rain Likely"
+    "short": "Light Rain"
    },
    {
     "t": "2026-11-30T11:00:00-08:00",
     "temp": 59,
-    "wind": "12 mph",
+    "wind": "13 mph",
     "dir": "SSW",
-    "short": "Light Rain Likely"
+    "short": "Light Rain"
    },
    {
     "t": "2026-11-30T12:00:00-08:00",
     "temp": 59,
-    "wind": "12 mph",
+    "wind": "13 mph",
     "dir": "SSW",
-    "short": "Light Rain Likely"
+    "short": "Light Rain"
    },
    {
     "t": "2026-11-30T13:00:00-08:00",
     "temp": 60,
-    "wind": "12 mph",
+    "wind": "14 mph",
     "dir": "SW",
-    "short": "Light Rain Likely"
+    "short": "Light Rain"
    },
    {
     "t": "2026-11-30T14:00:00-08:00",
     "temp": 60,
-    "wind": "12 mph",
+    "wind": "14 mph",
     "dir": "SW",
-    "short": "Light Rain Likely"
+    "short": "Light Rain"
    },
    {
     "t": "2026-11-30T15:00:00-08:00",
     "temp": 60,
-    "wind": "12 mph",
+    "wind": "14 mph",
     "dir": "SW",
-    "short": "Light Rain Likely"
+    "short": "Light Rain"
    },
    {
     "t": "2026-11-30T16:00:00-08:00",
     "temp": 60,
-    "wind": "9 mph",
+    "wind": "15 mph",
     "dir": "SSW",
-    "short": "Chance Light Rain"
+    "short": "Light Rain Likely"
    },
    {
     "t": "2026-11-30T17:00:00-08:00",
     "temp": 60,
-    "wind": "9 mph",
+    "wind": "15 mph",
     "dir": "SSW",
-    "short": "Chance Light Rain"
+    "short": "Light Rain Likely"
    },
    {
     "t": "2026-11-30T18:00:00-08:00",
     "temp": 60,
-    "wind": "9 mph",
+    "wind": "15 mph",
     "dir": "SSW",
-    "short": "Chance Light Rain"
+    "short": "Light Rain Likely"
    },
    {
     "t": "2026-11-30T19:00:00-08:00",
     "temp": 60,
-    "wind": "12 mph",
+    "wind": "18 mph",
     "dir": "S",
-    "short": "Chance Light Rain"
+    "short": "Light Rain Likely"
    },
    {
     "t": "2026-11-30T20:00:00-08:00",
-    "temp": 59,
-    "wind": "12 mph",
+    "temp": 60,
+    "wind": "18 mph",
     "dir": "S",
-    "short": "Chance Light Rain"
+    "short": "Light Rain Likely"
    },
    {
     "t": "2026-11-30T21:00:00-08:00",
-    "temp": 59,
-    "wind": "12 mph",
+    "temp": 60,
+    "wind": "18 mph",
     "dir": "S",
-    "short": "Chance Light Rain"
+    "short": "Light Rain Likely"
    },
    {
     "t": "2026-11-30T22:00:00-08:00",
     "temp": 59,
-    "wind": "18 mph",
+    "wind": "29 mph",
     "dir": "S",
-    "short": "Light Rain"
+    "short": "Rain"
    },
    {
     "t": "2026-11-30T23:00:00-08:00",
     "temp": 59,
-    "wind": "18 mph",
+    "wind": "29 mph",
     "dir": "S",
-    "short": "Light Rain"
+    "short": "Rain"
    },
    {
     "t": "2026-12-01T00:00:00-08:00",
-    "temp": 58,
-    "wind": "18 mph",
+    "temp": 59,
+    "wind": "29 mph",
     "dir": "S",
-    "short": "Light Rain"
+    "short": "Rain"
    },
    {
     "t": "2026-12-01T01:00:00-08:00",
     "temp": 58,
-    "wind": "18 mph",
+    "wind": "28 mph",
     "dir": "S",
-    "short": "Light Rain"
+    "short": "Rain"
    },
    {
     "t": "2026-12-01T02:00:00-08:00",
     "temp": 58,
-    "wind": "18 mph",
+    "wind": "28 mph",
     "dir": "S",
-    "short": "Light Rain"
+    "short": "Rain"
    },
    {
     "t": "2026-12-01T03:00:00-08:00",
     "temp": 58,
-    "wind": "18 mph",
+    "wind": "28 mph",
     "dir": "S",
-    "short": "Light Rain"
+    "short": "Rain"
    },
    {
     "t": "2026-12-01T04:00:00-08:00",
     "temp": 58,
-    "wind": "16 mph",
+    "wind": "23 mph",
     "dir": "S",
     "short": "Rain"
    },
    {
     "t": "2026-12-01T05:00:00-08:00",
     "temp": 58,
-    "wind": "16 mph",
+    "wind": "23 mph",
     "dir": "S",
     "short": "Rain"
    },
    {
     "t": "2026-12-01T06:00:00-08:00",
     "temp": 58,
-    "wind": "16 mph",
+    "wind": "23 mph",
     "dir": "S",
     "short": "Rain"
    },
    {
     "t": "2026-12-01T07:00:00-08:00",
-    "temp": 57,
-    "wind": "20 mph",
+    "temp": 58,
+    "wind": "23 mph",
     "dir": "S",
     "short": "Rain"
    },
    {
     "t": "2026-12-01T08:00:00-08:00",
-    "temp": 57,
-    "wind": "20 mph",
+    "temp": 58,
+    "wind": "23 mph",
     "dir": "S",
     "short": "Rain"
    },
    {
     "t": "2026-12-01T09:00:00-08:00",
-    "temp": 57,
-    "wind": "20 mph",
+    "temp": 58,
+    "wind": "23 mph",
     "dir": "S",
     "short": "Rain"
    },
    {
     "t": "2026-12-01T10:00:00-08:00",
-    "temp": 57,
-    "wind": "20 mph",
+    "temp": 58,
+    "wind": "26 mph",
     "dir": "SSW",
-    "short": "Rain"
+    "short": "Light Rain Likely"
    },
    {
     "t": "2026-12-01T11:00:00-08:00",
-    "temp": 57,
-    "wind": "20 mph",
+    "temp": 58,
+    "wind": "26 mph",
     "dir": "SSW",
-    "short": "Rain"
+    "short": "Light Rain Likely"
    },
    {
     "t": "2026-12-01T12:00:00-08:00",
-    "temp": 57,
-    "wind": "20 mph",
+    "temp": 58,
+    "wind": "26 mph",
     "dir": "SSW",
-    "short": "Rain"
+    "short": "Light Rain Likely"
    },
    {
     "t": "2026-12-01T13:00:00-08:00",
     "temp": 58,
-    "wind": "20 mph",
+    "wind": "32 mph",
     "dir": "W",
-    "short": "Rain"
+    "short": "Light Rain Likely"
    },
    {
     "t": "2026-12-01T14:00:00-08:00",
     "temp": 58,
-    "wind": "20 mph",
+    "wind": "32 mph",
     "dir": "W",
-    "short": "Rain"
+    "short": "Light Rain Likely"
    },
    {
     "t": "2026-12-01T15:00:00-08:00",
     "temp": 58,
-    "wind": "20 mph",
+    "wind": "32 mph",
     "dir": "W",
-    "short": "Rain"
+    "short": "Light Rain Likely"
    },
    {
     "t": "2026-12-01T16:00:00-08:00",
     "temp": 58,
-    "wind": "16 mph",
-    "dir": "N",
-    "short": "Light Rain Likely"
+    "wind": "28 mph",
+    "dir": "NNW",
+    "short": "Chance Light Rain"
    },
    {
     "t": "2026-12-01T17:00:00-08:00",
     "temp": 58,
-    "wind": "16 mph",
-    "dir": "N",
-    "short": "Light Rain Likely"
+    "wind": "28 mph",
+    "dir": "NNW",
+    "short": "Chance Light Rain"
    },
    {
     "t": "2026-12-01T18:00:00-08:00",
     "temp": 58,
-    "wind": "16 mph",
-    "dir": "N",
-    "short": "Light Rain Likely"
+    "wind": "28 mph",
+    "dir": "NNW",
+    "short": "Chance Light Rain"
    },
    {
     "t": "2026-12-01T19:00:00-08:00",
     "temp": 58,
-    "wind": "15 mph",
+    "wind": "28 mph",
     "dir": "NNW",
-    "short": "Light Rain Likely"
+    "short": "Chance Light Rain"
    },
    {
     "t": "2026-12-01T20:00:00-08:00",
     "temp": 57,
-    "wind": "15 mph",
+    "wind": "28 mph",
     "dir": "NNW",
-    "short": "Light Rain Likely"
+    "short": "Chance Light Rain"
    },
    {
     "t": "2026-12-01T21:00:00-08:00",
     "temp": 57,
-    "wind": "15 mph",
+    "wind": "28 mph",
     "dir": "NNW",
-    "short": "Light Rain Likely"
+    "short": "Chance Light Rain"
    },
    {
     "t": "2026-12-01T22:00:00-08:00",
     "temp": 57,
-    "wind": "17 mph",
+    "wind": "28 mph",
     "dir": "NNW",
-    "short": "Chance Light Rain"
+    "short": "Slight Chance Light Rain"
    },
    {
     "t": "2026-12-01T23:00:00-08:00",
     "temp": 57,
-    "wind": "17 mph",
+    "wind": "28 mph",
     "dir": "NNW",
-    "short": "Chance Light Rain"
+    "short": "Slight Chance Light Rain"
    },
    {
     "t": "2026-12-02T00:00:00-08:00",
     "temp": 56,
-    "wind": "17 mph",
+    "wind": "28 mph",
     "dir": "NNW",
-    "short": "Chance Light Rain"
+    "short": "Slight Chance Light Rain"
    },
    {
     "t": "2026-12-02T01:00:00-08:00",
     "temp": 56,
-    "wind": "12 mph",
+    "wind": "18 mph",
     "dir": "NNW",
-    "short": "Chance Light Rain"
+    "short": "Slight Chance Light Rain"
    },
    {
     "t": "2026-12-02T02:00:00-08:00",
     "temp": 56,
-    "wind": "12 mph",
+    "wind": "18 mph",
     "dir": "NNW",
-    "short": "Chance Light Rain"
+    "short": "Slight Chance Light Rain"
    },
    {
     "t": "2026-12-02T03:00:00-08:00",
     "temp": 56,
-    "wind": "12 mph",
+    "wind": "18 mph",
     "dir": "NNW",
-    "short": "Chance Light Rain"
+    "short": "Slight Chance Light Rain"
    },
    {
     "t": "2026-12-02T04:00:00-08:00",
-    "temp": 56,
-    "wind": "9 mph",
+    "temp": 55,
+    "wind": "12 mph",
     "dir": "NNW",
-    "short": "Chance Light Rain"
+    "short": "Partly Cloudy"
    },
    {
     "t": "2026-12-02T05:00:00-08:00",
     "temp": 55,
-    "wind": "9 mph",
+    "wind": "12 mph",
     "dir": "NNW",
-    "short": "Chance Light Rain"
+    "short": "Partly Cloudy"
    },
    {
     "t": "2026-12-02T06:00:00-08:00",
     "temp": 55,
-    "wind": "9 mph",
+    "wind": "12 mph",
     "dir": "NNW",
-    "short": "Chance Light Rain"
+    "short": "Mostly Sunny"
    },
    {
     "t": "2026-12-02T07:00:00-08:00",
-    "temp": 55,
-    "wind": "7 mph",
+    "temp": 54,
+    "wind": "8 mph",
     "dir": "NNW",
-    "short": "Chance Light Rain"
+    "short": "Mostly Sunny"
    },
    {
     "t": "2026-12-02T08:00:00-08:00",
     "temp": 55,
-    "wind": "7 mph",
+    "wind": "8 mph",
     "dir": "NNW",
-    "short": "Chance Light Rain"
+    "short": "Mostly Sunny"
    },
    {
     "t": "2026-12-02T09:00:00-08:00",
     "temp": 56,
-    "wind": "7 mph",
+    "wind": "8 mph",
     "dir": "NNW",
-    "short": "Chance Light Rain"
+    "short": "Mostly Sunny"
    },
    {
     "t": "2026-12-02T10:00:00-08:00",
     "temp": 56,
-    "wind": "6 mph",
+    "wind": "9 mph",
     "dir": "NNW",
-    "short": "Slight Chance Light Rain"
+    "short": "Mostly Sunny"
    },
    {
     "t": "2026-12-02T11:00:00-08:00",
     "temp": 57,
-    "wind": "6 mph",
+    "wind": "9 mph",
     "dir": "NNW",
-    "short": "Slight Chance Light Rain"
+    "short": "Mostly Sunny"
    },
    {
     "t": "2026-12-02T12:00:00-08:00",
     "temp": 58,
-    "wind": "6 mph",
+    "wind": "9 mph",
     "dir": "NNW",
-    "short": "Slight Chance Light Rain"
+    "short": "Mostly Sunny"
    },
    {
     "t": "2026-12-02T13:00:00-08:00",
-    "temp": 58,
-    "wind": "6 mph",
+    "temp": 59,
+    "wind": "9 mph",
     "dir": "NW",
-    "short": "Slight Chance Light Rain"
+    "short": "Mostly Sunny"
    },
    {
     "t": "2026-12-02T14:00:00-08:00",
     "temp": 59,
-    "wind": "6 mph",
+    "wind": "9 mph",
     "dir": "NW",
-    "short": "Slight Chance Light Rain"
+    "short": "Mostly Sunny"
    },
    {
     "t": "2026-12-02T15:00:00-08:00",
     "temp": 59,
-    "wind": "6 mph",
+    "wind": "9 mph",
     "dir": "NW",
-    "short": "Slight Chance Light Rain"
+    "short": "Mostly Sunny"
    },
    {
     "t": "2026-12-02T16:00:00-08:00",
     "temp": 59,
-    "wind": "9 mph",
+    "wind": "14 mph",
     "dir": "WNW",
     "short": "Mostly Sunny"
    },
    {
     "t": "2026-12-02T17:00:00-08:00",
     "temp": 59,
-    "wind": "9 mph",
+    "wind": "14 mph",
     "dir": "WNW",
     "short": "Mostly Sunny"
    },
    {
     "t": "2026-12-02T18:00:00-08:00",
     "temp": 58,
-    "wind": "9 mph",
+    "wind": "14 mph",
     "dir": "WNW",
     "short": "Partly Cloudy"
    },
    {
     "t": "2026-12-02T19:00:00-08:00",
     "temp": 58,
-    "wind": "9 mph",
+    "wind": "13 mph",
     "dir": "WNW",
     "short": "Partly Cloudy"
    },
    {
     "t": "2026-12-02T20:00:00-08:00",
     "temp": 57,
-    "wind": "9 mph",
+    "wind": "13 mph",
     "dir": "WNW",
     "short": "Partly Cloudy"
    },
    {
     "t": "2026-12-02T21:00:00-08:00",
     "temp": 57,
-    "wind": "9 mph",
+    "wind": "13 mph",
     "dir": "WNW",
     "short": "Partly Cloudy"
+   },
+   {
+    "t": "2026-12-02T22:00:00-08:00",
+    "temp": 56,
+    "wind": "14 mph",
+    "dir": "NW",
+    "short": "Slight Chance Light Rain"
    }
   ],
   "alerts": [],
@@ -3224,29 +3204,29 @@
    }
   ],
   "obs": {
-   "t": "2026-11-26T09:54",
-   "kt": 7.8,
-   "gustKt": 9.1,
-   "deg": 0,
-   "dir": "N"
+   "t": "2026-11-26T10:54",
+   "kt": 5,
+   "gustKt": 6.6,
+   "deg": 13,
+   "dir": "NNE"
   },
   "obsList": [
    {
     "id": "9414290",
     "name": "San Francisco",
-    "t": "2026-11-26T09:54",
-    "kt": 7.8,
-    "gustKt": 9.1,
-    "deg": 0,
-    "dir": "N"
+    "t": "2026-11-26T10:54",
+    "kt": 5,
+    "gustKt": 6.6,
+    "deg": 13,
+    "dir": "NNE"
    },
    {
     "id": "9414847",
     "name": "Point Potrero, Richmond",
-    "t": "2026-11-26T09:54",
-    "kt": 6,
-    "gustKt": 8.8,
-    "deg": 358,
+    "t": "2026-11-26T10:54",
+    "kt": 8.9,
+    "gustKt": 10.1,
+    "deg": 0,
     "dir": "N"
    }
   ]
