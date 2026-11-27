@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-27T00:00:20.924Z",
+ "updatedAt": "2026-11-27T00:03:48.264Z",
  "source": "api.weather.gov; skiheavenly.com; northstarcalifornia.com; wcc.sc.egov.usda.gov; api.tidesandcurrents.noaa.gov",
  "ski": [
   {
@@ -3247,11 +3247,11 @@
    {
     "id": "9414847",
     "name": "Point Potrero, Richmond",
-    "t": "2026-11-26T15:48",
+    "t": "2026-11-26T15:54",
     "kt": 5.4,
     "gustKt": 8.2,
-    "deg": 320,
-    "dir": "NW"
+    "deg": 291,
+    "dir": "WNW"
    }
   ]
  },
