@@ -1,44 +1,8 @@
 {
- "updatedAt": "2026-11-28T06:00:30.245Z",
- "weekend": "Nov 27 - Nov 29, 2026",
+ "updatedAt": "2026-11-28T13:00:23.560Z",
+ "weekend": "Nov 28 - Nov 29, 2026",
  "source": "sf.funcheap.com/weekend — Top 5 Most Popular Events",
  "events": [
-  {
-   "url": "https://sf.funcheap.com/union-square-great-christmas-tree-lights-up/",
-   "title": "SF Union Square’s Great Holiday Tree Lights Up for 2026",
-   "start": "2026-11-27T18:00:00-08:00",
-   "end": "2026-11-27T22:00:00-08:00",
-   "venue": "Union Square Park",
-   "city": "San Francisco",
-   "price": "Free"
-  },
-  {
-   "url": "https://sf.funcheap.com/ghirardelli-squares-holiday-lighting-ceremony/",
-   "title": "Ghirardelli Square’s 46-Ft Tree Lighting: Santa, Candy & Sing-Along (2026)",
-   "start": "2026-11-27T16:30:00-08:00",
-   "end": "2026-11-27T20:00:00-08:00",
-   "venue": "Ghirardelli Square",
-   "city": "San Francisco",
-   "price": "Free"
-  },
-  {
-   "url": "https://sf.funcheap.com/thrive-citys-winter-wonderland-tree-lighting-ceremony-sf/",
-   "title": "Thrive City’s “Winter Wonderland” 2026 Tree Lighting Ceremony (SF)",
-   "start": "2026-11-27T16:00:00-08:00",
-   "end": "2026-11-27T18:00:00-08:00",
-   "venue": "Thrive City",
-   "city": "1 Warriors Way San Francisco",
-   "price": "Free"
-  },
-  {
-   "url": "https://sf.funcheap.com/sfs-42nd-annual-great-dickens-christmas-fair-nov-21-dec-20-2/",
-   "title": "SF’s 42nd Annual Great Dickens Christmas Fair (Nov. 21-Dec. 20)",
-   "start": "2026-11-27T10:00:00-08:00",
-   "end": "2026-11-27T18:00:00-08:00",
-   "venue": "Cow Palace",
-   "city": "Daly City",
-   "price": "$35"
-  },
   {
    "url": "https://sf.funcheap.com/3rd-annual-holiday-tree-lighting-carousel-lighting-free-ice-skating-yerba-buena-gardens/",
    "title": "3rd Annual Holiday Tree Lighting, Carousel Lighting + Free Ice Skating (Yerba Buena Gardens)",
@@ -47,6 +11,42 @@
    "venue": "Yerba Buena Gardens",
    "city": "San Francisco",
    "price": "Free"
+  },
+  {
+   "url": "https://sf.funcheap.com/san-francisco-crystal-fair-nov-2728/",
+   "title": "San Francisco Crystal Fair (Nov. 27-28)",
+   "start": "2026-11-28T10:00:00-08:00",
+   "end": "2026-11-28T18:00:00-08:00",
+   "venue": "San Francisco County Fair Building",
+   "city": "San Francisco",
+   "price": "$11"
+  },
+  {
+   "url": "https://sf.funcheap.com/sfs-42nd-annual-great-dickens-christmas-fair-nov-21-dec-20-3/",
+   "title": "SF’s 42nd Annual Great Dickens Christmas Fair (Nov. 21-Dec. 20)",
+   "start": "2026-11-28T10:00:00-08:00",
+   "end": "2026-11-28T18:00:00-08:00",
+   "venue": "Cow Palace",
+   "city": "Daly City",
+   "price": "$35"
+  },
+  {
+   "url": "https://sf.funcheap.com/sleiiigh-holiday-bar-launch-party-djs-free-cider-sf/",
+   "title": "“Sleiiigh Holiday Bar” Launch Party w/ DJs + Free Cider (SF)",
+   "start": "2026-11-28T16:00:00-08:00",
+   "end": "2026-11-28T22:00:00-08:00",
+   "venue": "620 Jones",
+   "city": null,
+   "price": "Free"
+  },
+  {
+   "url": "https://sf.funcheap.com/san-francisco-symphonys-black-friday-sale-up-to-50-off-nov-23-30-7/",
+   "title": "San Francisco Symphony’s “Black Friday Sale” Up to 50% Off (Nov. 23-30)",
+   "start": "2026-11-29T10:00:00-08:00",
+   "end": "2026-11-29T23:59:00-08:00",
+   "venue": "Davies Symphony Hall",
+   "city": "San Francisco",
+   "price": "$50"
   }
  ]
 }
